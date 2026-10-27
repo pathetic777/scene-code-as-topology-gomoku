@@ -1,0 +1,3249 @@
+{
+  "model": "DeepSeek-V4.1-Flash-1017 (Thinking ON)",
+  "totalGames": 10,
+  "agentA_2D_Wins": 1,
+  "agentB_3D_Wins": 9,
+  "draws": 0,
+  "agentA_DiagWins": 0,
+  "agentB_DiagWins": 7,
+  "agentA_IllegalMoves": 96,
+  "agentB_IllegalMoves": 42,
+  "agentA_TotalReasoningTokens": 355743,
+  "agentB_TotalReasoningTokens": 308778,
+  "games": [
+    {
+      "gameIndex": 1,
+      "blackAgent": "A_2D",
+      "whiteAgent": "B_3D",
+      "winnerAgent": "B_3D",
+      "winAxis": "vertical (竖线)",
+      "isDiagonalWin": false,
+      "winLine": [
+        {
+          "r": 5,
+          "c": 8
+        },
+        {
+          "r": 6,
+          "c": 8
+        },
+        {
+          "r": 7,
+          "c": 8
+        },
+        {
+          "r": 8,
+          "c": 8
+        },
+        {
+          "r": 9,
+          "c": 8
+        }
+      ],
+      "totalMoves": 22,
+      "moves": [
+        {
+          "ply": 1,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 7,
+          "c": 7,
+          "coord": "H8",
+          "ms": 5400,
+          "reasoningTokens": 19,
+          "illegalRetries": 0,
+          "raw": "MOVE: H8"
+        },
+        {
+          "ply": 2,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 7,
+          "c": 8,
+          "coord": "I8",
+          "ms": 7108,
+          "reasoningTokens": 254,
+          "illegalRetries": 0,
+          "raw": "MOVE: I8"
+        },
+        {
+          "ply": 3,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 8,
+          "c": 7,
+          "coord": "H9",
+          "ms": 9722,
+          "reasoningTokens": 595,
+          "illegalRetries": 1,
+          "raw": "MOVE: H9"
+        },
+        {
+          "ply": 4,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 6,
+          "c": 7,
+          "coord": "H7",
+          "ms": 12157,
+          "reasoningTokens": 993,
+          "illegalRetries": 0,
+          "raw": "Blocking Black’s vertical extension at H7 while linking toward I8. MOVE: H7"
+        },
+        {
+          "ply": 5,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 9,
+          "c": 10,
+          "coord": "K10",
+          "ms": 32924,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 6,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 5,
+          "c": 6,
+          "coord": "G6",
+          "ms": 26307,
+          "reasoningTokens": 3408,
+          "illegalRetries": 0,
+          "raw": "MOVE: G6"
+        },
+        {
+          "ply": 7,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 4,
+          "c": 5,
+          "coord": "F5",
+          "ms": 32621,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 8,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 9,
+          "c": 7,
+          "coord": "H10",
+          "ms": 31737,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 9,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 6,
+          "c": 6,
+          "coord": "G7",
+          "ms": 1000,
+          "reasoningTokens": 0,
+          "illegalRetries": 4,
+          "raw": "Fallback"
+        },
+        {
+          "ply": 10,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 5,
+          "c": 5,
+          "coord": "F6",
+          "ms": 31073,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 11,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 10,
+          "c": 10,
+          "coord": "K11",
+          "ms": 32560,
+          "reasoningTokens": 4096,
+          "illegalRetries": 1,
+          "raw": ""
+        },
+        {
+          "ply": 12,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 5,
+          "c": 4,
+          "coord": "E6",
+          "ms": 31522,
+          "reasoningTokens": 4096,
+          "illegalRetries": 2,
+          "raw": ""
+        },
+        {
+          "ply": 13,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 9,
+          "c": 9,
+          "coord": "J10",
+          "ms": 32804,
+          "reasoningTokens": 4096,
+          "illegalRetries": 1,
+          "raw": ""
+        },
+        {
+          "ply": 14,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 8,
+          "c": 8,
+          "coord": "I9",
+          "ms": 6959,
+          "reasoningTokens": 289,
+          "illegalRetries": 0,
+          "raw": "MOVE: I9"
+        },
+        {
+          "ply": 15,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 5,
+          "c": 7,
+          "coord": "H6",
+          "ms": 33103,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 16,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 5,
+          "c": 3,
+          "coord": "D6",
+          "ms": 15530,
+          "reasoningTokens": 1616,
+          "illegalRetries": 0,
+          "raw": "MOVE: D6"
+        },
+        {
+          "ply": 17,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 5,
+          "c": 2,
+          "coord": "C6",
+          "ms": 22144,
+          "reasoningTokens": 2559,
+          "illegalRetries": 0,
+          "raw": "MOVE: C6"
+        },
+        {
+          "ply": 18,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 9,
+          "c": 8,
+          "coord": "I10",
+          "ms": 29085,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 19,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 11,
+          "c": 7,
+          "coord": "H12",
+          "ms": 30219,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 20,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 6,
+          "c": 8,
+          "coord": "I7",
+          "ms": 13529,
+          "reasoningTokens": 1295,
+          "illegalRetries": 1,
+          "raw": "MOVE: I7"
+        },
+        {
+          "ply": 21,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 7,
+          "c": 3,
+          "coord": "D8",
+          "ms": 29587,
+          "reasoningTokens": 4096,
+          "illegalRetries": 1,
+          "raw": ""
+        },
+        {
+          "ply": 22,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 5,
+          "c": 8,
+          "coord": "I6",
+          "ms": 9146,
+          "reasoningTokens": 666,
+          "illegalRetries": 0,
+          "raw": "MOVE: I6"
+        }
+      ]
+    },
+    {
+      "gameIndex": 2,
+      "blackAgent": "B_3D",
+      "whiteAgent": "A_2D",
+      "winnerAgent": "B_3D",
+      "winAxis": "diag_slash (反斜线 /)",
+      "isDiagonalWin": true,
+      "winLine": [
+        {
+          "r": 10,
+          "c": 9
+        },
+        {
+          "r": 11,
+          "c": 8
+        },
+        {
+          "r": 12,
+          "c": 7
+        },
+        {
+          "r": 13,
+          "c": 6
+        },
+        {
+          "r": 14,
+          "c": 5
+        }
+      ],
+      "totalMoves": 31,
+      "moves": [
+        {
+          "ply": 1,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 7,
+          "c": 7,
+          "coord": "H8",
+          "ms": 5874,
+          "reasoningTokens": 72,
+          "illegalRetries": 0,
+          "raw": "MOVE: H8"
+        },
+        {
+          "ply": 2,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 8,
+          "c": 7,
+          "coord": "H9",
+          "ms": 6099,
+          "reasoningTokens": 104,
+          "illegalRetries": 0,
+          "raw": "MOVE: H9"
+        },
+        {
+          "ply": 3,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 8,
+          "c": 6,
+          "coord": "G9",
+          "ms": 18279,
+          "reasoningTokens": 1694,
+          "illegalRetries": 0,
+          "raw": "MOVE: G9"
+        },
+        {
+          "ply": 4,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 10,
+          "c": 5,
+          "coord": "F11",
+          "ms": 34090,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 5,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 6,
+          "c": 8,
+          "coord": "I7",
+          "ms": 10473,
+          "reasoningTokens": 749,
+          "illegalRetries": 0,
+          "raw": "MOVE: I7"
+        },
+        {
+          "ply": 6,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 5,
+          "c": 9,
+          "coord": "J6",
+          "ms": 32258,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 7,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 9,
+          "c": 5,
+          "coord": "F10",
+          "ms": 19550,
+          "reasoningTokens": 2094,
+          "illegalRetries": 0,
+          "raw": "MOVE: F10"
+        },
+        {
+          "ply": 8,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 10,
+          "c": 4,
+          "coord": "E11",
+          "ms": 28332,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 9,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 10,
+          "c": 3,
+          "coord": "D11",
+          "ms": 30510,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 10,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 6,
+          "c": 7,
+          "coord": "H7",
+          "ms": 29282,
+          "reasoningTokens": 4096,
+          "illegalRetries": 1,
+          "raw": ""
+        },
+        {
+          "ply": 11,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 6,
+          "c": 9,
+          "coord": "J7",
+          "ms": 31437,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 12,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 6,
+          "c": 6,
+          "coord": "G7",
+          "ms": 1000,
+          "reasoningTokens": 0,
+          "illegalRetries": 4,
+          "raw": "Fallback"
+        },
+        {
+          "ply": 13,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 11,
+          "c": 4,
+          "coord": "E12",
+          "ms": 29725,
+          "reasoningTokens": 4096,
+          "illegalRetries": 2,
+          "raw": ""
+        },
+        {
+          "ply": 14,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 6,
+          "c": 10,
+          "coord": "K7",
+          "ms": 32305,
+          "reasoningTokens": 4096,
+          "illegalRetries": 1,
+          "raw": ""
+        },
+        {
+          "ply": 15,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 12,
+          "c": 5,
+          "coord": "F13",
+          "ms": 29636,
+          "reasoningTokens": 4096,
+          "illegalRetries": 1,
+          "raw": ""
+        },
+        {
+          "ply": 16,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 9,
+          "c": 2,
+          "coord": "C10",
+          "ms": 31806,
+          "reasoningTokens": 4096,
+          "illegalRetries": 1,
+          "raw": ""
+        },
+        {
+          "ply": 17,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 13,
+          "c": 6,
+          "coord": "G14",
+          "ms": 19738,
+          "reasoningTokens": 2618,
+          "illegalRetries": 0,
+          "raw": "MOVE: G14"
+        },
+        {
+          "ply": 18,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 14,
+          "c": 7,
+          "coord": "H15",
+          "ms": 17774,
+          "reasoningTokens": 2151,
+          "illegalRetries": 0,
+          "raw": "MOVE: H15"
+        },
+        {
+          "ply": 19,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 7,
+          "c": 8,
+          "coord": "I8",
+          "ms": 28892,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 20,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 9,
+          "c": 8,
+          "coord": "I10",
+          "ms": 30759,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 21,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 5,
+          "c": 10,
+          "coord": "K6",
+          "ms": 28689,
+          "reasoningTokens": 4096,
+          "illegalRetries": 1,
+          "raw": ""
+        },
+        {
+          "ply": 22,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 7,
+          "c": 6,
+          "coord": "G8",
+          "ms": 1000,
+          "reasoningTokens": 0,
+          "illegalRetries": 4,
+          "raw": "Fallback"
+        },
+        {
+          "ply": 23,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 6,
+          "c": 5,
+          "coord": "F7",
+          "ms": 28283,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 24,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 8,
+          "c": 8,
+          "coord": "I9",
+          "ms": 1000,
+          "reasoningTokens": 0,
+          "illegalRetries": 4,
+          "raw": "Fallback"
+        },
+        {
+          "ply": 25,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 10,
+          "c": 9,
+          "coord": "J11",
+          "ms": 23255,
+          "reasoningTokens": 3013,
+          "illegalRetries": 0,
+          "raw": "MOVE: J11"
+        },
+        {
+          "ply": 26,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 3,
+          "c": 12,
+          "coord": "M4",
+          "ms": 32338,
+          "reasoningTokens": 4096,
+          "illegalRetries": 1,
+          "raw": ""
+        },
+        {
+          "ply": 27,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 11,
+          "c": 8,
+          "coord": "I12",
+          "ms": 27276,
+          "reasoningTokens": 4096,
+          "illegalRetries": 3,
+          "raw": ""
+        },
+        {
+          "ply": 28,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 5,
+          "c": 5,
+          "coord": "F6",
+          "ms": 1000,
+          "reasoningTokens": 0,
+          "illegalRetries": 3,
+          "raw": "Fallback"
+        },
+        {
+          "ply": 29,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 12,
+          "c": 7,
+          "coord": "H13",
+          "ms": 28430,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 30,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 9,
+          "c": 10,
+          "coord": "K10",
+          "ms": 30048,
+          "reasoningTokens": 4096,
+          "illegalRetries": 1,
+          "raw": ""
+        },
+        {
+          "ply": 31,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 14,
+          "c": 5,
+          "coord": "F15",
+          "ms": 5583,
+          "reasoningTokens": 104,
+          "illegalRetries": 0,
+          "raw": "MOVE: F15"
+        }
+      ]
+    },
+    {
+      "gameIndex": 3,
+      "blackAgent": "A_2D",
+      "whiteAgent": "B_3D",
+      "winnerAgent": "B_3D",
+      "winAxis": "diag_backslash (正斜线 \\)",
+      "isDiagonalWin": true,
+      "winLine": [
+        {
+          "r": 3,
+          "c": 6
+        },
+        {
+          "r": 4,
+          "c": 7
+        },
+        {
+          "r": 5,
+          "c": 8
+        },
+        {
+          "r": 6,
+          "c": 9
+        },
+        {
+          "r": 7,
+          "c": 10
+        }
+      ],
+      "totalMoves": 38,
+      "moves": [
+        {
+          "ply": 1,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 7,
+          "c": 7,
+          "coord": "H8",
+          "ms": 5440,
+          "reasoningTokens": 19,
+          "illegalRetries": 0,
+          "raw": "MOVE: H8"
+        },
+        {
+          "ply": 2,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 7,
+          "c": 8,
+          "coord": "I8",
+          "ms": 6736,
+          "reasoningTokens": 196,
+          "illegalRetries": 0,
+          "raw": "Playing adjacent to center. MOVE: I8"
+        },
+        {
+          "ply": 3,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 8,
+          "c": 8,
+          "coord": "I9",
+          "ms": 34062,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 4,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 6,
+          "c": 6,
+          "coord": "G7",
+          "ms": 11243,
+          "reasoningTokens": 949,
+          "illegalRetries": 1,
+          "raw": "Blocking Black’s diagonal extension. MOVE: G7"
+        },
+        {
+          "ply": 5,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 8,
+          "c": 6,
+          "coord": "G9",
+          "ms": 33333,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 6,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 8,
+          "c": 7,
+          "coord": "H9",
+          "ms": 28346,
+          "reasoningTokens": 3576,
+          "illegalRetries": 0,
+          "raw": "MOVE: H9"
+        },
+        {
+          "ply": 7,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 4,
+          "c": 10,
+          "coord": "K5",
+          "ms": 31601,
+          "reasoningTokens": 4096,
+          "illegalRetries": 1,
+          "raw": ""
+        },
+        {
+          "ply": 8,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 6,
+          "c": 8,
+          "coord": "I7",
+          "ms": 27988,
+          "reasoningTokens": 3745,
+          "illegalRetries": 2,
+          "raw": "Blocking black's open slash-three at I7. MOVE: I7"
+        },
+        {
+          "ply": 9,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 5,
+          "c": 10,
+          "coord": "K6",
+          "ms": 33318,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 10,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 6,
+          "c": 9,
+          "coord": "J7",
+          "ms": 30504,
+          "reasoningTokens": 4096,
+          "illegalRetries": 1,
+          "raw": ""
+        },
+        {
+          "ply": 11,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 6,
+          "c": 10,
+          "coord": "K7",
+          "ms": 31306,
+          "reasoningTokens": 4096,
+          "illegalRetries": 1,
+          "raw": ""
+        },
+        {
+          "ply": 12,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 3,
+          "c": 10,
+          "coord": "K4",
+          "ms": 18104,
+          "reasoningTokens": 2070,
+          "illegalRetries": 0,
+          "raw": "MOVE: K4"
+        },
+        {
+          "ply": 13,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 9,
+          "c": 6,
+          "coord": "G10",
+          "ms": 32839,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 14,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 6,
+          "c": 7,
+          "coord": "H7",
+          "ms": 21247,
+          "reasoningTokens": 2580,
+          "illegalRetries": 1,
+          "raw": "MOVE: H7"
+        },
+        {
+          "ply": 15,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 6,
+          "c": 5,
+          "coord": "F7",
+          "ms": 18568,
+          "reasoningTokens": 2117,
+          "illegalRetries": 0,
+          "raw": "MOVE: F7"
+        },
+        {
+          "ply": 16,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 7,
+          "c": 10,
+          "coord": "K8",
+          "ms": 7295,
+          "reasoningTokens": 308,
+          "illegalRetries": 1,
+          "raw": "Blocking Black's open three on K vertical.\n\nMOVE: K8"
+        },
+        {
+          "ply": 17,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 7,
+          "c": 9,
+          "coord": "J8",
+          "ms": 32169,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 18,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 5,
+          "c": 11,
+          "coord": "L6",
+          "ms": 23677,
+          "reasoningTokens": 2888,
+          "illegalRetries": 0,
+          "raw": "Blocking Black’s open three on the / diagonal. MOVE: L6"
+        },
+        {
+          "ply": 19,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 9,
+          "c": 9,
+          "coord": "J10",
+          "ms": 32046,
+          "reasoningTokens": 4096,
+          "illegalRetries": 1,
+          "raw": ""
+        },
+        {
+          "ply": 20,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 10,
+          "c": 10,
+          "coord": "K11",
+          "ms": 30251,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 21,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 9,
+          "c": 7,
+          "coord": "H10",
+          "ms": 29743,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 22,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 10,
+          "c": 6,
+          "coord": "G11",
+          "ms": 5844,
+          "reasoningTokens": 88,
+          "illegalRetries": 0,
+          "raw": "Blocking Black's four-in-a-row open end. MOVE: G11"
+        },
+        {
+          "ply": 23,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 9,
+          "c": 5,
+          "coord": "F10",
+          "ms": 29219,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 24,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 9,
+          "c": 8,
+          "coord": "I10",
+          "ms": 7005,
+          "reasoningTokens": 268,
+          "illegalRetries": 0,
+          "raw": "MOVE: I10"
+        },
+        {
+          "ply": 25,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 9,
+          "c": 4,
+          "coord": "E10",
+          "ms": 28555,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 26,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 9,
+          "c": 3,
+          "coord": "D10",
+          "ms": 6193,
+          "reasoningTokens": 192,
+          "illegalRetries": 0,
+          "raw": "MOVE: D10"
+        },
+        {
+          "ply": 27,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 7,
+          "c": 6,
+          "coord": "G8",
+          "ms": 28081,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 28,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 7,
+          "c": 5,
+          "coord": "F8",
+          "ms": 29238,
+          "reasoningTokens": 4096,
+          "illegalRetries": 1,
+          "raw": ""
+        },
+        {
+          "ply": 29,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 10,
+          "c": 4,
+          "coord": "E11",
+          "ms": 28382,
+          "reasoningTokens": 4096,
+          "illegalRetries": 3,
+          "raw": ""
+        },
+        {
+          "ply": 30,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 11,
+          "c": 3,
+          "coord": "D12",
+          "ms": 20766,
+          "reasoningTokens": 2824,
+          "illegalRetries": 0,
+          "raw": "Blocking Black’s open four on the slash diagonal. MOVE: D12"
+        },
+        {
+          "ply": 31,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 5,
+          "c": 5,
+          "coord": "F6",
+          "ms": 1000,
+          "reasoningTokens": 0,
+          "illegalRetries": 3,
+          "raw": "Fallback"
+        },
+        {
+          "ply": 32,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 5,
+          "c": 8,
+          "coord": "I6",
+          "ms": 29521,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 33,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 8,
+          "c": 4,
+          "coord": "E9",
+          "ms": 29855,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 34,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 7,
+          "c": 4,
+          "coord": "E8",
+          "ms": 7598,
+          "reasoningTokens": 290,
+          "illegalRetries": 0,
+          "raw": "Blocking black's open vertical three. MOVE: E8"
+        },
+        {
+          "ply": 35,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 5,
+          "c": 6,
+          "coord": "G6",
+          "ms": 1000,
+          "reasoningTokens": 0,
+          "illegalRetries": 3,
+          "raw": "Fallback"
+        },
+        {
+          "ply": 36,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 4,
+          "c": 7,
+          "coord": "H5",
+          "ms": 11318,
+          "reasoningTokens": 961,
+          "illegalRetries": 2,
+          "raw": "MOVE: H5"
+        },
+        {
+          "ply": 37,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 5,
+          "c": 7,
+          "coord": "H6",
+          "ms": 1000,
+          "reasoningTokens": 0,
+          "illegalRetries": 4,
+          "raw": "Fallback"
+        },
+        {
+          "ply": 38,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 3,
+          "c": 6,
+          "coord": "G4",
+          "ms": 6860,
+          "reasoningTokens": 252,
+          "illegalRetries": 0,
+          "raw": "MOVE: G4"
+        }
+      ]
+    },
+    {
+      "gameIndex": 4,
+      "blackAgent": "B_3D",
+      "whiteAgent": "A_2D",
+      "winnerAgent": "B_3D",
+      "winAxis": "diag_slash (反斜线 /)",
+      "isDiagonalWin": true,
+      "winLine": [
+        {
+          "r": 4,
+          "c": 11
+        },
+        {
+          "r": 5,
+          "c": 10
+        },
+        {
+          "r": 6,
+          "c": 9
+        },
+        {
+          "r": 7,
+          "c": 8
+        },
+        {
+          "r": 8,
+          "c": 7
+        }
+      ],
+      "totalMoves": 19,
+      "moves": [
+        {
+          "ply": 1,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 7,
+          "c": 7,
+          "coord": "H8",
+          "ms": 6063,
+          "reasoningTokens": 75,
+          "illegalRetries": 0,
+          "raw": "MOVE: H8"
+        },
+        {
+          "ply": 2,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 8,
+          "c": 8,
+          "coord": "I9",
+          "ms": 6811,
+          "reasoningTokens": 207,
+          "illegalRetries": 0,
+          "raw": "MOVE: I9"
+        },
+        {
+          "ply": 3,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 7,
+          "c": 8,
+          "coord": "I8",
+          "ms": 14448,
+          "reasoningTokens": 1335,
+          "illegalRetries": 0,
+          "raw": "MOVE: I8"
+        },
+        {
+          "ply": 4,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 7,
+          "c": 9,
+          "coord": "J8",
+          "ms": 27214,
+          "reasoningTokens": 3172,
+          "illegalRetries": 0,
+          "raw": "MOVE: J8"
+        },
+        {
+          "ply": 5,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 7,
+          "c": 6,
+          "coord": "G8",
+          "ms": 7021,
+          "reasoningTokens": 221,
+          "illegalRetries": 0,
+          "raw": "Extend Black’s horizontal line to create a stronger three: MOVE: G8"
+        },
+        {
+          "ply": 6,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 7,
+          "c": 5,
+          "coord": "F8",
+          "ms": 13265,
+          "reasoningTokens": 1251,
+          "illegalRetries": 1,
+          "raw": "MOVE: F8"
+        },
+        {
+          "ply": 7,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 8,
+          "c": 7,
+          "coord": "H9",
+          "ms": 31675,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 8,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 10,
+          "c": 6,
+          "coord": "G11",
+          "ms": 31131,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 9,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 9,
+          "c": 7,
+          "coord": "H10",
+          "ms": 10072,
+          "reasoningTokens": 762,
+          "illegalRetries": 0,
+          "raw": "MOVE: H10"
+        },
+        {
+          "ply": 10,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 10,
+          "c": 7,
+          "coord": "H11",
+          "ms": 31600,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 11,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 6,
+          "c": 7,
+          "coord": "H7",
+          "ms": 28685,
+          "reasoningTokens": 3784,
+          "illegalRetries": 0,
+          "raw": "MOVE: H7"
+        },
+        {
+          "ply": 12,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 5,
+          "c": 7,
+          "coord": "H6",
+          "ms": 8111,
+          "reasoningTokens": 448,
+          "illegalRetries": 0,
+          "raw": "MOVE: H6"
+        },
+        {
+          "ply": 13,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 6,
+          "c": 6,
+          "coord": "G7",
+          "ms": 1000,
+          "reasoningTokens": 0,
+          "illegalRetries": 3,
+          "raw": "Fallback"
+        },
+        {
+          "ply": 14,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 9,
+          "c": 8,
+          "coord": "I10",
+          "ms": 31011,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 15,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 6,
+          "c": 9,
+          "coord": "J7",
+          "ms": 30823,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 16,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 6,
+          "c": 5,
+          "coord": "F7",
+          "ms": 30823,
+          "reasoningTokens": 4096,
+          "illegalRetries": 2,
+          "raw": ""
+        },
+        {
+          "ply": 17,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 5,
+          "c": 10,
+          "coord": "K6",
+          "ms": 20989,
+          "reasoningTokens": 2504,
+          "illegalRetries": 0,
+          "raw": "MOVE: K6"
+        },
+        {
+          "ply": 18,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 9,
+          "c": 6,
+          "coord": "G10",
+          "ms": 28897,
+          "reasoningTokens": 4096,
+          "illegalRetries": 1,
+          "raw": ""
+        },
+        {
+          "ply": 19,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 4,
+          "c": 11,
+          "coord": "L5",
+          "ms": 6799,
+          "reasoningTokens": 174,
+          "illegalRetries": 0,
+          "raw": "MOVE: L5"
+        }
+      ]
+    },
+    {
+      "gameIndex": 5,
+      "blackAgent": "A_2D",
+      "whiteAgent": "B_3D",
+      "winnerAgent": "B_3D",
+      "winAxis": "vertical (竖线)",
+      "isDiagonalWin": false,
+      "winLine": [
+        {
+          "r": 5,
+          "c": 8
+        },
+        {
+          "r": 6,
+          "c": 8
+        },
+        {
+          "r": 7,
+          "c": 8
+        },
+        {
+          "r": 8,
+          "c": 8
+        },
+        {
+          "r": 9,
+          "c": 8
+        }
+      ],
+      "totalMoves": 18,
+      "moves": [
+        {
+          "ply": 1,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 7,
+          "c": 7,
+          "coord": "H8",
+          "ms": 5078,
+          "reasoningTokens": 19,
+          "illegalRetries": 0,
+          "raw": "MOVE: H8"
+        },
+        {
+          "ply": 2,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 7,
+          "c": 8,
+          "coord": "I8",
+          "ms": 8781,
+          "reasoningTokens": 507,
+          "illegalRetries": 0,
+          "raw": "MOVE: I8"
+        },
+        {
+          "ply": 3,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 9,
+          "c": 7,
+          "coord": "H10",
+          "ms": 34599,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 4,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 8,
+          "c": 7,
+          "coord": "H9",
+          "ms": 9847,
+          "reasoningTokens": 712,
+          "illegalRetries": 0,
+          "raw": "MOVE: H9"
+        },
+        {
+          "ply": 5,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 6,
+          "c": 9,
+          "coord": "J7",
+          "ms": 32734,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 6,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 9,
+          "c": 6,
+          "coord": "G10",
+          "ms": 13953,
+          "reasoningTokens": 1387,
+          "illegalRetries": 0,
+          "raw": "Extending White’s open diagonal ray. MOVE: G10"
+        },
+        {
+          "ply": 7,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 7,
+          "c": 9,
+          "coord": "J8",
+          "ms": 32297,
+          "reasoningTokens": 4096,
+          "illegalRetries": 1,
+          "raw": ""
+        },
+        {
+          "ply": 8,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 10,
+          "c": 5,
+          "coord": "F11",
+          "ms": 23375,
+          "reasoningTokens": 2918,
+          "illegalRetries": 0,
+          "raw": "Extend White’s open diagonal to four. MOVE: F11"
+        },
+        {
+          "ply": 9,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 11,
+          "c": 4,
+          "coord": "E12",
+          "ms": 12588,
+          "reasoningTokens": 1101,
+          "illegalRetries": 0,
+          "raw": "MOVE: E12"
+        },
+        {
+          "ply": 10,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 6,
+          "c": 10,
+          "coord": "K7",
+          "ms": 8281,
+          "reasoningTokens": 495,
+          "illegalRetries": 0,
+          "raw": "Completing five on the / diagonal: MOVE: K7"
+        },
+        {
+          "ply": 11,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 6,
+          "c": 6,
+          "coord": "G7",
+          "ms": 1000,
+          "reasoningTokens": 0,
+          "illegalRetries": 4,
+          "raw": "Fallback"
+        },
+        {
+          "ply": 12,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 8,
+          "c": 8,
+          "coord": "I9",
+          "ms": 29614,
+          "reasoningTokens": 3827,
+          "illegalRetries": 1,
+          "raw": "MOVE: I9"
+        },
+        {
+          "ply": 13,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 5,
+          "c": 7,
+          "coord": "H6",
+          "ms": 31926,
+          "reasoningTokens": 4096,
+          "illegalRetries": 1,
+          "raw": ""
+        },
+        {
+          "ply": 14,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 6,
+          "c": 8,
+          "coord": "I7",
+          "ms": 30640,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 15,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 4,
+          "c": 8,
+          "coord": "I5",
+          "ms": 30695,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 16,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 9,
+          "c": 8,
+          "coord": "I10",
+          "ms": 22787,
+          "reasoningTokens": 2873,
+          "illegalRetries": 0,
+          "raw": "MOVE: I10"
+        },
+        {
+          "ply": 17,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 6,
+          "c": 7,
+          "coord": "H7",
+          "ms": 1000,
+          "reasoningTokens": 0,
+          "illegalRetries": 2,
+          "raw": "Fallback"
+        },
+        {
+          "ply": 18,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 5,
+          "c": 8,
+          "coord": "I6",
+          "ms": 8813,
+          "reasoningTokens": 471,
+          "illegalRetries": 0,
+          "raw": "MOVE: I6"
+        }
+      ]
+    },
+    {
+      "gameIndex": 6,
+      "blackAgent": "B_3D",
+      "whiteAgent": "A_2D",
+      "winnerAgent": "B_3D",
+      "winAxis": "diag_slash (反斜线 /)",
+      "isDiagonalWin": true,
+      "winLine": [
+        {
+          "r": 7,
+          "c": 10
+        },
+        {
+          "r": 8,
+          "c": 9
+        },
+        {
+          "r": 9,
+          "c": 8
+        },
+        {
+          "r": 10,
+          "c": 7
+        },
+        {
+          "r": 11,
+          "c": 6
+        }
+      ],
+      "totalMoves": 35,
+      "moves": [
+        {
+          "ply": 1,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 7,
+          "c": 7,
+          "coord": "H8",
+          "ms": 7815,
+          "reasoningTokens": 50,
+          "illegalRetries": 0,
+          "raw": "MOVE: H8"
+        },
+        {
+          "ply": 2,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 8,
+          "c": 8,
+          "coord": "I9",
+          "ms": 11385,
+          "reasoningTokens": 822,
+          "illegalRetries": 0,
+          "raw": "MOVE: I9"
+        },
+        {
+          "ply": 3,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 9,
+          "c": 7,
+          "coord": "H10",
+          "ms": 31437,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 4,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 8,
+          "c": 7,
+          "coord": "H9",
+          "ms": 11665,
+          "reasoningTokens": 1033,
+          "illegalRetries": 0,
+          "raw": "MOVE: H9"
+        },
+        {
+          "ply": 5,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 8,
+          "c": 6,
+          "coord": "G9",
+          "ms": 9825,
+          "reasoningTokens": 717,
+          "illegalRetries": 0,
+          "raw": "MOVE: G9"
+        },
+        {
+          "ply": 6,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 7,
+          "c": 9,
+          "coord": "J8",
+          "ms": 33102,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 7,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 10,
+          "c": 6,
+          "coord": "G11",
+          "ms": 31112,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 8,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 9,
+          "c": 10,
+          "coord": "K10",
+          "ms": 32674,
+          "reasoningTokens": 4096,
+          "illegalRetries": 1,
+          "raw": ""
+        },
+        {
+          "ply": 9,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 6,
+          "c": 10,
+          "coord": "K7",
+          "ms": 30339,
+          "reasoningTokens": 4096,
+          "illegalRetries": 1,
+          "raw": ""
+        },
+        {
+          "ply": 10,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 9,
+          "c": 9,
+          "coord": "J10",
+          "ms": 32069,
+          "reasoningTokens": 4096,
+          "illegalRetries": 2,
+          "raw": ""
+        },
+        {
+          "ply": 11,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 8,
+          "c": 9,
+          "coord": "J9",
+          "ms": 30077,
+          "reasoningTokens": 4096,
+          "illegalRetries": 3,
+          "raw": ""
+        },
+        {
+          "ply": 12,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 9,
+          "c": 12,
+          "coord": "M10",
+          "ms": 31613,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 13,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 9,
+          "c": 11,
+          "coord": "L10",
+          "ms": 20379,
+          "reasoningTokens": 2369,
+          "illegalRetries": 0,
+          "raw": "MOVE: L10"
+        },
+        {
+          "ply": 14,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 6,
+          "c": 6,
+          "coord": "G7",
+          "ms": 1000,
+          "reasoningTokens": 0,
+          "illegalRetries": 4,
+          "raw": "Fallback"
+        },
+        {
+          "ply": 15,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 10,
+          "c": 8,
+          "coord": "I11",
+          "ms": 31036,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 16,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 11,
+          "c": 9,
+          "coord": "J12",
+          "ms": 32481,
+          "reasoningTokens": 4096,
+          "illegalRetries": 1,
+          "raw": ""
+        },
+        {
+          "ply": 17,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 11,
+          "c": 6,
+          "coord": "G12",
+          "ms": 29434,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 18,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 9,
+          "c": 6,
+          "coord": "G10",
+          "ms": 31328,
+          "reasoningTokens": 4096,
+          "illegalRetries": 2,
+          "raw": ""
+        },
+        {
+          "ply": 19,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 7,
+          "c": 5,
+          "coord": "F8",
+          "ms": 23480,
+          "reasoningTokens": 3088,
+          "illegalRetries": 0,
+          "raw": "MOVE: F8"
+        },
+        {
+          "ply": 20,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 6,
+          "c": 4,
+          "coord": "E7",
+          "ms": 26696,
+          "reasoningTokens": 3661,
+          "illegalRetries": 1,
+          "raw": "MOVE: E7"
+        },
+        {
+          "ply": 21,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 10,
+          "c": 9,
+          "coord": "J11",
+          "ms": 27830,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 22,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 10,
+          "c": 5,
+          "coord": "F11",
+          "ms": 26789,
+          "reasoningTokens": 4096,
+          "illegalRetries": 1,
+          "raw": ""
+        },
+        {
+          "ply": 23,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 11,
+          "c": 4,
+          "coord": "E12",
+          "ms": 29291,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 24,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 6,
+          "c": 12,
+          "coord": "M7",
+          "ms": 26717,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 25,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 7,
+          "c": 8,
+          "coord": "I8",
+          "ms": 27216,
+          "reasoningTokens": 3723,
+          "illegalRetries": 1,
+          "raw": "Blocking white's open three on the / diagonal. MOVE: I8"
+        },
+        {
+          "ply": 26,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 10,
+          "c": 11,
+          "coord": "L11",
+          "ms": 27359,
+          "reasoningTokens": 4096,
+          "illegalRetries": 2,
+          "raw": ""
+        },
+        {
+          "ply": 27,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 8,
+          "c": 13,
+          "coord": "N9",
+          "ms": 28692,
+          "reasoningTokens": 4096,
+          "illegalRetries": 2,
+          "raw": ""
+        },
+        {
+          "ply": 28,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 11,
+          "c": 2,
+          "coord": "C12",
+          "ms": 26216,
+          "reasoningTokens": 4096,
+          "illegalRetries": 1,
+          "raw": ""
+        },
+        {
+          "ply": 29,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 10,
+          "c": 7,
+          "coord": "H11",
+          "ms": 30068,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 30,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 10,
+          "c": 10,
+          "coord": "K11",
+          "ms": 26318,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 31,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 11,
+          "c": 11,
+          "coord": "L12",
+          "ms": 29523,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 32,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 10,
+          "c": 12,
+          "coord": "M11",
+          "ms": 26798,
+          "reasoningTokens": 4096,
+          "illegalRetries": 2,
+          "raw": ""
+        },
+        {
+          "ply": 33,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 9,
+          "c": 8,
+          "coord": "I10",
+          "ms": 28331,
+          "reasoningTokens": 4096,
+          "illegalRetries": 1,
+          "raw": ""
+        },
+        {
+          "ply": 34,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 11,
+          "c": 8,
+          "coord": "I12",
+          "ms": 26354,
+          "reasoningTokens": 4096,
+          "illegalRetries": 1,
+          "raw": ""
+        },
+        {
+          "ply": 35,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 7,
+          "c": 10,
+          "coord": "K8",
+          "ms": 8753,
+          "reasoningTokens": 484,
+          "illegalRetries": 0,
+          "raw": "MOVE: K8"
+        }
+      ]
+    },
+    {
+      "gameIndex": 7,
+      "blackAgent": "A_2D",
+      "whiteAgent": "B_3D",
+      "winnerAgent": "B_3D",
+      "winAxis": "diag_slash (反斜线 /)",
+      "isDiagonalWin": true,
+      "winLine": [
+        {
+          "r": 6,
+          "c": 9
+        },
+        {
+          "r": 7,
+          "c": 8
+        },
+        {
+          "r": 8,
+          "c": 7
+        },
+        {
+          "r": 9,
+          "c": 6
+        },
+        {
+          "r": 10,
+          "c": 5
+        }
+      ],
+      "totalMoves": 12,
+      "moves": [
+        {
+          "ply": 1,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 7,
+          "c": 7,
+          "coord": "H8",
+          "ms": 6022,
+          "reasoningTokens": 14,
+          "illegalRetries": 0,
+          "raw": "MOVE: H8"
+        },
+        {
+          "ply": 2,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 8,
+          "c": 7,
+          "coord": "H9",
+          "ms": 6727,
+          "reasoningTokens": 183,
+          "illegalRetries": 0,
+          "raw": "MOVE: H9"
+        },
+        {
+          "ply": 3,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 7,
+          "c": 6,
+          "coord": "G8",
+          "ms": 12552,
+          "reasoningTokens": 965,
+          "illegalRetries": 0,
+          "raw": "MOVE: G8"
+        },
+        {
+          "ply": 4,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 7,
+          "c": 4,
+          "coord": "E8",
+          "ms": 32676,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 5,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 6,
+          "c": 5,
+          "coord": "F7",
+          "ms": 34940,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 6,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 7,
+          "c": 8,
+          "coord": "I8",
+          "ms": 11766,
+          "reasoningTokens": 1049,
+          "illegalRetries": 0,
+          "raw": "Blocking Black’s open horizontal pair and linking to H9. MOVE: I8"
+        },
+        {
+          "ply": 7,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 6,
+          "c": 7,
+          "coord": "H7",
+          "ms": 32780,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 8,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 6,
+          "c": 9,
+          "coord": "J7",
+          "ms": 32296,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 9,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 4,
+          "c": 11,
+          "coord": "L5",
+          "ms": 31613,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 10,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 9,
+          "c": 6,
+          "coord": "G10",
+          "ms": 19952,
+          "reasoningTokens": 2366,
+          "illegalRetries": 0,
+          "raw": "Extending the white / diagonal to an open four. MOVE: G10"
+        },
+        {
+          "ply": 11,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 5,
+          "c": 10,
+          "coord": "K6",
+          "ms": 27152,
+          "reasoningTokens": 3250,
+          "illegalRetries": 1,
+          "raw": "MOVE: K6"
+        },
+        {
+          "ply": 12,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 10,
+          "c": 5,
+          "coord": "F11",
+          "ms": 6314,
+          "reasoningTokens": 180,
+          "illegalRetries": 0,
+          "raw": "Winning extension on the slash: MOVE: F11"
+        }
+      ]
+    },
+    {
+      "gameIndex": 8,
+      "blackAgent": "B_3D",
+      "whiteAgent": "A_2D",
+      "winnerAgent": "B_3D",
+      "winAxis": "diag_slash (反斜线 /)",
+      "isDiagonalWin": true,
+      "winLine": [
+        {
+          "r": 5,
+          "c": 10
+        },
+        {
+          "r": 6,
+          "c": 9
+        },
+        {
+          "r": 7,
+          "c": 8
+        },
+        {
+          "r": 8,
+          "c": 7
+        },
+        {
+          "r": 9,
+          "c": 6
+        }
+      ],
+      "totalMoves": 35,
+      "moves": [
+        {
+          "ply": 1,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 7,
+          "c": 7,
+          "coord": "H8",
+          "ms": 6589,
+          "reasoningTokens": 106,
+          "illegalRetries": 0,
+          "raw": "MOVE: H8"
+        },
+        {
+          "ply": 2,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 8,
+          "c": 8,
+          "coord": "I9",
+          "ms": 6783,
+          "reasoningTokens": 201,
+          "illegalRetries": 0,
+          "raw": "MOVE: I9"
+        },
+        {
+          "ply": 3,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 7,
+          "c": 8,
+          "coord": "I8",
+          "ms": 28391,
+          "reasoningTokens": 3204,
+          "illegalRetries": 0,
+          "raw": "MOVE: I8"
+        },
+        {
+          "ply": 4,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 7,
+          "c": 9,
+          "coord": "J8",
+          "ms": 35220,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 5,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 7,
+          "c": 6,
+          "coord": "G8",
+          "ms": 6983,
+          "reasoningTokens": 245,
+          "illegalRetries": 0,
+          "raw": "Extend Black’s horizontal line at the open end.\n\nMOVE: G8"
+        },
+        {
+          "ply": 6,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 7,
+          "c": 5,
+          "coord": "F8",
+          "ms": 8390,
+          "reasoningTokens": 448,
+          "illegalRetries": 0,
+          "raw": "MOVE: F8"
+        },
+        {
+          "ply": 7,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 6,
+          "c": 7,
+          "coord": "H7",
+          "ms": 32373,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 8,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 5,
+          "c": 7,
+          "coord": "H6",
+          "ms": 32962,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 9,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 8,
+          "c": 9,
+          "coord": "J9",
+          "ms": 29996,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 10,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 5,
+          "c": 6,
+          "coord": "G6",
+          "ms": 32952,
+          "reasoningTokens": 4096,
+          "illegalRetries": 1,
+          "raw": ""
+        },
+        {
+          "ply": 11,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 9,
+          "c": 10,
+          "coord": "K10",
+          "ms": 14752,
+          "reasoningTokens": 1467,
+          "illegalRetries": 0,
+          "raw": "MOVE: K10"
+        },
+        {
+          "ply": 12,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 10,
+          "c": 11,
+          "coord": "L11",
+          "ms": 13686,
+          "reasoningTokens": 1470,
+          "illegalRetries": 0,
+          "raw": "MOVE: L11"
+        },
+        {
+          "ply": 13,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 5,
+          "c": 8,
+          "coord": "I6",
+          "ms": 31419,
+          "reasoningTokens": 4096,
+          "illegalRetries": 1,
+          "raw": ""
+        },
+        {
+          "ply": 14,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 8,
+          "c": 5,
+          "coord": "F9",
+          "ms": 30873,
+          "reasoningTokens": 4096,
+          "illegalRetries": 1,
+          "raw": ""
+        },
+        {
+          "ply": 15,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 4,
+          "c": 9,
+          "coord": "J5",
+          "ms": 27784,
+          "reasoningTokens": 3710,
+          "illegalRetries": 0,
+          "raw": "MOVE: J5"
+        },
+        {
+          "ply": 16,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 3,
+          "c": 10,
+          "coord": "K4",
+          "ms": 18096,
+          "reasoningTokens": 2338,
+          "illegalRetries": 0,
+          "raw": "MOVE: K4"
+        },
+        {
+          "ply": 17,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 8,
+          "c": 7,
+          "coord": "H9",
+          "ms": 29657,
+          "reasoningTokens": 4096,
+          "illegalRetries": 1,
+          "raw": ""
+        },
+        {
+          "ply": 18,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 8,
+          "c": 11,
+          "coord": "L9",
+          "ms": 26967,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 19,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 9,
+          "c": 7,
+          "coord": "H10",
+          "ms": 8507,
+          "reasoningTokens": 465,
+          "illegalRetries": 2,
+          "raw": "MOVE: H10"
+        },
+        {
+          "ply": 20,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 10,
+          "c": 7,
+          "coord": "H11",
+          "ms": 27746,
+          "reasoningTokens": 3585,
+          "illegalRetries": 0,
+          "raw": "MOVE: H11"
+        },
+        {
+          "ply": 21,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 7,
+          "c": 10,
+          "coord": "K8",
+          "ms": 28668,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 22,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 10,
+          "c": 10,
+          "coord": "K11",
+          "ms": 29002,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 23,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 10,
+          "c": 9,
+          "coord": "J11",
+          "ms": 28270,
+          "reasoningTokens": 4096,
+          "illegalRetries": 1,
+          "raw": ""
+        },
+        {
+          "ply": 24,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 4,
+          "c": 8,
+          "coord": "I5",
+          "ms": 25852,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 25,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 6,
+          "c": 6,
+          "coord": "G7",
+          "ms": 14817,
+          "reasoningTokens": 1600,
+          "illegalRetries": 1,
+          "raw": "MOVE: G7"
+        },
+        {
+          "ply": 26,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 9,
+          "c": 8,
+          "coord": "I10",
+          "ms": 28482,
+          "reasoningTokens": 4096,
+          "illegalRetries": 1,
+          "raw": ""
+        },
+        {
+          "ply": 27,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 9,
+          "c": 5,
+          "coord": "F10",
+          "ms": 27423,
+          "reasoningTokens": 4096,
+          "illegalRetries": 2,
+          "raw": ""
+        },
+        {
+          "ply": 28,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 6,
+          "c": 8,
+          "coord": "I7",
+          "ms": 1000,
+          "reasoningTokens": 0,
+          "illegalRetries": 4,
+          "raw": "Fallback"
+        },
+        {
+          "ply": 29,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 9,
+          "c": 6,
+          "coord": "G10",
+          "ms": 28814,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 30,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 10,
+          "c": 5,
+          "coord": "F11",
+          "ms": 28587,
+          "reasoningTokens": 4096,
+          "illegalRetries": 1,
+          "raw": ""
+        },
+        {
+          "ply": 31,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 4,
+          "c": 6,
+          "coord": "G5",
+          "ms": 30056,
+          "reasoningTokens": 4096,
+          "illegalRetries": 1,
+          "raw": ""
+        },
+        {
+          "ply": 32,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 6,
+          "c": 5,
+          "coord": "F7",
+          "ms": 29229,
+          "reasoningTokens": 4096,
+          "illegalRetries": 1,
+          "raw": ""
+        },
+        {
+          "ply": 33,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 5,
+          "c": 10,
+          "coord": "K6",
+          "ms": 29344,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 34,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 8,
+          "c": 6,
+          "coord": "G9",
+          "ms": 1000,
+          "reasoningTokens": 0,
+          "illegalRetries": 4,
+          "raw": "Fallback"
+        },
+        {
+          "ply": 35,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 6,
+          "c": 9,
+          "coord": "J7",
+          "ms": 8535,
+          "reasoningTokens": 526,
+          "illegalRetries": 0,
+          "raw": "MOVE: J7"
+        }
+      ]
+    },
+    {
+      "gameIndex": 9,
+      "blackAgent": "A_2D",
+      "whiteAgent": "B_3D",
+      "winnerAgent": "B_3D",
+      "winAxis": "diag_slash (反斜线 /)",
+      "isDiagonalWin": true,
+      "winLine": [
+        {
+          "r": 4,
+          "c": 11
+        },
+        {
+          "r": 5,
+          "c": 10
+        },
+        {
+          "r": 6,
+          "c": 9
+        },
+        {
+          "r": 7,
+          "c": 8
+        },
+        {
+          "r": 8,
+          "c": 7
+        }
+      ],
+      "totalMoves": 10,
+      "moves": [
+        {
+          "ply": 1,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 7,
+          "c": 7,
+          "coord": "H8",
+          "ms": 5428,
+          "reasoningTokens": 17,
+          "illegalRetries": 0,
+          "raw": "MOVE: H8"
+        },
+        {
+          "ply": 2,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 8,
+          "c": 7,
+          "coord": "H9",
+          "ms": 6380,
+          "reasoningTokens": 165,
+          "illegalRetries": 0,
+          "raw": "MOVE: H9"
+        },
+        {
+          "ply": 3,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 7,
+          "c": 6,
+          "coord": "G8",
+          "ms": 35012,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 4,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 7,
+          "c": 8,
+          "coord": "I8",
+          "ms": 19675,
+          "reasoningTokens": 2233,
+          "illegalRetries": 0,
+          "raw": "Blocking the center-side end while linking to H9 — MOVE: I8"
+        },
+        {
+          "ply": 5,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 6,
+          "c": 6,
+          "coord": "G7",
+          "ms": 34464,
+          "reasoningTokens": 4096,
+          "illegalRetries": 1,
+          "raw": ""
+        },
+        {
+          "ply": 6,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 6,
+          "c": 9,
+          "coord": "J7",
+          "ms": 9690,
+          "reasoningTokens": 678,
+          "illegalRetries": 0,
+          "raw": "Extending White’s diagonal ray line toward its open end. MOVE: J7"
+        },
+        {
+          "ply": 7,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 8,
+          "c": 6,
+          "coord": "G9",
+          "ms": 32645,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 8,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 5,
+          "c": 10,
+          "coord": "K6",
+          "ms": 30569,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 9,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 9,
+          "c": 6,
+          "coord": "G10",
+          "ms": 32422,
+          "reasoningTokens": 4096,
+          "illegalRetries": 1,
+          "raw": ""
+        },
+        {
+          "ply": 10,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 4,
+          "c": 11,
+          "coord": "L5",
+          "ms": 6721,
+          "reasoningTokens": 288,
+          "illegalRetries": 0,
+          "raw": "Playing the open end of the length-4 White diagonal to win. MOVE: L5"
+        }
+      ]
+    },
+    {
+      "gameIndex": 10,
+      "blackAgent": "B_3D",
+      "whiteAgent": "A_2D",
+      "winnerAgent": "A_2D",
+      "winAxis": "vertical (竖线)",
+      "isDiagonalWin": false,
+      "winLine": [
+        {
+          "r": 4,
+          "c": 4
+        },
+        {
+          "r": 5,
+          "c": 4
+        },
+        {
+          "r": 6,
+          "c": 4
+        },
+        {
+          "r": 7,
+          "c": 4
+        },
+        {
+          "r": 8,
+          "c": 4
+        }
+      ],
+      "totalMoves": 22,
+      "moves": [
+        {
+          "ply": 1,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 7,
+          "c": 7,
+          "coord": "H8",
+          "ms": 6233,
+          "reasoningTokens": 88,
+          "illegalRetries": 0,
+          "raw": "The scene graph contains no active lines or opponent threats, so I'll take the center point.\n\nMOVE: H8"
+        },
+        {
+          "ply": 2,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 8,
+          "c": 6,
+          "coord": "G9",
+          "ms": 9648,
+          "reasoningTokens": 550,
+          "illegalRetries": 0,
+          "raw": "MOVE: G9"
+        },
+        {
+          "ply": 3,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 6,
+          "c": 6,
+          "coord": "G7",
+          "ms": 33797,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 4,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 5,
+          "c": 5,
+          "coord": "F6",
+          "ms": 33214,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 5,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 8,
+          "c": 8,
+          "coord": "I9",
+          "ms": 6924,
+          "reasoningTokens": 247,
+          "illegalRetries": 0,
+          "raw": "MOVE: I9"
+        },
+        {
+          "ply": 6,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 9,
+          "c": 9,
+          "coord": "J10",
+          "ms": 34971,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 7,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 8,
+          "c": 7,
+          "coord": "H9",
+          "ms": 31890,
+          "reasoningTokens": 4096,
+          "illegalRetries": 1,
+          "raw": ""
+        },
+        {
+          "ply": 8,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 9,
+          "c": 7,
+          "coord": "H10",
+          "ms": 32983,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 9,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 7,
+          "c": 6,
+          "coord": "G8",
+          "ms": 30028,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 10,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 9,
+          "c": 10,
+          "coord": "K10",
+          "ms": 31934,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 11,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 9,
+          "c": 8,
+          "coord": "I10",
+          "ms": 19996,
+          "reasoningTokens": 2500,
+          "illegalRetries": 0,
+          "raw": "Block White's critical row-10 extension at I10. MOVE: I10"
+        },
+        {
+          "ply": 12,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 10,
+          "c": 9,
+          "coord": "J11",
+          "ms": 31676,
+          "reasoningTokens": 4096,
+          "illegalRetries": 1,
+          "raw": ""
+        },
+        {
+          "ply": 13,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 6,
+          "c": 5,
+          "coord": "F7",
+          "ms": 19302,
+          "reasoningTokens": 2208,
+          "illegalRetries": 0,
+          "raw": "MOVE: F7"
+        },
+        {
+          "ply": 14,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 5,
+          "c": 4,
+          "coord": "E6",
+          "ms": 23469,
+          "reasoningTokens": 3083,
+          "illegalRetries": 0,
+          "raw": "MOVE: E6"
+        },
+        {
+          "ply": 15,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 5,
+          "c": 3,
+          "coord": "D6",
+          "ms": 29254,
+          "reasoningTokens": 4096,
+          "illegalRetries": 1,
+          "raw": ""
+        },
+        {
+          "ply": 16,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 6,
+          "c": 4,
+          "coord": "E7",
+          "ms": 30726,
+          "reasoningTokens": 4096,
+          "illegalRetries": 3,
+          "raw": ""
+        },
+        {
+          "ply": 17,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 7,
+          "c": 5,
+          "coord": "F8",
+          "ms": 29712,
+          "reasoningTokens": 3846,
+          "illegalRetries": 0,
+          "raw": "Blocking White's open diagonal at F8 while extending Black's row: MOVE: F8"
+        },
+        {
+          "ply": 18,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 7,
+          "c": 4,
+          "coord": "E8",
+          "ms": 30192,
+          "reasoningTokens": 4096,
+          "illegalRetries": 1,
+          "raw": ""
+        },
+        {
+          "ply": 19,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 11,
+          "c": 9,
+          "coord": "J12",
+          "ms": 28960,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 20,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 8,
+          "c": 4,
+          "coord": "E9",
+          "ms": 24950,
+          "reasoningTokens": 3257,
+          "illegalRetries": 1,
+          "raw": "MOVE: E9"
+        },
+        {
+          "ply": 21,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 9,
+          "c": 4,
+          "coord": "E10",
+          "ms": 29136,
+          "reasoningTokens": 4096,
+          "illegalRetries": 0,
+          "raw": ""
+        },
+        {
+          "ply": 22,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 4,
+          "c": 4,
+          "coord": "E5",
+          "ms": 15984,
+          "reasoningTokens": 1895,
+          "illegalRetries": 0,
+          "raw": "MOVE: E5"
+        }
+      ]
+    }
+  ]
+}

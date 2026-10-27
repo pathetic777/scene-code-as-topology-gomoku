@@ -1,0 +1,1213 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title id="title-text">五子棋双 Agent 空间表征博弈实验台 (2D 文本 vs Three.js 3D/4D 空间代码)</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      display: flex;
+      height: 100vh;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Microsoft YaHei", monospace;
+      background: #121212;
+      color: #e0e0e0;
+      overflow: hidden;
+    }
+
+    #sidebar {
+      width: 580px;
+      min-width: 520px;
+      background: #1a1a1a;
+      border-right: 1px solid #333;
+      display: flex;
+      flex-direction: column;
+      padding: 10px 12px;
+      gap: 8px;
+      overflow-y: auto;
+    }
+
+    .config-card, .agent-card, .scoreboard-card {
+      background: #242424;
+      border: 1px solid #383838;
+      border-radius: 6px;
+      padding: 9px 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .config-row { display: flex; gap: 6px; align-items: center; }
+    .config-row input, .config-row select {
+      flex: 1;
+      background: #141414;
+      border: 1px solid #444;
+      color: #fff;
+      padding: 5px 8px;
+      font-size: 11px;
+      border-radius: 4px;
+    }
+
+    .lang-select {
+      flex: 0 0 75px !important;
+      background: #1e1e1e !important;
+      border-color: #555 !important;
+      color: #81d4fa !important;
+      cursor: pointer;
+    }
+
+    .layout-select {
+      flex: 0 0 95px !important;
+      background: #1e1e1e !important;
+      border-color: #555 !important;
+      color: #ffb74d !important;
+      cursor: pointer;
+    }
+
+    /* 比分与实验控制台 */
+    .scoreboard-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      font-weight: bold;
+      color: #e0e0e0;
+      border-bottom: 1px solid #333;
+      padding-bottom: 4px;
+    }
+    .score-grid {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 8px;
+      align-items: center;
+      background: #161616;
+      padding: 8px 10px;
+      border-radius: 5px;
+      border: 1px solid #333;
+    }
+    .score-box {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .score-box.right { text-align: right; }
+    .score-name { font-size: 11px; font-weight: bold; }
+    .score-name.a { color: #81d4fa; }
+    .score-name.b { color: #ffb74d; }
+    .score-num { font-size: 22px; font-weight: 800; font-family: monospace; }
+    .score-sub { font-size: 10px; color: #999; }
+    .score-vs {
+      font-size: 12px;
+      font-weight: bold;
+      color: #888;
+      padding: 0 6px;
+      text-align: center;
+    }
+
+    .agent-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      font-weight: bold;
+      color: #81d4fa;
+      border-bottom: 1px solid #333;
+      padding-bottom: 4px;
+    }
+    .agent-header.agent2 { color: #ffb74d; }
+
+    textarea {
+      width: 100%;
+      height: 92px;
+      background: #141414;
+      border: 1px solid #444;
+      border-radius: 4px;
+      color: #eee;
+      padding: 6px 8px;
+      font-family: "Consolas", "Courier New", monospace;
+      font-size: 11px;
+      resize: vertical;
+      line-height: 1.35;
+    }
+    .move-output-box {
+      background: #141414;
+      border: 1px solid #3a3a3a;
+      border-radius: 4px;
+      padding: 5px 8px;
+      font-family: monospace;
+      font-size: 11px;
+      color: #bdbdbd;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .btn-group { display: flex; gap: 6px; flex-wrap: wrap; }
+    button {
+      flex: 1;
+      padding: 6px 9px;
+      background: #0288d1;
+      border: none;
+      border-radius: 4px;
+      color: white;
+      cursor: pointer;
+      font-size: 11px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    button:hover { background: #039be5; }
+    button.btn-detect { background: #8e24aa; flex: 0 0 105px; }
+    button.btn-detect:hover { background: #ab47bc; }
+    button.btn-warn { background: #f57c00; }
+    button.btn-warn:hover { background: #fb8c00; }
+    button.btn-success { background: #2e7d32; }
+    button.btn-success:hover { background: #388e3c; }
+    button.btn-danger { background: #c62828; }
+    button.btn-danger:hover { background: #e53935; }
+    button.btn-secondary { background: #424242; }
+    button.btn-secondary:hover { background: #505050; }
+    button:disabled { background: #2c2c2c; color: #666; cursor: not-allowed; }
+
+    .packet-card {
+      background: #181818;
+      border: 1px solid #2c2c2c;
+      border-radius: 6px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      min-height: 120px;
+    }
+    .packet-header {
+      padding: 5px 10px;
+      font-size: 11px;
+      font-weight: bold;
+      color: #9ccc65;
+      background: #202020;
+      border-bottom: 1px solid #2a2a2a;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    #packet-body {
+      padding: 8px;
+      font-size: 11px;
+      font-family: monospace;
+      color: #a5d6a7;
+      background: #0d0d0d;
+      overflow: auto;
+      white-space: pre-wrap;
+      word-break: break-all;
+      flex: 1;
+    }
+
+    #viewport-container {
+      flex: 1;
+      position: relative;
+      background: #080808;
+    }
+    canvas#webgl-canvas { width: 100%; height: 100%; display: block; }
+    #stats-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(18,18,18,0.9);
+      border: 1px solid #444;
+      padding: 8px 14px;
+      border-radius: 6px;
+      font-size: 12px;
+      pointer-events: none;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    #rec-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(198, 40, 40, 0.9);
+      border: 1px solid #ff5252;
+      color: #fff;
+      padding: 6px 12px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: bold;
+      display: none;
+      align-items: center;
+      gap: 6px;
+      pointer-events: none;
+    }
+
+    body.portrait-mode {
+      flex-direction: column-reverse;
+      height: 100vh;
+      height: 100dvh;
+    }
+    body.portrait-mode #viewport-container { height: 42vh; flex: none; width: 100%; }
+    body.portrait-mode #sidebar { width: 100% !important; min-width: 100% !important; flex: 1; height: 58vh; }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+
+  <div id="sidebar">
+    <!-- 顶部 API 与模型配置 -->
+    <div class="config-card">
+      <div class="config-row">
+        <input id="api-url" type="text" placeholder="Base URL" value="https://ai.juziai.cc/v1" />
+        <input id="api-key" type="password" placeholder="Enter your API Key (sk-...)" value="" />
+        <select id="lang-select" class="lang-select">
+          <option value="zh" selected>中文</option>
+          <option value="en">English</option>
+        </select>
+        <select id="layout-select" class="layout-select">
+          <option value="desktop">🖥️ 宽屏模式</option>
+          <option value="portrait">📱 竖屏模式</option>
+        </select>
+      </div>
+      <div class="config-row">
+        <select id="model-select">
+          <option value="gemini-3.8-flash-high" selected>gemini-3.8-flash-high (默认实验模型)</option>
+        </select>
+        <button id="btn-detect" class="btn-detect">🔍 检测模型</button>
+      </div>
+    </div>
+
+    <!-- 10局实验总控与实时比分看板 -->
+    <div class="scoreboard-card">
+      <div class="scoreboard-header">
+        <span>🏆 同模型空间表征 10 局自博弈实验 (纯空棋盘 · 先后手轮换)</span>
+        <span id="match-progress" style="color: #66bb6a;">第 0 / 10 局 · 待机</span>
+      </div>
+      <div class="score-grid">
+        <div class="score-box">
+          <span class="score-name a">Agent A: 2D 文本矩阵派</span>
+          <span class="score-num" id="score-a" style="color: #81d4fa;">0</span>
+          <span class="score-sub">斜线胜: <strong id="diag-a">0</strong> | 空间幻觉: <strong id="err-a">0</strong></span>
+        </div>
+        <div class="score-vs">
+          <div id="current-turn-badge" style="color:#ffd54f; margin-bottom:2px;">VS</div>
+          <div style="font-size:10px; color:#888;">平局: <span id="score-draw">0</span></div>
+        </div>
+        <div class="score-box right">
+          <span class="score-name b">Agent B: Three.js 3D/4D 代码派</span>
+          <span class="score-num" id="score-b" style="color: #ffb74d;">0</span>
+          <span class="score-sub">斜线胜: <strong id="diag-b">0</strong> | 空间幻觉: <strong id="err-b">0</strong></span>
+        </div>
+      </div>
+      <div class="config-row">
+        <label style="font-size:11px; color:#bbb;">总局数:</label>
+        <select id="total-games-select" style="flex:0 0 75px;">
+          <option value="10" selected>10 局</option>
+          <option value="5">5 局</option>
+          <option value="2">2 局</option>
+          <option value="1">1 局</option>
+        </select>
+        <label style="font-size:11px; color:#bbb;">防封间隔:</label>
+        <select id="cooldown-select" style="flex:0 0 90px;">
+          <option value="4300" selected>4.3秒 (≤14次/分)</option>
+          <option value="2000">2.0秒 (快速)</option>
+          <option value="500">0.5秒 (极速回放)</option>
+        </select>
+        <button id="btn-start-arena" class="btn-success">🚀 启动 10 局自动对决 (含自动录屏)</button>
+        <button id="btn-stop-arena" class="btn-danger" disabled>⏹ 停止</button>
+      </div>
+      <div class="btn-group">
+        <button id="btn-replay-recorded" class="btn-warn" style="display:none;">🎬 高速回放已完成的 10 局实验并生成高清视频</button>
+        <button id="btn-export-video" class="btn-secondary" disabled>💾 导出实验录屏 (.webm)</button>
+        <button id="btn-export-report" class="btn-secondary">📊 导出论文级 Markdown/JSON 实验报告</button>
+      </div>
+    </div>
+
+    <!-- Agent A: 2D 文本矩阵派 -->
+    <div class="agent-card">
+      <div class="agent-header">
+        <span>Agent A (Baseline): 传统 2D 文本棋盘表征</span>
+        <span id="agent1-status" style="font-size: 11px; color: #888;">空闲</span>
+      </div>
+      <textarea id="agent1-input" readonly placeholder="传给 Agent A 的 2D 字符矩阵与坐标历史..."></textarea>
+      <div class="move-output-box">
+        <span>最新决策: <strong id="agent1-last-move" style="color:#81d4fa;">--</strong></span>
+        <span id="agent1-role-tag" style="color:#aaa;">执子: 待定</span>
+      </div>
+    </div>
+
+    <!-- Agent B: Three.js 3D/4D 空间代码派 -->
+    <div class="agent-card">
+      <div class="agent-header agent2">
+        <span>Agent B (Ours): Three.js 3D 场景 + 四维斜线轴代码表征</span>
+        <span id="agent2-status" style="font-size: 11px; color: #888;">空闲</span>
+      </div>
+      <textarea id="agent2-output" readonly placeholder="实时累积生成的 Three.js 3D/4D 空间拓扑代码 (含 u=x-z 正斜轴, v=x+z 反斜轴及 3D 连线对象)..."></textarea>
+      <div class="move-output-box">
+        <span>最新决策: <strong id="agent2-last-move" style="color:#ffb74d;">--</strong></span>
+        <span id="agent2-role-tag" style="color:#aaa;">执子: 待定</span>
+      </div>
+    </div>
+
+    <!-- 实验数据与实时对局日志 -->
+    <div class="packet-card">
+      <div class="packet-header">
+        <span>📋 10 局对局实验详细日志 & 抓包监控</span>
+        <span id="packet-status" style="color: #aaa;">待机</span>
+      </div>
+      <div id="packet-body">等待实验开始...</div>
+    </div>
+  </div>
+
+  <!-- 右侧 Three.js 3D 棋盘视口 -->
+  <div id="viewport-container">
+    <div id="rec-badge">● REC 正在录制分屏实验视频 (<span id="rec-frames">0</span> 帧)</div>
+    <div id="stats-badge">
+      <div>当前局数: <strong id="hud-game" style="color:#4caf50;">0 / 10</strong> | 手数: <strong id="hud-ply">0</strong></div>
+      <div>执黑(先手): <strong id="hud-black" style="color:#fff;">--</strong></div>
+      <div>执白(后手): <strong id="hud-white" style="color:#fff;">--</strong></div>
+      <div>3D 场景三角面: <span id="triangles-count">0</span></div>
+    </div>
+    <canvas id="webgl-canvas"></canvas>
+  </div>
+
+  <!-- 隐藏的 1920x1080 合成录屏画布 -->
+  <canvas id="composite-rec-canvas" width="1920" height="1080" style="display:none;"></canvas>
+
+  <!-- 如果本地存在预跑完的 10 局实验数据则自动挂载 -->
+  <script src="./gomoku_10games_preload.js" onerror="console.log('No preload file yet')"></script>
+
+  <script>
+    const BOARD_SIZE = 15;
+    const COLS = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O'];
+
+    function coordToRC(coordStr) {
+      if (!coordStr) return null;
+      const clean = coordStr.trim().toUpperCase();
+      const match = clean.match(/([A-O])\s*(\d{1,2})/);
+      if (!match) return null;
+      const col = COLS.indexOf(match[1]);
+      const row = parseInt(match[2], 10) - 1;
+      if (col < 0 || col >= BOARD_SIZE || row < 0 || row >= BOARD_SIZE) return null;
+      return { r: row, c: col, coord: `${COLS[col]}${row + 1}` };
+    }
+
+    function rcToCoord(r, c) {
+      return `${COLS[c]}${r + 1}`;
+    }
+
+    function checkWinner(board, lastR, lastC) {
+      if (lastR === undefined || lastC === undefined) return null;
+      const color = board[lastR][lastC];
+      if (!color) return null;
+
+      const dirs = [
+        { name: 'horizontal (横线)', dr: 0, dc: 1, isDiag: false },
+        { name: 'vertical (竖线)', dr: 1, dc: 0, isDiag: false },
+        { name: 'diag_backslash (正斜线 \\)', dr: 1, dc: 1, isDiag: true },
+        { name: 'diag_slash (反斜线 /)', dr: 1, dc: -1, isDiag: true }
+      ];
+
+      for (const d of dirs) {
+        const line = [{ r: lastR, c: lastC }];
+        for (let step = 1; step < 5; step++) {
+          const nr = lastR + d.dr * step, nc = lastC + d.dc * step;
+          if (nr >= 0 && nr < BOARD_SIZE && nc >= 0 && nc < BOARD_SIZE && board[nr][nc] === color) {
+            line.push({ r: nr, c: nc });
+          } else break;
+        }
+        for (let step = 1; step < 5; step++) {
+          const nr = lastR - d.dr * step, nc = lastC - d.dc * step;
+          if (nr >= 0 && nr < BOARD_SIZE && nc >= 0 && nc < BOARD_SIZE && board[nr][nc] === color) {
+            line.unshift({ r: nr, c: nc });
+          } else break;
+        }
+        if (line.length >= 5) {
+          return { winner: color, axis: d.name, isDiagonal: d.isDiag, line };
+        }
+      }
+      return null;
+    }
+
+    function build2DTextRepresentation(board, moves) {
+      let lines = ['   ' + COLS.join(' ')];
+      for (let r = 0; r < BOARD_SIZE; r++) {
+        const rowNum = String(r + 1).padStart(2, ' ');
+        const cells = [];
+        for (let c = 0; c < BOARD_SIZE; c++) {
+          cells.push(board[r][c] === 1 ? 'B' : (board[r][c] === 2 ? 'W' : '.'));
+        }
+        lines.push(`${rowNum} ${cells.join(' ')}`);
+      }
+      const hist = moves.map((m, idx) => `${idx + 1}.${m.color === 1 ? 'B' : 'W'}(${m.coord})`).join(' ');
+      return `/* 2D Text Board (B=Black, W=White, .=Empty) */\n${lines.join('\n')}\n\nMove History: ${hist || 'None (Empty Board)'}`;
+    }
+
+    function extract3DSpatialChains(board) {
+      const dirs = [
+        { axis: 'X_Horizontal', dr: 0, dc: 1 },
+        { axis: 'Z_Vertical', dr: 1, dc: 0 },
+        { axis: 'U_Diag_Backslash', dr: 1, dc: 1 },
+        { axis: 'V_Diag_Slash', dr: 1, dc: -1 }
+      ];
+      const chains = [];
+
+      for (let r = 0; r < BOARD_SIZE; r++) {
+        for (let c = 0; c < BOARD_SIZE; c++) {
+          const color = board[r][c];
+          if (!color) continue;
+
+          for (const d of dirs) {
+            const pr = r - d.dr, pc = c - d.dc;
+            if (pr >= 0 && pr < BOARD_SIZE && pc >= 0 && pc < BOARD_SIZE && board[pr][pc] === color) continue;
+
+            const stones = [];
+            let cr = r, cc = c;
+            while (cr >= 0 && cr < BOARD_SIZE && cc >= 0 && cc < BOARD_SIZE && board[cr][cc] === color) {
+              stones.push(rcToCoord(cr, cc));
+              cr += d.dr;
+              cc += d.dc;
+            }
+
+            if (stones.length >= 2) {
+              const openEnds = [];
+              if (pr >= 0 && pr < BOARD_SIZE && pc >= 0 && pc < BOARD_SIZE && board[pr][pc] === 0) {
+                openEnds.push(rcToCoord(pr, pc));
+              }
+              if (cr >= 0 && cr < BOARD_SIZE && cc >= 0 && cc < BOARD_SIZE && board[cr][cc] === 0) {
+                openEnds.push(rcToCoord(cr, cc));
+              }
+              if (openEnds.length > 0) {
+                chains.push({
+                  color: color === 1 ? 'black' : 'white',
+                  axis: d.axis,
+                  count: stones.length,
+                  nodes: stones,
+                  openEnds3D: openEnds
+                });
+              }
+            }
+          }
+        }
+      }
+      chains.sort((a, b) => b.count - a.count);
+      return chains;
+    }
+
+    function buildThreeJSSceneCode(board, moves) {
+      const lines = [
+        `// === Live Three.js 3D/4D Gomoku Spatial Scene Code ===`,
+        `// Coordinate System: x=Col(1..15), z=Row(1..15), u_diag1=x-z (constant on \\ diagonal), v_diag2=x+z (constant on / diagonal)`,
+        `const root = new THREE.Group();`
+      ];
+
+      for (let i = 0; i < moves.length; i++) {
+        const m = moves[i];
+        const x = m.c + 1;
+        const z = m.r + 1;
+        const u = x - z;
+        const v = x + z;
+        const worldX = m.c - 7;
+        const worldZ = m.r - 7;
+        const colorName = m.color === 1 ? 'black' : 'white';
+        lines.push(
+          `spawnStone3D(root, { step: ${i + 1}, color: '${colorName}', coord: '${m.coord}', pos3D: [${worldX}, 0.3, ${worldZ}], axes4D: { x: ${x}, z: ${z}, u_diag1: ${u}, v_diag2: ${v} } });`
+        );
+      }
+
+      const chains = extract3DSpatialChains(board);
+      if (chains.length > 0) {
+        lines.push(`\n// === 3D Spatial Ray Line Meshes (Active Connected Vectors in Scene) ===`);
+        for (const ch of chains) {
+          lines.push(
+            `create3DRayLine(root, { color: '${ch.color}', axis: '${ch.axis}', length: ${ch.count}, stones: ${JSON.stringify(ch.nodes)}, openEndsToExtendOrBlock: ${JSON.stringify(ch.openEnds3D)} });`
+          );
+        }
+      }
+
+      lines.push(`scene.add(root);`);
+      return lines.join('\n');
+    }
+
+    const canvas = document.getElementById('webgl-canvas');
+    let renderer, scene, camera, controls;
+    let dynamicGroup = null;
+
+    function initWebGL() {
+      if (renderer) return;
+      renderer = new THREE.WebGLRenderer({ canvas, antialias: true, preserveDrawingBuffer: true });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer.setSize(canvas.clientWidth, canvas.clientHeight, false);
+      renderer.shadowMap.enabled = true;
+
+      scene = new THREE.Scene();
+      scene.background = new THREE.Color(0x101216);
+
+      camera = new THREE.PerspectiveCamera(42, canvas.clientWidth / canvas.clientHeight, 0.1, 500);
+      camera.position.set(0, 18.5, 13.5);
+      camera.lookAt(0, 0, 0.5);
+
+      const ControlsCtor = THREE.OrbitControls || window.OrbitControls;
+      if (ControlsCtor) {
+        controls = new ControlsCtor(camera, canvas);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.08;
+        controls.target.set(0, 0, 0.4);
+      }
+
+      const hemiLight = new THREE.HemisphereLight(0xffffff, 0x333344, 0.95);
+      scene.add(hemiLight);
+
+      const dirLight = new THREE.DirectionalLight(0xfff8e7, 1.15);
+      dirLight.position.set(12, 24, 14);
+      dirLight.castShadow = true;
+      scene.add(dirLight);
+
+      buildStatic3DBoard();
+
+      dynamicGroup = new THREE.Group();
+      scene.add(dynamicGroup);
+
+      function animate() {
+        requestAnimationFrame(animate);
+        if (controls) controls.update();
+        renderer.render(scene, camera);
+        document.getElementById('triangles-count').innerText = renderer.info.render.triangles.toLocaleString();
+      }
+      animate();
+
+      const resizeObserver = new ResizeObserver(() => {
+        if (!canvas.clientWidth || !canvas.clientHeight) return;
+        camera.aspect = canvas.clientWidth / canvas.clientHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(canvas.clientWidth, canvas.clientHeight, false);
+      });
+      resizeObserver.observe(document.getElementById('viewport-container'));
+    }
+
+    function createLabelSprite(text, color = '#d7ccc8') {
+      const c = document.createElement('canvas');
+      c.width = 64; c.height = 64;
+      const ctx = c.getContext('2d');
+      ctx.fillStyle = color;
+      ctx.font = 'bold 34px Consolas, monospace';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(text, 32, 32);
+      const tex = new THREE.CanvasTexture(c);
+      const mat = new THREE.SpriteMaterial({ map: tex, transparent: true });
+      const sprite = new THREE.Sprite(mat);
+      sprite.scale.set(0.7, 0.7, 1);
+      return sprite;
+    }
+
+    function buildStatic3DBoard() {
+      const boardGroup = new THREE.Group();
+
+      const baseGeo = new THREE.BoxGeometry(16.6, 0.6, 16.6);
+      const baseMat = new THREE.MeshStandardMaterial({ color: 0xb8864b, roughness: 0.55, metalness: 0.08 });
+      const baseMesh = new THREE.Mesh(baseGeo, baseMat);
+      baseMesh.position.y = -0.32;
+      baseMesh.receiveShadow = true;
+      boardGroup.add(baseMesh);
+
+      const rimGeo = new THREE.BoxGeometry(17.1, 0.5, 17.1);
+      const rimMat = new THREE.MeshStandardMaterial({ color: 0x4e342e, roughness: 0.7 });
+      const rimMesh = new THREE.Mesh(rimGeo, rimMat);
+      rimMesh.position.y = -0.4;
+      boardGroup.add(rimMesh);
+
+      const lineMat = new THREE.LineBasicMaterial({ color: 0x2b1d0e });
+      const points = [];
+      for (let i = -7; i <= 7; i++) {
+        points.push(new THREE.Vector3(-7, 0.01, i), new THREE.Vector3(7, 0.01, i));
+        points.push(new THREE.Vector3(i, 0.01, -7), new THREE.Vector3(i, 0.01, 7));
+      }
+      const lineGeo = new THREE.BufferGeometry().setFromPoints(points);
+      boardGroup.add(new THREE.LineSegments(lineGeo, lineMat));
+
+      const starCoords = [[-4,-4], [4,-4], [0,0], [-4,4], [4,4]];
+      const starGeo = new THREE.CylinderGeometry(0.11, 0.11, 0.03, 16);
+      const starMat = new THREE.MeshBasicMaterial({ color: 0x1e140a });
+      starCoords.forEach(([sx, sz]) => {
+        const star = new THREE.Mesh(starGeo, starMat);
+        star.position.set(sx, 0.015, sz);
+        boardGroup.add(star);
+      });
+
+      for (let i = 0; i < 15; i++) {
+        const pos = i - 7;
+        const colLblTop = createLabelSprite(COLS[i], '#ffe082');
+        colLblTop.position.set(pos, 0.15, -7.85);
+        boardGroup.add(colLblTop);
+
+        const colLblBot = createLabelSprite(COLS[i], '#ffe082');
+        colLblBot.position.set(pos, 0.15, 7.85);
+        boardGroup.add(colLblBot);
+
+        const rowLblLeft = createLabelSprite(String(i + 1), '#81d4fa');
+        rowLblLeft.position.set(-7.85, 0.15, pos);
+        boardGroup.add(rowLblLeft);
+
+        const rowLblRight = createLabelSprite(String(i + 1), '#81d4fa');
+        rowLblRight.position.set(7.85, 0.15, pos);
+        boardGroup.add(rowLblRight);
+      }
+
+      scene.add(boardGroup);
+    }
+
+    function renderBoard3D(board, moves, winInfo = null) {
+      initWebGL();
+      while (dynamicGroup.children.length > 0) {
+        const obj = dynamicGroup.children.pop();
+        dynamicGroup.remove(obj);
+      }
+
+      const stoneGeo = new THREE.SphereGeometry(0.42, 24, 16);
+      stoneGeo.scale(1, 0.48, 1);
+      const blackMat = new THREE.MeshStandardMaterial({ color: 0x161616, roughness: 0.22, metalness: 0.25 });
+      const whiteMat = new THREE.MeshStandardMaterial({ color: 0xf5f5f7, roughness: 0.18, metalness: 0.1 });
+
+      const spawnStone3D = (parent, cfg) => {
+        const mesh = new THREE.Mesh(stoneGeo, cfg.color === 'black' ? blackMat : whiteMat);
+        mesh.position.set(cfg.pos3D[0], 0.18, cfg.pos3D[2]);
+        mesh.castShadow = true;
+        parent.add(mesh);
+
+        if (cfg.step === moves.length) {
+          const ringGeo = new THREE.RingGeometry(0.24, 0.34, 24);
+          ringGeo.rotateX(-Math.PI / 2);
+          const ringMat = new THREE.MeshBasicMaterial({ color: 0x00e5ff, side: THREE.DoubleSide });
+          const ring = new THREE.Mesh(ringGeo, ringMat);
+          ring.position.set(cfg.pos3D[0], 0.41, cfg.pos3D[2]);
+          parent.add(ring);
+        }
+      };
+
+      const create3DRayLine = (parent, cfg) => {
+        if (!cfg.stones || cfg.stones.length < 2) return;
+        const pts = cfg.stones.map(coord => {
+          const rc = coordToRC(coord);
+          return new THREE.Vector3(rc.c - 7, 0.38, rc.r - 7);
+        });
+        const lineGeo = new THREE.BufferGeometry().setFromPoints(pts);
+        const colorHex = cfg.length >= 3
+          ? (cfg.color === 'black' ? 0xff9800 : 0x00e676)
+          : (cfg.color === 'black' ? 0x64b5f6 : 0xba68c8);
+        const lineMat = new THREE.LineBasicMaterial({ color: colorHex, linewidth: 2 });
+        parent.add(new THREE.Line(lineGeo, lineMat));
+      };
+
+      const codeStr = buildThreeJSSceneCode(board, moves);
+      document.getElementById('agent2-output').value = codeStr;
+
+      try {
+        const fn = new Function('scene', 'THREE', 'spawnStone3D', 'create3DRayLine', codeStr);
+        fn(dynamicGroup, THREE, spawnStone3D, create3DRayLine);
+      } catch (e) {
+        console.error('3D code exec err:', e);
+      }
+
+      if (winInfo && winInfo.line) {
+        const first = winInfo.line[0];
+        const last = winInfo.line[winInfo.line.length - 1];
+        const p1 = new THREE.Vector3(first.c - 7, 0.48, first.r - 7);
+        const p2 = new THREE.Vector3(last.c - 7, 0.48, last.r - 7);
+        const curve = new THREE.LineCurve3(p1, p2);
+        const tubeGeo = new THREE.TubeGeometry(curve, 8, 0.1, 12, false);
+        const tubeMat = new THREE.MeshBasicMaterial({ color: 0xff1744 });
+        dynamicGroup.add(new THREE.Mesh(tubeGeo, tubeMat));
+      }
+
+      renderer.render(scene, camera);
+    }
+
+    const recCanvas = document.getElementById('composite-rec-canvas');
+    const recCtx = recCanvas.getContext('2d');
+    let mediaRecorder = null;
+    let recordedChunks = [];
+    let recFrameCount = 0;
+
+    function drawCompositeFrame(statusBanner = '') {
+      if (!renderer) return;
+      renderer.render(scene, camera);
+
+      recCtx.fillStyle = '#121212';
+      recCtx.fillRect(0, 0, 1920, 1080);
+
+      recCtx.fillStyle = '#1c1c1c';
+      recCtx.fillRect(16, 16, 720, 1048);
+      recCtx.strokeStyle = '#383838';
+      recCtx.lineWidth = 2;
+      recCtx.strokeRect(16, 16, 720, 1048);
+
+      recCtx.fillStyle = '#ffffff';
+      recCtx.font = 'bold 22px "Microsoft YaHei", sans-serif';
+      recCtx.fillText('五子棋空间表征自博弈实验 (2D Text vs Three.js 3D/4D Code)', 34, 54);
+
+      recCtx.fillStyle = '#9ccc65';
+      recCtx.font = '16px Consolas, monospace';
+      const modelName = document.getElementById('model-select').value || 'build-gemini-3.8-flash';
+      recCtx.fillText(`Base Model: ${modelName} (Same LLM, Controlled Variable)`, 34, 84);
+
+      recCtx.fillStyle = '#111111';
+      recCtx.fillRect(34, 102, 684, 130);
+      recCtx.strokeStyle = '#444';
+      recCtx.strokeRect(34, 102, 684, 130);
+
+      recCtx.fillStyle = '#81d4fa';
+      recCtx.font = 'bold 18px "Microsoft YaHei", sans-serif';
+      recCtx.fillText('Agent A: 2D 文本矩阵派', 52, 134);
+      recCtx.font = 'bold 46px Consolas, monospace';
+      recCtx.fillText(document.getElementById('score-a').innerText, 52, 186);
+      recCtx.font = '14px "Microsoft YaHei", sans-serif';
+      recCtx.fillStyle = '#aaa';
+      recCtx.fillText(`斜线胜: ${document.getElementById('diag-a').innerText} | 幻觉重子: ${document.getElementById('err-a').innerText}`, 52, 216);
+
+      recCtx.fillStyle = '#ffd54f';
+      recCtx.font = 'bold 20px Consolas, monospace';
+      recCtx.fillText(document.getElementById('match-progress').innerText, 275, 168);
+      recCtx.fillStyle = '#fff';
+      recCtx.font = '15px "Microsoft YaHei", sans-serif';
+      recCtx.fillText(`黑: ${document.getElementById('hud-black').innerText} | 白: ${document.getElementById('hud-white').innerText}`, 265, 202);
+
+      recCtx.fillStyle = '#ffb74d';
+      recCtx.font = 'bold 18px "Microsoft YaHei", sans-serif';
+      recCtx.fillText('Agent B: Three.js 空间代码派', 455, 134);
+      recCtx.font = 'bold 46px Consolas, monospace';
+      recCtx.fillText(document.getElementById('score-b').innerText, 640, 186);
+      recCtx.font = '14px "Microsoft YaHei", sans-serif';
+      recCtx.fillStyle = '#aaa';
+      recCtx.fillText(`斜线胜: ${document.getElementById('diag-b').innerText} | 幻觉重子: ${document.getElementById('err-b').innerText}`, 485, 216);
+
+      recCtx.fillStyle = '#81d4fa';
+      recCtx.font = 'bold 16px "Microsoft YaHei", sans-serif';
+      recCtx.fillText(`Agent A (2D 文本输入) -> 最新落子: ${document.getElementById('agent1-last-move').innerText}`, 34, 264);
+      recCtx.fillStyle = '#101010';
+      recCtx.fillRect(34, 276, 684, 310);
+      recCtx.fillStyle = '#cfd8dc';
+      recCtx.font = '13px Consolas, monospace';
+      const aLines = (document.getElementById('agent1-input').value || '').split('\n').slice(0, 18);
+      aLines.forEach((l, idx) => recCtx.fillText(l.slice(0, 78), 46, 298 + idx * 16));
+
+      recCtx.fillStyle = '#ffb74d';
+      recCtx.font = 'bold 16px "Microsoft YaHei", sans-serif';
+      recCtx.fillText(`Agent B (Three.js 3D/4D 空间代码) -> 最新落子: ${document.getElementById('agent2-last-move').innerText}`, 34, 616);
+      recCtx.fillStyle = '#101010';
+      recCtx.fillRect(34, 628, 684, 415);
+      recCtx.fillStyle = '#ffe0b2';
+      recCtx.font = '13px Consolas, monospace';
+      const bLines = (document.getElementById('agent2-output').value || '').split('\n');
+      const bShow = bLines.slice(Math.max(0, bLines.length - 23));
+      bShow.forEach((l, idx) => recCtx.fillText(l.slice(0, 80), 46, 650 + idx * 17));
+
+      recCtx.drawImage(canvas, 756, 16, 1148, 1048);
+
+      if (statusBanner) {
+        recCtx.fillStyle = 'rgba(0, 0, 0, 0.78)';
+        recCtx.fillRect(830, 460, 1000, 110);
+        recCtx.strokeStyle = '#ffca28';
+        recCtx.lineWidth = 3;
+        recCtx.strokeRect(830, 460, 1000, 110);
+        recCtx.fillStyle = '#ffca28';
+        recCtx.font = 'bold 34px "Microsoft YaHei", sans-serif';
+        recCtx.fillText(statusBanner, 870, 528);
+      }
+    }
+
+    function startCompositeRecording() {
+      recordedChunks = [];
+      recFrameCount = 0;
+      drawCompositeFrame();
+
+      const stream = recCanvas.captureStream(30);
+      let mimeType = 'video/webm;codecs=vp9';
+      if (!MediaRecorder.isTypeSupported(mimeType)) mimeType = 'video/webm';
+
+      mediaRecorder = new MediaRecorder(stream, { mimeType, videoBitsPerSecond: 6000000 });
+      mediaRecorder.ondataavailable = (e) => {
+        if (e.data && e.data.size > 0) recordedChunks.push(e.data);
+      };
+      mediaRecorder.onstop = () => {
+        document.getElementById('rec-badge').style.display = 'none';
+        document.getElementById('btn-export-video').disabled = recordedChunks.length === 0;
+      };
+      mediaRecorder.start(200);
+      document.getElementById('rec-badge').style.display = 'flex';
+    }
+
+    function captureStepFrames(banner = '') {
+      drawCompositeFrame(banner);
+      recFrameCount++;
+      document.getElementById('rec-frames').innerText = recFrameCount;
+    }
+
+    function stopCompositeRecording(autoDownload = true) {
+      if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+        mediaRecorder.stop();
+        setTimeout(() => {
+          if (autoDownload && recordedChunks.length > 0) downloadRecordedVideo();
+        }, 400);
+      }
+    }
+
+    function downloadRecordedVideo() {
+      if (recordedChunks.length === 0) return;
+      const blob = new Blob(recordedChunks, { type: 'video/webm' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `Gomoku_2D_vs_ThreeJS_10Games_${Date.now()}.webm`;
+      a.click();
+    }
+
+    let arenaRunning = false;
+    let experimentResults = {
+      model: 'build-gemini-3.8-flash',
+      totalGames: 0,
+      agentA_2D_Wins: 0,
+      agentB_3D_Wins: 0,
+      draws: 0,
+      agentA_DiagWins: 0,
+      agentB_DiagWins: 0,
+      agentA_IllegalMoves: 0,
+      agentB_IllegalMoves: 0,
+      games: []
+    };
+
+    function logArena(msg) {
+      const ts = new Date().toLocaleTimeString();
+      const body = document.getElementById('packet-body');
+      body.innerText = `[${ts}] ${msg}\n` + body.innerText.slice(0, 12000);
+    }
+
+    function updateScoreboardUI() {
+      document.getElementById('score-a').innerText = experimentResults.agentA_2D_Wins;
+      document.getElementById('score-b').innerText = experimentResults.agentB_3D_Wins;
+      document.getElementById('score-draw').innerText = experimentResults.draws;
+      document.getElementById('diag-a').innerText = experimentResults.agentA_DiagWins;
+      document.getElementById('diag-b').innerText = experimentResults.agentB_DiagWins;
+      document.getElementById('err-a').innerText = experimentResults.agentA_IllegalMoves;
+      document.getElementById('err-b').innerText = experimentResults.agentB_IllegalMoves;
+    }
+
+    async function sleep(ms) {
+      return new Promise(r => setTimeout(r, ms));
+    }
+
+    async function requestAgentMove(agentType, colorNum, board, moves, occupiedSet) {
+      const apiUrl = document.getElementById('api-url').value.replace(/\/+$/, '') + '/chat/completions';
+      const apiKey = document.getElementById('api-key').value.trim();
+      const modelName = document.getElementById('model-select').value || 'build-gemini-3.8-flash';
+      const colorName = colorNum === 1 ? 'Black (B)' : 'White (W)';
+
+      let sysPrompt = '';
+      let userPrompt = '';
+
+      if (agentType === 'A_2D') {
+        const text2D = build2DTextRepresentation(board, moves);
+        document.getElementById('agent1-input').value = text2D;
+        sysPrompt = `You are playing Gomoku (Five-in-a-Row) on a 15x15 board (Columns A-O, Rows 1-15). You play as ${colorName}.
+Analyze the 2D text board and choose your best move on an EMPTY (.) intersection.
+Reply ONLY with your chosen coordinate in format MOVE: <Col><Row> (for example: MOVE: H8).`;
+        userPrompt = `${text2D}\n\nYour turn as ${colorName}. Output MOVE: <Col><Row>`;
+      } else {
+        const code3D = buildThreeJSSceneCode(board, moves);
+        document.getElementById('agent2-output').value = code3D;
+        sysPrompt = `You are an expert Gomoku AI reasoning directly over a Three.js 3D/4D spatial scene graph on a 15x15 board (Columns A-O, Rows 1-15). You play as ${colorName}.
+In this Three.js scene code:
+1. Each stone has 4D spatial coordinates: x (Col), z (Row), u_diag1 = x - z (stones with equal u_diag1 are collinear on the \\ diagonal!), and v_diag2 = x + z (stones with equal v_diag2 are collinear on the / diagonal!).
+2. Active connected lines (length >= 2) and their exact open ends (openEndsToExtendOrBlock) are explicitly generated as create3DRayLine() objects in the scene code.
+Priority Rules:
+- If you have a chain of length 4 with an open end, play that open end immediately to win!
+- If the opponent has a chain of length 4 or open 3, block its openEndsToExtendOrBlock immediately!
+- Otherwise extend your strongest 3D ray line or control the center (H8).
+Reply with one short line of Three.js stone placement ending with MOVE: <Col><Row> (e.g., MOVE: H8).`;
+        userPrompt = `${code3D}\n\nYour turn as ${colorName}. Output MOVE: <Col><Row>`;
+      }
+
+      for (let attempt = 1; attempt <= 4; attempt++) {
+        try {
+          const res = await fetch(apiUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${apiKey}` },
+            body: JSON.stringify({
+              model: modelName,
+              reasoning_effort: 'low',
+              temperature: attempt > 1 ? 0.6 : 0.2,
+              messages: [
+                { role: 'system', content: sysPrompt },
+                { role: 'user', content: userPrompt }
+              ]
+            })
+          });
+
+          if (res.status === 429) {
+            logArena(`⚠️ 触发 429 速率限制，自动等待 15 秒后继续...`);
+            await sleep(15000);
+            continue;
+          }
+
+          const data = await res.json();
+          const rawText = (data.choices?.[0]?.message?.content || '').trim();
+          const matches = [...rawText.matchAll(/\b([A-O])\s*(1[0-5]|[1-9])\b/gi)];
+          if (matches.length > 0) {
+            const lastMatch = matches[matches.length - 1];
+            const parsed = coordToRC(`${lastMatch[1]}${lastMatch[2]}`);
+            if (parsed && !occupiedSet.has(parsed.coord)) {
+              return { ...parsed, raw: rawText };
+            } else if (parsed && occupiedSet.has(parsed.coord)) {
+              if (agentType === 'A_2D') experimentResults.agentA_IllegalMoves++;
+              else experimentResults.agentB_IllegalMoves++;
+              updateScoreboardUI();
+              logArena(`❌ [${agentType}] 空间幻觉：试图下在已有棋子的位置 ${parsed.coord}，提示重下...`);
+              userPrompt += `\nERROR: ${parsed.coord} is already occupied! Choose an EMPTY coordinate not in [${[...occupiedSet].join(', ')}].`;
+            }
+          }
+        } catch (err) {
+          logArena(`⚠️ 网络异常 (${err.message})，5 秒后重试...`);
+          await sleep(5000);
+        }
+      }
+
+      for (let dist = 0; dist <= 7; dist++) {
+        for (let dr = -dist; dr <= dist; dr++) {
+          for (let dc = -dist; dc <= dist; dc++) {
+            const r = 7 + dr, c = 7 + dc;
+            if (r >= 0 && r < 15 && c >= 0 && c < 15 && board[r][c] === 0) {
+              return { r, c, coord: rcToCoord(r, c), raw: 'Fallback move' };
+            }
+          }
+        }
+      }
+    }
+
+    async function runFullArena() {
+      if (arenaRunning) return;
+      arenaRunning = true;
+      document.getElementById('btn-start-arena').disabled = true;
+      document.getElementById('btn-stop-arena').disabled = false;
+
+      const totalGames = parseInt(document.getElementById('total-games-select').value, 10) || 10;
+      const cooldownMs = parseInt(document.getElementById('cooldown-select').value, 10) || 4300;
+
+      experimentResults = {
+        model: document.getElementById('model-select').value || 'build-gemini-3.8-flash',
+        totalGames,
+        agentA_2D_Wins: 0,
+        agentB_3D_Wins: 0,
+        draws: 0,
+        agentA_DiagWins: 0,
+        agentB_DiagWins: 0,
+        agentA_IllegalMoves: 0,
+        agentB_IllegalMoves: 0,
+        games: []
+      };
+      updateScoreboardUI();
+      startCompositeRecording();
+
+      for (let g = 1; g <= totalGames; g++) {
+        if (!arenaRunning) break;
+        const blackAgent = (g % 2 === 1) ? 'A_2D' : 'B_3D';
+        const whiteAgent = (g % 2 === 1) ? 'B_3D' : 'A_2D';
+
+        document.getElementById('match-progress').innerText = `第 ${g} / ${totalGames} 局 · 对局中`;
+        document.getElementById('hud-game').innerText = `${g} / ${totalGames}`;
+        document.getElementById('hud-black').innerText = blackAgent === 'A_2D' ? 'Agent A (2D文本)' : 'Agent B (Three.js)';
+        document.getElementById('hud-white').innerText = whiteAgent === 'A_2D' ? 'Agent A (2D文本)' : 'Agent B (Three.js)';
+        document.getElementById('agent1-role-tag').innerText = blackAgent === 'A_2D' ? '当前执黑 (先手)' : '当前执白 (后手)';
+        document.getElementById('agent2-role-tag').innerText = blackAgent === 'B_3D' ? '当前执黑 (先手)' : '当前执白 (后手)';
+
+        const board = Array.from({ length: BOARD_SIZE }, () => Array(BOARD_SIZE).fill(0));
+        const moves = [];
+        const occupiedSet = new Set();
+        renderBoard3D(board, moves);
+        captureStepFrames(`第 ${g} / ${totalGames} 局开始 (黑:${blackAgent} vs 白:${whiteAgent})`);
+
+        logArena(`================ 第 ${g}/${totalGames} 局开始 (黑:${blackAgent}, 白:${whiteAgent}) ================`);
+
+        let gameWinner = null;
+        for (let ply = 1; ply <= 80; ply++) {
+          if (!arenaRunning) break;
+          const colorNum = (ply % 2 === 1) ? 1 : 2;
+          const currentAgent = colorNum === 1 ? blackAgent : whiteAgent;
+
+          document.getElementById('hud-ply').innerText = ply;
+          document.getElementById('agent1-status').innerText = currentAgent === 'A_2D' ? '思考中...' : '等待对手';
+          document.getElementById('agent2-status').innerText = currentAgent === 'B_3D' ? '思考中...' : '等待对手';
+
+          const t0 = performance.now();
+          const moveRes = await requestAgentMove(currentAgent, colorNum, board, moves, occupiedSet);
+          const elapsed = Math.round(performance.now() - t0);
+
+          board[moveRes.r][moveRes.c] = colorNum;
+          occupiedSet.add(moveRes.coord);
+          moves.push({ ply, agent: currentAgent, color: colorNum, r: moveRes.r, c: moveRes.c, coord: moveRes.coord, ms: elapsed });
+
+          if (currentAgent === 'A_2D') {
+            document.getElementById('agent1-last-move').innerText = `${moveRes.coord} (${elapsed}ms)`;
+          } else {
+            document.getElementById('agent2-last-move').innerText = `${moveRes.coord} (${elapsed}ms)`;
+          }
+          document.getElementById('agent1-input').value = build2DTextRepresentation(board, moves);
+
+          const winCheck = checkWinner(board, moveRes.r, moveRes.c);
+          renderBoard3D(board, moves, winCheck);
+          captureStepFrames();
+
+          logArena(`[第${g}局 #${ply}] ${currentAgent} (${colorNum === 1 ? '黑' : '白'}) 落子 ${moveRes.coord} (${elapsed}ms)`);
+
+          if (winCheck) {
+            gameWinner = { winnerAgent: currentAgent, ...winCheck };
+            if (currentAgent === 'A_2D') {
+              experimentResults.agentA_2D_Wins++;
+              if (winCheck.isDiagonal) experimentResults.agentA_DiagWins++;
+            } else {
+              experimentResults.agentB_3D_Wins++;
+              if (winCheck.isDiagonal) experimentResults.agentB_DiagWins++;
+            }
+            updateScoreboardUI();
+            const winBanner = `第 ${g} 局结束: ${currentAgent === 'B_3D' ? 'Agent B (Three.js)' : 'Agent A (2D文本)'} 获胜! [${winCheck.axis}]`;
+            logArena(`🏆 ${winBanner}`);
+            for (let f = 0; f < 12; f++) captureStepFrames(winBanner);
+            break;
+          }
+
+          const waitRemain = Math.max(200, cooldownMs - elapsed);
+          await sleep(waitRemain);
+        }
+
+        if (!gameWinner) {
+          experimentResults.draws++;
+          updateScoreboardUI();
+        }
+
+        experimentResults.games.push({
+          gameIndex: g,
+          blackAgent,
+          whiteAgent,
+          winnerAgent: gameWinner ? gameWinner.winnerAgent : 'DRAW',
+          winAxis: gameWinner ? gameWinner.axis : 'None',
+          isDiagonalWin: gameWinner ? gameWinner.isDiagonal : false,
+          totalMoves: moves.length,
+          moves
+        });
+      }
+
+      arenaRunning = false;
+      document.getElementById('btn-start-arena').disabled = false;
+      document.getElementById('btn-stop-arena').disabled = true;
+      document.getElementById('match-progress').innerText = `已完成 ${experimentResults.games.length} 局`;
+      stopCompositeRecording(true);
+    }
+
+    async function replayPreloadedExperiment(preloadData) {
+      if (!preloadData || arenaRunning) return;
+      arenaRunning = true;
+      document.getElementById('btn-start-arena').disabled = true;
+      document.getElementById('btn-stop-arena').disabled = false;
+
+      experimentResults = {
+        model: preloadData.model || 'build-gemini-3.8-flash',
+        totalGames: preloadData.games.length,
+        agentA_2D_Wins: 0,
+        agentB_3D_Wins: 0,
+        draws: 0,
+        agentA_DiagWins: 0,
+        agentB_DiagWins: 0,
+        agentA_IllegalMoves: 0,
+        agentB_IllegalMoves: 0,
+        games: preloadData.games
+      };
+      updateScoreboardUI();
+      startCompositeRecording();
+
+      for (const gData of preloadData.games) {
+        if (!arenaRunning) break;
+        const g = gData.gameIndex;
+        document.getElementById('match-progress').innerText = `第 ${g} / ${preloadData.games.length} 局 · 实机回放录制中`;
+        document.getElementById('hud-game').innerText = `${g} / ${preloadData.games.length}`;
+        document.getElementById('hud-black').innerText = gData.blackAgent === 'A_2D' ? 'Agent A (2D文本)' : 'Agent B (Three.js)';
+        document.getElementById('hud-white').innerText = gData.whiteAgent === 'A_2D' ? 'Agent A (2D文本)' : 'Agent B (Three.js)';
+
+        const board = Array.from({ length: BOARD_SIZE }, () => Array(BOARD_SIZE).fill(0));
+        const curMoves = [];
+        renderBoard3D(board, curMoves);
+        for (let k = 0; k < 5; k++) captureStepFrames(`第 ${g} 局开始 | 黑: ${gData.blackAgent} vs 白: ${gData.whiteAgent}`);
+
+        for (const m of gData.moves) {
+          if (!arenaRunning) break;
+          if (m.illegalRetries) {
+            if (m.agent === 'A_2D') experimentResults.agentA_IllegalMoves += m.illegalRetries;
+            else experimentResults.agentB_IllegalMoves += m.illegalRetries;
+            updateScoreboardUI();
+          }
+          board[m.r][m.c] = m.color;
+          curMoves.push(m);
+          document.getElementById('hud-ply').innerText = m.ply;
+          if (m.agent === 'A_2D') {
+            document.getElementById('agent1-last-move').innerText = `${m.coord} (${m.ms}ms)`;
+          } else {
+            document.getElementById('agent2-last-move').innerText = `${m.coord} (${m.ms}ms)`;
+          }
+          document.getElementById('agent1-input').value = build2DTextRepresentation(board, curMoves);
+
+          const winCheck = checkWinner(board, m.r, m.c);
+          renderBoard3D(board, curMoves, winCheck);
+          for (let f = 0; f < 3; f++) captureStepFrames();
+          await sleep(85);
+        }
+
+        if (gData.winnerAgent === 'A_2D') {
+          experimentResults.agentA_2D_Wins++;
+          if (gData.isDiagonalWin) experimentResults.agentA_DiagWins++;
+        } else if (gData.winnerAgent === 'B_3D') {
+          experimentResults.agentB_3D_Wins++;
+          if (gData.isDiagonalWin) experimentResults.agentB_DiagWins++;
+        } else {
+          experimentResults.draws++;
+        }
+        updateScoreboardUI();
+
+        const winBanner = `第 ${g} 局结果: ${gData.winnerAgent === 'B_3D' ? 'Agent B (Three.js代码派)' : 'Agent A (2D文本派)'} 获胜! [${gData.winAxis}]`;
+        logArena(`🏆 ${winBanner} (共 ${gData.totalMoves} 手)`);
+        for (let f = 0; f < 18; f++) captureStepFrames(winBanner);
+        await sleep(350);
+      }
+
+      arenaRunning = false;
+      document.getElementById('btn-start-arena').disabled = false;
+      document.getElementById('btn-stop-arena').disabled = true;
+      document.getElementById('match-progress').innerText = `10 局实验全部完成!`;
+      stopCompositeRecording(true);
+    }
+
+    function exportReport() {
+      const blob = new Blob([JSON.stringify(experimentResults, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `Gomoku_10Games_Report_${Date.now()}.json`;
+      a.click();
+    }
+
+    document.getElementById('btn-start-arena').addEventListener('click', runFullArena);
+    document.getElementById('btn-stop-arena').addEventListener('click', () => { arenaRunning = false; });
+    document.getElementById('btn-export-video').addEventListener('click', downloadRecordedVideo);
+    document.getElementById('btn-export-report').addEventListener('click', exportReport);
+    document.getElementById('layout-select').addEventListener('change', (e) => {
+      document.body.classList.toggle('portrait-mode', e.target.value === 'portrait');
+      window.dispatchEvent(new Event('resize'));
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      initWebGL();
+      const emptyBoard = Array.from({ length: BOARD_SIZE }, () => Array(BOARD_SIZE).fill(0));
+      document.getElementById('agent1-input').value = build2DTextRepresentation(emptyBoard, []);
+      renderBoard3D(emptyBoard, []);
+
+      if (window.PRELOADED_10GAMES_DATA) {
+        const btnReplay = document.getElementById('btn-replay-recorded');
+        btnReplay.style.display = 'inline-block';
+        btnReplay.addEventListener('click', () => replayPreloadedExperiment(window.PRELOADED_10GAMES_DATA));
+        logArena(`✅ 已检测到实机跑完的 10 局完整对局数据！点击【🎬 高速回放已完成的 10 局实验并生成高清视频】即可观看并导出录像，或点击【🚀 启动 10 局自动对决】重新实时请求 API。`);
+      }
+    });
+  </script>
+</body>
+</html>

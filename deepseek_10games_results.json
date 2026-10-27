@@ -1,0 +1,2532 @@
+{
+  "model": "DeepSeek-V4.1-Flash-1017 (deepseek-flash)",
+  "totalGames": 10,
+  "agentA_2D_Wins": 0,
+  "agentB_3D_Wins": 10,
+  "draws": 0,
+  "agentA_DiagWins": 0,
+  "agentB_DiagWins": 1,
+  "agentA_IllegalMoves": 5,
+  "agentB_IllegalMoves": 15,
+  "games": [
+    {
+      "gameIndex": 1,
+      "blackAgent": "A_2D",
+      "whiteAgent": "B_3D",
+      "winnerAgent": "B_3D",
+      "winAxis": "diag_backslash (正斜线 \\)",
+      "isDiagonalWin": true,
+      "winLine": [
+        {
+          "r": 3,
+          "c": 6
+        },
+        {
+          "r": 4,
+          "c": 7
+        },
+        {
+          "r": 5,
+          "c": 8
+        },
+        {
+          "r": 6,
+          "c": 9
+        },
+        {
+          "r": 7,
+          "c": 10
+        }
+      ],
+      "totalMoves": 26,
+      "moves": [
+        {
+          "ply": 1,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 7,
+          "c": 7,
+          "coord": "H8",
+          "ms": 5060,
+          "illegalRetries": 0,
+          "raw": "MOVE: H8"
+        },
+        {
+          "ply": 2,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 8,
+          "c": 7,
+          "coord": "H9",
+          "ms": 5277,
+          "illegalRetries": 0,
+          "raw": "MOVE: H9"
+        },
+        {
+          "ply": 3,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 6,
+          "c": 7,
+          "coord": "H7",
+          "ms": 5431,
+          "illegalRetries": 0,
+          "raw": "MOVE: H7"
+        },
+        {
+          "ply": 4,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 5,
+          "c": 7,
+          "coord": "H6",
+          "ms": 5541,
+          "illegalRetries": 0,
+          "raw": "Blocking black's vertical line. MOVE: H6"
+        },
+        {
+          "ply": 5,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 9,
+          "c": 7,
+          "coord": "H10",
+          "ms": 5460,
+          "illegalRetries": 0,
+          "raw": "MOVE: H10"
+        },
+        {
+          "ply": 6,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 10,
+          "c": 7,
+          "coord": "H11",
+          "ms": 5319,
+          "illegalRetries": 1,
+          "raw": "MOVE: H11"
+        },
+        {
+          "ply": 7,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 11,
+          "c": 7,
+          "coord": "H12",
+          "ms": 5196,
+          "illegalRetries": 0,
+          "raw": "MOVE: H12"
+        },
+        {
+          "ply": 8,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 12,
+          "c": 7,
+          "coord": "H13",
+          "ms": 5414,
+          "illegalRetries": 1,
+          "raw": "Black has H7-H8-H10-H12 with open end H13 — block it.\n\nMOVE: H13"
+        },
+        {
+          "ply": 9,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 13,
+          "c": 7,
+          "coord": "H14",
+          "ms": 5281,
+          "illegalRetries": 0,
+          "raw": "MOVE: H14"
+        },
+        {
+          "ply": 10,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 4,
+          "c": 7,
+          "coord": "H5",
+          "ms": 5136,
+          "illegalRetries": 0,
+          "raw": "MOVE: H5"
+        },
+        {
+          "ply": 11,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 14,
+          "c": 7,
+          "coord": "H15",
+          "ms": 5511,
+          "illegalRetries": 0,
+          "raw": "MOVE: H15"
+        },
+        {
+          "ply": 12,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 3,
+          "c": 7,
+          "coord": "H4",
+          "ms": 5322,
+          "illegalRetries": 0,
+          "raw": "MOVE: H4"
+        },
+        {
+          "ply": 13,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 7,
+          "c": 6,
+          "coord": "G8",
+          "ms": 5386,
+          "illegalRetries": 0,
+          "raw": "MOVE: G8"
+        },
+        {
+          "ply": 14,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 2,
+          "c": 7,
+          "coord": "H3",
+          "ms": 5379,
+          "illegalRetries": 0,
+          "raw": "MOVE: H3"
+        },
+        {
+          "ply": 15,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 1,
+          "c": 7,
+          "coord": "H2",
+          "ms": 5119,
+          "illegalRetries": 0,
+          "raw": "MOVE: H2"
+        },
+        {
+          "ply": 16,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 0,
+          "c": 7,
+          "coord": "H1",
+          "ms": 5222,
+          "illegalRetries": 0,
+          "raw": "MOVE: H1"
+        },
+        {
+          "ply": 17,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 7,
+          "c": 8,
+          "coord": "I8",
+          "ms": 5383,
+          "illegalRetries": 0,
+          "raw": "MOVE: I8"
+        },
+        {
+          "ply": 18,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 7,
+          "c": 5,
+          "coord": "F8",
+          "ms": 5542,
+          "illegalRetries": 0,
+          "raw": "MOVE: F8"
+        },
+        {
+          "ply": 19,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 7,
+          "c": 9,
+          "coord": "J8",
+          "ms": 5430,
+          "illegalRetries": 0,
+          "raw": "MOVE: J8"
+        },
+        {
+          "ply": 20,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 7,
+          "c": 10,
+          "coord": "K8",
+          "ms": 5355,
+          "illegalRetries": 0,
+          "raw": "Black has a 4-chain G8-H8-I8-J8 with open end K8 — must block immediately.\n\nMOVE: K8"
+        },
+        {
+          "ply": 21,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 7,
+          "c": 11,
+          "coord": "L8",
+          "ms": 5461,
+          "illegalRetries": 0,
+          "raw": "MOVE: L8"
+        },
+        {
+          "ply": 22,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 5,
+          "c": 8,
+          "coord": "I6",
+          "ms": 5192,
+          "illegalRetries": 0,
+          "raw": "MOVE: I6"
+        },
+        {
+          "ply": 23,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 7,
+          "c": 12,
+          "coord": "M8",
+          "ms": 5372,
+          "illegalRetries": 0,
+          "raw": "MOVE: M8"
+        },
+        {
+          "ply": 24,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 6,
+          "c": 9,
+          "coord": "J7",
+          "ms": 5445,
+          "illegalRetries": 0,
+          "raw": "MOVE: J7"
+        },
+        {
+          "ply": 25,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 7,
+          "c": 13,
+          "coord": "N8",
+          "ms": 5178,
+          "illegalRetries": 0,
+          "raw": "MOVE: N8"
+        },
+        {
+          "ply": 26,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 3,
+          "c": 6,
+          "coord": "G4",
+          "ms": 5165,
+          "illegalRetries": 0,
+          "raw": "MOVE: G4"
+        }
+      ]
+    },
+    {
+      "gameIndex": 2,
+      "blackAgent": "B_3D",
+      "whiteAgent": "A_2D",
+      "winnerAgent": "B_3D",
+      "winAxis": "vertical (竖线)",
+      "isDiagonalWin": false,
+      "winLine": [
+        {
+          "r": 3,
+          "c": 7
+        },
+        {
+          "r": 4,
+          "c": 7
+        },
+        {
+          "r": 5,
+          "c": 7
+        },
+        {
+          "r": 6,
+          "c": 7
+        },
+        {
+          "r": 7,
+          "c": 7
+        }
+      ],
+      "totalMoves": 15,
+      "moves": [
+        {
+          "ply": 1,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 7,
+          "c": 7,
+          "coord": "H8",
+          "ms": 5134,
+          "illegalRetries": 0,
+          "raw": "MOVE: H8"
+        },
+        {
+          "ply": 2,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 8,
+          "c": 7,
+          "coord": "H9",
+          "ms": 5491,
+          "illegalRetries": 0,
+          "raw": "MOVE: H9"
+        },
+        {
+          "ply": 3,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 9,
+          "c": 7,
+          "coord": "H10",
+          "ms": 6457,
+          "illegalRetries": 0,
+          "raw": "MOVE: H10"
+        },
+        {
+          "ply": 4,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 10,
+          "c": 7,
+          "coord": "H11",
+          "ms": 5557,
+          "illegalRetries": 0,
+          "raw": "MOVE: H11"
+        },
+        {
+          "ply": 5,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 11,
+          "c": 7,
+          "coord": "H12",
+          "ms": 6600,
+          "illegalRetries": 0,
+          "raw": "I have a chain of 3 (H8, H10) with open ends at H7 and H12. White has H9, H11 with open ends at H7 and H12 too — but blo"
+        },
+        {
+          "ply": 6,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 12,
+          "c": 7,
+          "coord": "H13",
+          "ms": 5441,
+          "illegalRetries": 0,
+          "raw": "MOVE: H13"
+        },
+        {
+          "ply": 7,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 13,
+          "c": 7,
+          "coord": "H14",
+          "ms": 5466,
+          "illegalRetries": 2,
+          "raw": "MOVE: H14"
+        },
+        {
+          "ply": 8,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 14,
+          "c": 7,
+          "coord": "H15",
+          "ms": 5226,
+          "illegalRetries": 0,
+          "raw": "MOVE: H15"
+        },
+        {
+          "ply": 9,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 6,
+          "c": 7,
+          "coord": "H7",
+          "ms": 5238,
+          "illegalRetries": 1,
+          "raw": "MOVE: H7"
+        },
+        {
+          "ply": 10,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 8,
+          "c": 6,
+          "coord": "G9",
+          "ms": 5146,
+          "illegalRetries": 0,
+          "raw": "MOVE: G9"
+        },
+        {
+          "ply": 11,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 5,
+          "c": 7,
+          "coord": "H6",
+          "ms": 5356,
+          "illegalRetries": 0,
+          "raw": "MOVE: H6"
+        },
+        {
+          "ply": 12,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 8,
+          "c": 8,
+          "coord": "I9",
+          "ms": 5178,
+          "illegalRetries": 0,
+          "raw": "MOVE: I9"
+        },
+        {
+          "ply": 13,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 4,
+          "c": 7,
+          "coord": "H5",
+          "ms": 5127,
+          "illegalRetries": 0,
+          "raw": "MOVE: H5"
+        },
+        {
+          "ply": 14,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 8,
+          "c": 9,
+          "coord": "J9",
+          "ms": 5226,
+          "illegalRetries": 1,
+          "raw": "MOVE: J9"
+        },
+        {
+          "ply": 15,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 3,
+          "c": 7,
+          "coord": "H4",
+          "ms": 5445,
+          "illegalRetries": 0,
+          "raw": "MOVE: H4"
+        }
+      ]
+    },
+    {
+      "gameIndex": 3,
+      "blackAgent": "A_2D",
+      "whiteAgent": "B_3D",
+      "winnerAgent": "B_3D",
+      "winAxis": "vertical (竖线)",
+      "isDiagonalWin": false,
+      "winLine": [
+        {
+          "r": 2,
+          "c": 7
+        },
+        {
+          "r": 3,
+          "c": 7
+        },
+        {
+          "r": 4,
+          "c": 7
+        },
+        {
+          "r": 5,
+          "c": 7
+        },
+        {
+          "r": 6,
+          "c": 7
+        }
+      ],
+      "totalMoves": 14,
+      "moves": [
+        {
+          "ply": 1,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 7,
+          "c": 7,
+          "coord": "H8",
+          "ms": 5367,
+          "illegalRetries": 0,
+          "raw": "MOVE: H8"
+        },
+        {
+          "ply": 2,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 8,
+          "c": 7,
+          "coord": "H9",
+          "ms": 6471,
+          "illegalRetries": 0,
+          "raw": "MOVE: H9"
+        },
+        {
+          "ply": 3,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 9,
+          "c": 7,
+          "coord": "H10",
+          "ms": 5289,
+          "illegalRetries": 0,
+          "raw": "MOVE: H10"
+        },
+        {
+          "ply": 4,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 10,
+          "c": 7,
+          "coord": "H11",
+          "ms": 5460,
+          "illegalRetries": 0,
+          "raw": "Blocking Black's vertical chain H8-H10. MOVE: H11"
+        },
+        {
+          "ply": 5,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 11,
+          "c": 7,
+          "coord": "H12",
+          "ms": 6123,
+          "illegalRetries": 0,
+          "raw": "MOVE: H12"
+        },
+        {
+          "ply": 6,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 6,
+          "c": 7,
+          "coord": "H7",
+          "ms": 5491,
+          "illegalRetries": 1,
+          "raw": "Black has an open chain H8-H10-H12 with open ends H7 and H13. I must block at H7 (the more central end).\n\nMOVE: H7"
+        },
+        {
+          "ply": 7,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 12,
+          "c": 7,
+          "coord": "H13",
+          "ms": 5394,
+          "illegalRetries": 0,
+          "raw": "MOVE: H13"
+        },
+        {
+          "ply": 8,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 5,
+          "c": 7,
+          "coord": "H6",
+          "ms": 5339,
+          "illegalRetries": 0,
+          "raw": "MOVE: H6"
+        },
+        {
+          "ply": 9,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 13,
+          "c": 7,
+          "coord": "H14",
+          "ms": 5593,
+          "illegalRetries": 0,
+          "raw": "MOVE: H14"
+        },
+        {
+          "ply": 10,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 4,
+          "c": 7,
+          "coord": "H5",
+          "ms": 5430,
+          "illegalRetries": 0,
+          "raw": "MOVE: H5"
+        },
+        {
+          "ply": 11,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 14,
+          "c": 7,
+          "coord": "H15",
+          "ms": 5353,
+          "illegalRetries": 0,
+          "raw": "MOVE: H15"
+        },
+        {
+          "ply": 12,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 3,
+          "c": 7,
+          "coord": "H4",
+          "ms": 5663,
+          "illegalRetries": 0,
+          "raw": "MOVE: H4"
+        },
+        {
+          "ply": 13,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 7,
+          "c": 6,
+          "coord": "G8",
+          "ms": 5504,
+          "illegalRetries": 0,
+          "raw": "MOVE: G8"
+        },
+        {
+          "ply": 14,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 2,
+          "c": 7,
+          "coord": "H3",
+          "ms": 5432,
+          "illegalRetries": 0,
+          "raw": "I have a chain of 4 (H4-H7) with open end H3 — play it to win.\n\nMOVE: H3"
+        }
+      ]
+    },
+    {
+      "gameIndex": 4,
+      "blackAgent": "B_3D",
+      "whiteAgent": "A_2D",
+      "winnerAgent": "B_3D",
+      "winAxis": "horizontal (横线)",
+      "isDiagonalWin": false,
+      "winLine": [
+        {
+          "r": 6,
+          "c": 5
+        },
+        {
+          "r": 6,
+          "c": 6
+        },
+        {
+          "r": 6,
+          "c": 7
+        },
+        {
+          "r": 6,
+          "c": 8
+        },
+        {
+          "r": 6,
+          "c": 9
+        }
+      ],
+      "totalMoves": 27,
+      "moves": [
+        {
+          "ply": 1,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 7,
+          "c": 7,
+          "coord": "H8",
+          "ms": 5197,
+          "illegalRetries": 0,
+          "raw": "MOVE: H8"
+        },
+        {
+          "ply": 2,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 8,
+          "c": 7,
+          "coord": "H9",
+          "ms": 6796,
+          "illegalRetries": 0,
+          "raw": "MOVE: H9"
+        },
+        {
+          "ply": 3,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 9,
+          "c": 7,
+          "coord": "H10",
+          "ms": 5529,
+          "illegalRetries": 0,
+          "raw": "MOVE: H10"
+        },
+        {
+          "ply": 4,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 10,
+          "c": 7,
+          "coord": "H11",
+          "ms": 5246,
+          "illegalRetries": 0,
+          "raw": "MOVE: H11"
+        },
+        {
+          "ply": 5,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 11,
+          "c": 7,
+          "coord": "H12",
+          "ms": 6137,
+          "illegalRetries": 0,
+          "raw": "MOVE: H12"
+        },
+        {
+          "ply": 6,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 12,
+          "c": 7,
+          "coord": "H13",
+          "ms": 5137,
+          "illegalRetries": 0,
+          "raw": "MOVE: H13"
+        },
+        {
+          "ply": 7,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 13,
+          "c": 7,
+          "coord": "H14",
+          "ms": 5493,
+          "illegalRetries": 1,
+          "raw": "Opponent has 4 in a row (H9-H13); I must block the open end at H14.\n\nMOVE: H14"
+        },
+        {
+          "ply": 8,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 14,
+          "c": 7,
+          "coord": "H15",
+          "ms": 5448,
+          "illegalRetries": 0,
+          "raw": "MOVE: H15"
+        },
+        {
+          "ply": 9,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 6,
+          "c": 7,
+          "coord": "H7",
+          "ms": 5421,
+          "illegalRetries": 0,
+          "raw": "MOVE: H7"
+        },
+        {
+          "ply": 10,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 5,
+          "c": 7,
+          "coord": "H6",
+          "ms": 5595,
+          "illegalRetries": 0,
+          "raw": "MOVE: H6"
+        },
+        {
+          "ply": 11,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 4,
+          "c": 7,
+          "coord": "H5",
+          "ms": 5538,
+          "illegalRetries": 0,
+          "raw": "MOVE: H5"
+        },
+        {
+          "ply": 12,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 7,
+          "c": 6,
+          "coord": "G8",
+          "ms": 5295,
+          "illegalRetries": 0,
+          "raw": "MOVE: G8"
+        },
+        {
+          "ply": 13,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 3,
+          "c": 7,
+          "coord": "H4",
+          "ms": 5508,
+          "illegalRetries": 0,
+          "raw": "MOVE: H4"
+        },
+        {
+          "ply": 14,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 7,
+          "c": 8,
+          "coord": "I8",
+          "ms": 5352,
+          "illegalRetries": 0,
+          "raw": "MOVE: I8"
+        },
+        {
+          "ply": 15,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 2,
+          "c": 7,
+          "coord": "H3",
+          "ms": 5285,
+          "illegalRetries": 0,
+          "raw": "MOVE: H3"
+        },
+        {
+          "ply": 16,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 1,
+          "c": 7,
+          "coord": "H2",
+          "ms": 5323,
+          "illegalRetries": 0,
+          "raw": "MOVE: H2"
+        },
+        {
+          "ply": 17,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 0,
+          "c": 7,
+          "coord": "H1",
+          "ms": 5476,
+          "illegalRetries": 0,
+          "raw": "MOVE: H1"
+        },
+        {
+          "ply": 18,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 8,
+          "c": 6,
+          "coord": "G9",
+          "ms": 5384,
+          "illegalRetries": 1,
+          "raw": "MOVE: G9"
+        },
+        {
+          "ply": 19,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 6,
+          "c": 6,
+          "coord": "G7",
+          "ms": 5798,
+          "illegalRetries": 1,
+          "raw": "Blocking White's open three on the vertical file: MOVE: G7"
+        },
+        {
+          "ply": 20,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 7,
+          "c": 5,
+          "coord": "F8",
+          "ms": 5443,
+          "illegalRetries": 0,
+          "raw": "MOVE: F8"
+        },
+        {
+          "ply": 21,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 6,
+          "c": 5,
+          "coord": "F7",
+          "ms": 5760,
+          "illegalRetries": 2,
+          "raw": "Black has a chain G7-H7 (horizontal) with open end F7, and G7-H8 diagonal open end F6. White threatens nothing at 4. Ext"
+        },
+        {
+          "ply": 22,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 6,
+          "c": 4,
+          "coord": "E7",
+          "ms": 5463,
+          "illegalRetries": 0,
+          "raw": "MOVE: E7"
+        },
+        {
+          "ply": 23,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 5,
+          "c": 3,
+          "coord": "D6",
+          "ms": 5724,
+          "illegalRetries": 0,
+          "raw": "Blocking White's open 3 on the \\ diagonal (E7-F8-G9) at D6.\n\nMOVE: D6"
+        },
+        {
+          "ply": 24,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 8,
+          "c": 5,
+          "coord": "F9",
+          "ms": 5204,
+          "illegalRetries": 0,
+          "raw": "MOVE: F9"
+        },
+        {
+          "ply": 25,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 6,
+          "c": 8,
+          "coord": "I7",
+          "ms": 5197,
+          "illegalRetries": 0,
+          "raw": "MOVE: I7"
+        },
+        {
+          "ply": 26,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 7,
+          "c": 9,
+          "coord": "J8",
+          "ms": 5566,
+          "illegalRetries": 0,
+          "raw": "MOVE: J8"
+        },
+        {
+          "ply": 27,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 6,
+          "c": 9,
+          "coord": "J7",
+          "ms": 5133,
+          "illegalRetries": 0,
+          "raw": "MOVE: J7"
+        }
+      ]
+    },
+    {
+      "gameIndex": 5,
+      "blackAgent": "A_2D",
+      "whiteAgent": "B_3D",
+      "winnerAgent": "B_3D",
+      "winAxis": "horizontal (横线)",
+      "isDiagonalWin": false,
+      "winLine": [
+        {
+          "r": 8,
+          "c": 4
+        },
+        {
+          "r": 8,
+          "c": 5
+        },
+        {
+          "r": 8,
+          "c": 6
+        },
+        {
+          "r": 8,
+          "c": 7
+        },
+        {
+          "r": 8,
+          "c": 8
+        }
+      ],
+      "totalMoves": 28,
+      "moves": [
+        {
+          "ply": 1,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 7,
+          "c": 7,
+          "coord": "H8",
+          "ms": 5375,
+          "illegalRetries": 0,
+          "raw": "MOVE: H8"
+        },
+        {
+          "ply": 2,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 8,
+          "c": 7,
+          "coord": "H9",
+          "ms": 6087,
+          "illegalRetries": 0,
+          "raw": "MOVE: H9"
+        },
+        {
+          "ply": 3,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 9,
+          "c": 7,
+          "coord": "H10",
+          "ms": 5415,
+          "illegalRetries": 0,
+          "raw": "MOVE: H10"
+        },
+        {
+          "ply": 4,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 10,
+          "c": 7,
+          "coord": "H11",
+          "ms": 5400,
+          "illegalRetries": 0,
+          "raw": "Blocking Black's vertical chain (H8-H10) at H11. MOVE: H11"
+        },
+        {
+          "ply": 5,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 11,
+          "c": 7,
+          "coord": "H12",
+          "ms": 6161,
+          "illegalRetries": 0,
+          "raw": "MOVE: H12"
+        },
+        {
+          "ply": 6,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 12,
+          "c": 7,
+          "coord": "H13",
+          "ms": 5573,
+          "illegalRetries": 0,
+          "raw": "I must block Black's chain of 4 on column H (H8-H12). The open ends are H7 and H13. Playing H13 blocks the immediate win"
+        },
+        {
+          "ply": 7,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 13,
+          "c": 7,
+          "coord": "H14",
+          "ms": 5265,
+          "illegalRetries": 0,
+          "raw": "MOVE: H14"
+        },
+        {
+          "ply": 8,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 6,
+          "c": 7,
+          "coord": "H7",
+          "ms": 5328,
+          "illegalRetries": 0,
+          "raw": "I must block the black chain H8-H14 (open end at H7). MOVE: H7"
+        },
+        {
+          "ply": 9,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 5,
+          "c": 7,
+          "coord": "H6",
+          "ms": 5398,
+          "illegalRetries": 0,
+          "raw": "MOVE: H6"
+        },
+        {
+          "ply": 10,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 4,
+          "c": 7,
+          "coord": "H5",
+          "ms": 5405,
+          "illegalRetries": 0,
+          "raw": "MOVE: H5"
+        },
+        {
+          "ply": 11,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 7,
+          "c": 6,
+          "coord": "G8",
+          "ms": 5378,
+          "illegalRetries": 0,
+          "raw": "MOVE: G8"
+        },
+        {
+          "ply": 12,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 3,
+          "c": 7,
+          "coord": "H4",
+          "ms": 5445,
+          "illegalRetries": 0,
+          "raw": "MOVE: H4"
+        },
+        {
+          "ply": 13,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 14,
+          "c": 7,
+          "coord": "H15",
+          "ms": 5439,
+          "illegalRetries": 0,
+          "raw": "MOVE: H15"
+        },
+        {
+          "ply": 14,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 2,
+          "c": 7,
+          "coord": "H3",
+          "ms": 5308,
+          "illegalRetries": 0,
+          "raw": "MOVE: H3"
+        },
+        {
+          "ply": 15,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 1,
+          "c": 7,
+          "coord": "H2",
+          "ms": 5286,
+          "illegalRetries": 0,
+          "raw": "MOVE: H2"
+        },
+        {
+          "ply": 16,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 0,
+          "c": 7,
+          "coord": "H1",
+          "ms": 5271,
+          "illegalRetries": 0,
+          "raw": "MOVE: H1"
+        },
+        {
+          "ply": 17,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 7,
+          "c": 8,
+          "coord": "I8",
+          "ms": 5300,
+          "illegalRetries": 0,
+          "raw": "MOVE: I8"
+        },
+        {
+          "ply": 18,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 7,
+          "c": 5,
+          "coord": "F8",
+          "ms": 5335,
+          "illegalRetries": 0,
+          "raw": "MOVE: F8"
+        },
+        {
+          "ply": 19,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 7,
+          "c": 9,
+          "coord": "J8",
+          "ms": 5442,
+          "illegalRetries": 0,
+          "raw": "MOVE: J8"
+        },
+        {
+          "ply": 20,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 7,
+          "c": 10,
+          "coord": "K8",
+          "ms": 5370,
+          "illegalRetries": 0,
+          "raw": "MOVE: K8"
+        },
+        {
+          "ply": 21,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 7,
+          "c": 11,
+          "coord": "L8",
+          "ms": 5245,
+          "illegalRetries": 0,
+          "raw": "MOVE: L8"
+        },
+        {
+          "ply": 22,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 8,
+          "c": 8,
+          "coord": "I9",
+          "ms": 5171,
+          "illegalRetries": 0,
+          "raw": "MOVE: I9"
+        },
+        {
+          "ply": 23,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 7,
+          "c": 12,
+          "coord": "M8",
+          "ms": 5346,
+          "illegalRetries": 0,
+          "raw": "MOVE: M8"
+        },
+        {
+          "ply": 24,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 8,
+          "c": 6,
+          "coord": "G9",
+          "ms": 5364,
+          "illegalRetries": 0,
+          "raw": "MOVE: G9"
+        },
+        {
+          "ply": 25,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 7,
+          "c": 13,
+          "coord": "N8",
+          "ms": 5153,
+          "illegalRetries": 0,
+          "raw": "MOVE: N8"
+        },
+        {
+          "ply": 26,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 8,
+          "c": 5,
+          "coord": "F9",
+          "ms": 5334,
+          "illegalRetries": 0,
+          "raw": "MOVE: F9"
+        },
+        {
+          "ply": 27,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 7,
+          "c": 14,
+          "coord": "O8",
+          "ms": 5044,
+          "illegalRetries": 0,
+          "raw": "MOVE: O8"
+        },
+        {
+          "ply": 28,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 8,
+          "c": 4,
+          "coord": "E9",
+          "ms": 5013,
+          "illegalRetries": 0,
+          "raw": "MOVE: E9"
+        }
+      ]
+    },
+    {
+      "gameIndex": 6,
+      "blackAgent": "B_3D",
+      "whiteAgent": "A_2D",
+      "winnerAgent": "B_3D",
+      "winAxis": "vertical (竖线)",
+      "isDiagonalWin": false,
+      "winLine": [
+        {
+          "r": 3,
+          "c": 7
+        },
+        {
+          "r": 4,
+          "c": 7
+        },
+        {
+          "r": 5,
+          "c": 7
+        },
+        {
+          "r": 6,
+          "c": 7
+        },
+        {
+          "r": 7,
+          "c": 7
+        }
+      ],
+      "totalMoves": 11,
+      "moves": [
+        {
+          "ply": 1,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 7,
+          "c": 7,
+          "coord": "H8",
+          "ms": 5305,
+          "illegalRetries": 0,
+          "raw": "MOVE: H8"
+        },
+        {
+          "ply": 2,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 8,
+          "c": 7,
+          "coord": "H9",
+          "ms": 5416,
+          "illegalRetries": 0,
+          "raw": "MOVE: H9"
+        },
+        {
+          "ply": 3,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 9,
+          "c": 7,
+          "coord": "H10",
+          "ms": 5661,
+          "illegalRetries": 0,
+          "raw": "MOVE: H10"
+        },
+        {
+          "ply": 4,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 10,
+          "c": 7,
+          "coord": "H11",
+          "ms": 5647,
+          "illegalRetries": 0,
+          "raw": "MOVE: H11"
+        },
+        {
+          "ply": 5,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 6,
+          "c": 7,
+          "coord": "H7",
+          "ms": 5544,
+          "illegalRetries": 0,
+          "raw": "MOVE: H7"
+        },
+        {
+          "ply": 6,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 11,
+          "c": 7,
+          "coord": "H12",
+          "ms": 5130,
+          "illegalRetries": 0,
+          "raw": "MOVE: H12"
+        },
+        {
+          "ply": 7,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 5,
+          "c": 7,
+          "coord": "H6",
+          "ms": 5544,
+          "illegalRetries": 0,
+          "raw": "MOVE: H6"
+        },
+        {
+          "ply": 8,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 12,
+          "c": 7,
+          "coord": "H13",
+          "ms": 5164,
+          "illegalRetries": 0,
+          "raw": "MOVE: H13"
+        },
+        {
+          "ply": 9,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 4,
+          "c": 7,
+          "coord": "H5",
+          "ms": 5344,
+          "illegalRetries": 0,
+          "raw": "MOVE: H5"
+        },
+        {
+          "ply": 10,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 13,
+          "c": 7,
+          "coord": "H14",
+          "ms": 5437,
+          "illegalRetries": 0,
+          "raw": "MOVE: H14"
+        },
+        {
+          "ply": 11,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 3,
+          "c": 7,
+          "coord": "H4",
+          "ms": 5628,
+          "illegalRetries": 0,
+          "raw": "I have a chain of 4 (H5-H8) with open end H4 — play it to win immediately.\n\nMOVE: H4"
+        }
+      ]
+    },
+    {
+      "gameIndex": 7,
+      "blackAgent": "A_2D",
+      "whiteAgent": "B_3D",
+      "winnerAgent": "B_3D",
+      "winAxis": "horizontal (横线)",
+      "isDiagonalWin": false,
+      "winLine": [
+        {
+          "r": 8,
+          "c": 6
+        },
+        {
+          "r": 8,
+          "c": 7
+        },
+        {
+          "r": 8,
+          "c": 8
+        },
+        {
+          "r": 8,
+          "c": 9
+        },
+        {
+          "r": 8,
+          "c": 10
+        }
+      ],
+      "totalMoves": 30,
+      "moves": [
+        {
+          "ply": 1,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 7,
+          "c": 7,
+          "coord": "H8",
+          "ms": 5427,
+          "illegalRetries": 0,
+          "raw": "MOVE: H8"
+        },
+        {
+          "ply": 2,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 8,
+          "c": 7,
+          "coord": "H9",
+          "ms": 5187,
+          "illegalRetries": 0,
+          "raw": "MOVE: H9"
+        },
+        {
+          "ply": 3,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 9,
+          "c": 7,
+          "coord": "H10",
+          "ms": 5257,
+          "illegalRetries": 0,
+          "raw": "MOVE: H10"
+        },
+        {
+          "ply": 4,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 10,
+          "c": 7,
+          "coord": "H11",
+          "ms": 4990,
+          "illegalRetries": 0,
+          "raw": "Blocking Black's vertical chain H8-H10 (open 3 threat). MOVE: H11"
+        },
+        {
+          "ply": 5,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 11,
+          "c": 7,
+          "coord": "H12",
+          "ms": 5149,
+          "illegalRetries": 0,
+          "raw": "MOVE: H12"
+        },
+        {
+          "ply": 6,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 6,
+          "c": 7,
+          "coord": "H7",
+          "ms": 5313,
+          "illegalRetries": 0,
+          "raw": "MOVE: H7"
+        },
+        {
+          "ply": 7,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 12,
+          "c": 7,
+          "coord": "H13",
+          "ms": 5489,
+          "illegalRetries": 0,
+          "raw": "MOVE: H13"
+        },
+        {
+          "ply": 8,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 13,
+          "c": 7,
+          "coord": "H14",
+          "ms": 5833,
+          "illegalRetries": 0,
+          "raw": "Black has four in a row on column H (H8-H13). I must block the open end.\n\nMOVE: H14"
+        },
+        {
+          "ply": 9,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 5,
+          "c": 7,
+          "coord": "H6",
+          "ms": 5186,
+          "illegalRetries": 0,
+          "raw": "MOVE: H6"
+        },
+        {
+          "ply": 10,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 14,
+          "c": 7,
+          "coord": "H15",
+          "ms": 5751,
+          "illegalRetries": 0,
+          "raw": "I need to block Black's vertical line on column H. Black has H6, H8, H10, H12, H13 — with H7, H9, H11, H14 occupied by W"
+        },
+        {
+          "ply": 11,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 4,
+          "c": 7,
+          "coord": "H5",
+          "ms": 5426,
+          "illegalRetries": 0,
+          "raw": "MOVE: H5"
+        },
+        {
+          "ply": 12,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 3,
+          "c": 7,
+          "coord": "H4",
+          "ms": 5343,
+          "illegalRetries": 0,
+          "raw": "MOVE: H4"
+        },
+        {
+          "ply": 13,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 7,
+          "c": 6,
+          "coord": "G8",
+          "ms": 5101,
+          "illegalRetries": 0,
+          "raw": "MOVE: G8"
+        },
+        {
+          "ply": 14,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 2,
+          "c": 7,
+          "coord": "H3",
+          "ms": 5212,
+          "illegalRetries": 0,
+          "raw": "MOVE: H3"
+        },
+        {
+          "ply": 15,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 7,
+          "c": 8,
+          "coord": "I8",
+          "ms": 5173,
+          "illegalRetries": 1,
+          "raw": "MOVE: I8"
+        },
+        {
+          "ply": 16,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 7,
+          "c": 5,
+          "coord": "F8",
+          "ms": 5354,
+          "illegalRetries": 0,
+          "raw": "MOVE: F8"
+        },
+        {
+          "ply": 17,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 7,
+          "c": 9,
+          "coord": "J8",
+          "ms": 5535,
+          "illegalRetries": 0,
+          "raw": "MOVE: J8"
+        },
+        {
+          "ply": 18,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 7,
+          "c": 10,
+          "coord": "K8",
+          "ms": 5230,
+          "illegalRetries": 0,
+          "raw": "Black has a 4-chain G8-H8-I8-J8 with open end K8 — must block immediately.\n\nMOVE: K8"
+        },
+        {
+          "ply": 19,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 7,
+          "c": 11,
+          "coord": "L8",
+          "ms": 6661,
+          "illegalRetries": 2,
+          "raw": "MOVE: L8"
+        },
+        {
+          "ply": 20,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 1,
+          "c": 7,
+          "coord": "H2",
+          "ms": 5132,
+          "illegalRetries": 0,
+          "raw": "MOVE: H2"
+        },
+        {
+          "ply": 21,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 7,
+          "c": 12,
+          "coord": "M8",
+          "ms": 5121,
+          "illegalRetries": 0,
+          "raw": "MOVE: M8"
+        },
+        {
+          "ply": 22,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 0,
+          "c": 7,
+          "coord": "H1",
+          "ms": 5469,
+          "illegalRetries": 0,
+          "raw": "MOVE: H1"
+        },
+        {
+          "ply": 23,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 7,
+          "c": 13,
+          "coord": "N8",
+          "ms": 5329,
+          "illegalRetries": 0,
+          "raw": "MOVE: N8"
+        },
+        {
+          "ply": 24,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 8,
+          "c": 8,
+          "coord": "I9",
+          "ms": 5260,
+          "illegalRetries": 0,
+          "raw": "MOVE: I9"
+        },
+        {
+          "ply": 25,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 7,
+          "c": 14,
+          "coord": "O8",
+          "ms": 5380,
+          "illegalRetries": 0,
+          "raw": "MOVE: O8"
+        },
+        {
+          "ply": 26,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 8,
+          "c": 6,
+          "coord": "G9",
+          "ms": 5350,
+          "illegalRetries": 0,
+          "raw": "MOVE: G9"
+        },
+        {
+          "ply": 27,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 8,
+          "c": 5,
+          "coord": "F9",
+          "ms": 5417,
+          "illegalRetries": 0,
+          "raw": "MOVE: F9"
+        },
+        {
+          "ply": 28,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 8,
+          "c": 9,
+          "coord": "J9",
+          "ms": 5412,
+          "illegalRetries": 0,
+          "raw": "MOVE: J9"
+        },
+        {
+          "ply": 29,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 8,
+          "c": 4,
+          "coord": "E9",
+          "ms": 5465,
+          "illegalRetries": 0,
+          "raw": "MOVE: E9"
+        },
+        {
+          "ply": 30,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 8,
+          "c": 10,
+          "coord": "K9",
+          "ms": 5351,
+          "illegalRetries": 0,
+          "raw": "MOVE: K9"
+        }
+      ]
+    },
+    {
+      "gameIndex": 8,
+      "blackAgent": "B_3D",
+      "whiteAgent": "A_2D",
+      "winnerAgent": "B_3D",
+      "winAxis": "vertical (竖线)",
+      "isDiagonalWin": false,
+      "winLine": [
+        {
+          "r": 3,
+          "c": 7
+        },
+        {
+          "r": 4,
+          "c": 7
+        },
+        {
+          "r": 5,
+          "c": 7
+        },
+        {
+          "r": 6,
+          "c": 7
+        },
+        {
+          "r": 7,
+          "c": 7
+        }
+      ],
+      "totalMoves": 13,
+      "moves": [
+        {
+          "ply": 1,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 7,
+          "c": 7,
+          "coord": "H8",
+          "ms": 5351,
+          "illegalRetries": 0,
+          "raw": "MOVE: H8"
+        },
+        {
+          "ply": 2,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 8,
+          "c": 7,
+          "coord": "H9",
+          "ms": 5119,
+          "illegalRetries": 0,
+          "raw": "MOVE: H9"
+        },
+        {
+          "ply": 3,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 9,
+          "c": 7,
+          "coord": "H10",
+          "ms": 5207,
+          "illegalRetries": 0,
+          "raw": "MOVE: H10"
+        },
+        {
+          "ply": 4,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 10,
+          "c": 7,
+          "coord": "H11",
+          "ms": 5543,
+          "illegalRetries": 0,
+          "raw": "MOVE: H11"
+        },
+        {
+          "ply": 5,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 11,
+          "c": 7,
+          "coord": "H12",
+          "ms": 5147,
+          "illegalRetries": 0,
+          "raw": "MOVE: H12"
+        },
+        {
+          "ply": 6,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 12,
+          "c": 7,
+          "coord": "H13",
+          "ms": 4924,
+          "illegalRetries": 0,
+          "raw": "MOVE: H13"
+        },
+        {
+          "ply": 7,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 6,
+          "c": 7,
+          "coord": "H7",
+          "ms": 5671,
+          "illegalRetries": 1,
+          "raw": "Opponent has a chain of 3 (H9, H11, H13) with open ends at H7 and H14. I must block immediately. Since H14 continues the"
+        },
+        {
+          "ply": 8,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 13,
+          "c": 7,
+          "coord": "H14",
+          "ms": 5645,
+          "illegalRetries": 0,
+          "raw": "MOVE: H14"
+        },
+        {
+          "ply": 9,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 5,
+          "c": 7,
+          "coord": "H6",
+          "ms": 5300,
+          "illegalRetries": 0,
+          "raw": "MOVE: H6"
+        },
+        {
+          "ply": 10,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 14,
+          "c": 7,
+          "coord": "H15",
+          "ms": 5327,
+          "illegalRetries": 0,
+          "raw": "MOVE: H15"
+        },
+        {
+          "ply": 11,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 4,
+          "c": 7,
+          "coord": "H5",
+          "ms": 5300,
+          "illegalRetries": 0,
+          "raw": "MOVE: H5"
+        },
+        {
+          "ply": 12,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 8,
+          "c": 6,
+          "coord": "G9",
+          "ms": 5414,
+          "illegalRetries": 0,
+          "raw": "MOVE: G9"
+        },
+        {
+          "ply": 13,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 3,
+          "c": 7,
+          "coord": "H4",
+          "ms": 4993,
+          "illegalRetries": 0,
+          "raw": "MOVE: H4"
+        }
+      ]
+    },
+    {
+      "gameIndex": 9,
+      "blackAgent": "A_2D",
+      "whiteAgent": "B_3D",
+      "winnerAgent": "B_3D",
+      "winAxis": "horizontal (横线)",
+      "isDiagonalWin": false,
+      "winLine": [
+        {
+          "r": 10,
+          "c": 5
+        },
+        {
+          "r": 10,
+          "c": 6
+        },
+        {
+          "r": 10,
+          "c": 7
+        },
+        {
+          "r": 10,
+          "c": 8
+        },
+        {
+          "r": 10,
+          "c": 9
+        }
+      ],
+      "totalMoves": 22,
+      "moves": [
+        {
+          "ply": 1,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 7,
+          "c": 7,
+          "coord": "H8",
+          "ms": 5185,
+          "illegalRetries": 0,
+          "raw": "MOVE: H8"
+        },
+        {
+          "ply": 2,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 8,
+          "c": 7,
+          "coord": "H9",
+          "ms": 5512,
+          "illegalRetries": 0,
+          "raw": "MOVE: H9"
+        },
+        {
+          "ply": 3,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 9,
+          "c": 7,
+          "coord": "H10",
+          "ms": 5143,
+          "illegalRetries": 0,
+          "raw": "MOVE: H10"
+        },
+        {
+          "ply": 4,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 10,
+          "c": 7,
+          "coord": "H11",
+          "ms": 5302,
+          "illegalRetries": 0,
+          "raw": "Blocking Black's vertical chain H8-H10 (open 3 threat). MOVE: H11"
+        },
+        {
+          "ply": 5,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 11,
+          "c": 7,
+          "coord": "H12",
+          "ms": 5382,
+          "illegalRetries": 0,
+          "raw": "MOVE: H12"
+        },
+        {
+          "ply": 6,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 6,
+          "c": 7,
+          "coord": "H7",
+          "ms": 5102,
+          "illegalRetries": 0,
+          "raw": "MOVE: H7"
+        },
+        {
+          "ply": 7,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 12,
+          "c": 7,
+          "coord": "H13",
+          "ms": 5311,
+          "illegalRetries": 0,
+          "raw": "MOVE: H13"
+        },
+        {
+          "ply": 8,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 13,
+          "c": 7,
+          "coord": "H14",
+          "ms": 5559,
+          "illegalRetries": 0,
+          "raw": "Black has a chain of 4 on column H (H8-H13) with open end at H14. Must block immediately.\n\nMOVE: H14"
+        },
+        {
+          "ply": 9,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 5,
+          "c": 7,
+          "coord": "H6",
+          "ms": 5523,
+          "illegalRetries": 0,
+          "raw": "MOVE: H6"
+        },
+        {
+          "ply": 10,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 4,
+          "c": 7,
+          "coord": "H5",
+          "ms": 5396,
+          "illegalRetries": 0,
+          "raw": "Black has a chain of 4 on column H (H8-H13 with H6 too). I must block the open end.\n\nMOVE: H5"
+        },
+        {
+          "ply": 11,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 12,
+          "c": 6,
+          "coord": "G13",
+          "ms": 5632,
+          "illegalRetries": 0,
+          "raw": "MOVE: G13"
+        },
+        {
+          "ply": 12,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 10,
+          "c": 8,
+          "coord": "I11",
+          "ms": 5390,
+          "illegalRetries": 1,
+          "raw": "Black threatens a slash diagonal (H12, G13) open at I11. Block it immediately.\n\nMOVE: I11"
+        },
+        {
+          "ply": 13,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 14,
+          "c": 7,
+          "coord": "H15",
+          "ms": 5207,
+          "illegalRetries": 0,
+          "raw": "MOVE: H15"
+        },
+        {
+          "ply": 14,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 3,
+          "c": 7,
+          "coord": "H4",
+          "ms": 5474,
+          "illegalRetries": 0,
+          "raw": "MOVE: H4"
+        },
+        {
+          "ply": 15,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 2,
+          "c": 7,
+          "coord": "H3",
+          "ms": 5297,
+          "illegalRetries": 0,
+          "raw": "MOVE: H3"
+        },
+        {
+          "ply": 16,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 1,
+          "c": 7,
+          "coord": "H2",
+          "ms": 5918,
+          "illegalRetries": 1,
+          "raw": "Black has a vertical 4-threat on column H (H3–H6 and H10–H15), but the critical immediate block is H2 or H16 to stop the"
+        },
+        {
+          "ply": 17,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 0,
+          "c": 7,
+          "coord": "H1",
+          "ms": 7083,
+          "illegalRetries": 0,
+          "raw": "MOVE: H1"
+        },
+        {
+          "ply": 18,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 10,
+          "c": 6,
+          "coord": "G11",
+          "ms": 5456,
+          "illegalRetries": 1,
+          "raw": "MOVE: G11"
+        },
+        {
+          "ply": 19,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 11,
+          "c": 5,
+          "coord": "F12",
+          "ms": 5309,
+          "illegalRetries": 0,
+          "raw": "MOVE: F12"
+        },
+        {
+          "ply": 20,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 10,
+          "c": 5,
+          "coord": "F11",
+          "ms": 5423,
+          "illegalRetries": 0,
+          "raw": "MOVE: F11"
+        },
+        {
+          "ply": 21,
+          "agent": "A_2D",
+          "color": 1,
+          "r": 10,
+          "c": 4,
+          "coord": "E11",
+          "ms": 5407,
+          "illegalRetries": 0,
+          "raw": "MOVE: E11"
+        },
+        {
+          "ply": 22,
+          "agent": "B_3D",
+          "color": 2,
+          "r": 10,
+          "c": 9,
+          "coord": "J11",
+          "ms": 5409,
+          "illegalRetries": 0,
+          "raw": "MOVE: J11"
+        }
+      ]
+    },
+    {
+      "gameIndex": 10,
+      "blackAgent": "B_3D",
+      "whiteAgent": "A_2D",
+      "winnerAgent": "B_3D",
+      "winAxis": "vertical (竖线)",
+      "isDiagonalWin": false,
+      "winLine": [
+        {
+          "r": 3,
+          "c": 7
+        },
+        {
+          "r": 4,
+          "c": 7
+        },
+        {
+          "r": 5,
+          "c": 7
+        },
+        {
+          "r": 6,
+          "c": 7
+        },
+        {
+          "r": 7,
+          "c": 7
+        }
+      ],
+      "totalMoves": 13,
+      "moves": [
+        {
+          "ply": 1,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 7,
+          "c": 7,
+          "coord": "H8",
+          "ms": 5114,
+          "illegalRetries": 0,
+          "raw": "MOVE: H8"
+        },
+        {
+          "ply": 2,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 8,
+          "c": 7,
+          "coord": "H9",
+          "ms": 5490,
+          "illegalRetries": 0,
+          "raw": "MOVE: H9"
+        },
+        {
+          "ply": 3,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 9,
+          "c": 7,
+          "coord": "H10",
+          "ms": 5308,
+          "illegalRetries": 0,
+          "raw": "MOVE: H10"
+        },
+        {
+          "ply": 4,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 10,
+          "c": 7,
+          "coord": "H11",
+          "ms": 5126,
+          "illegalRetries": 0,
+          "raw": "MOVE: H11"
+        },
+        {
+          "ply": 5,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 11,
+          "c": 7,
+          "coord": "H12",
+          "ms": 5274,
+          "illegalRetries": 0,
+          "raw": "MOVE: H12"
+        },
+        {
+          "ply": 6,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 12,
+          "c": 7,
+          "coord": "H13",
+          "ms": 5324,
+          "illegalRetries": 0,
+          "raw": "MOVE: H13"
+        },
+        {
+          "ply": 7,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 6,
+          "c": 7,
+          "coord": "H7",
+          "ms": 5647,
+          "illegalRetries": 1,
+          "raw": "Black has H8, H10, H12 on the H-column (a 3-chain with open ends at H7 and H14). Playing H7 extends the line and creates"
+        },
+        {
+          "ply": 8,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 13,
+          "c": 7,
+          "coord": "H14",
+          "ms": 5161,
+          "illegalRetries": 0,
+          "raw": "MOVE: H14"
+        },
+        {
+          "ply": 9,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 5,
+          "c": 7,
+          "coord": "H6",
+          "ms": 5263,
+          "illegalRetries": 0,
+          "raw": "MOVE: H6"
+        },
+        {
+          "ply": 10,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 14,
+          "c": 7,
+          "coord": "H15",
+          "ms": 5412,
+          "illegalRetries": 0,
+          "raw": "MOVE: H15"
+        },
+        {
+          "ply": 11,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 4,
+          "c": 7,
+          "coord": "H5",
+          "ms": 5185,
+          "illegalRetries": 0,
+          "raw": "MOVE: H5"
+        },
+        {
+          "ply": 12,
+          "agent": "A_2D",
+          "color": 2,
+          "r": 9,
+          "c": 6,
+          "coord": "G10",
+          "ms": 5073,
+          "illegalRetries": 0,
+          "raw": "MOVE: G10"
+        },
+        {
+          "ply": 13,
+          "agent": "B_3D",
+          "color": 1,
+          "r": 3,
+          "c": 7,
+          "coord": "H4",
+          "ms": 5132,
+          "illegalRetries": 0,
+          "raw": "I have a chain of 4 (H5-H8) with open end H4 — play it to win.\n\nMOVE: H4"
+        }
+      ]
+    }
+  ]
+}
