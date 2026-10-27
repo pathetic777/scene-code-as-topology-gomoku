@@ -14,7 +14,7 @@
       "blackAgent": "A_2D",
       "whiteAgent": "B_3D",
       "winnerAgent": "B_3D",
-      "winAxis": "diag_slash (反斜线 /)",
+      "winAxis": "diag_slash",
       "isDiagonalWin": true,
       "winLine": [
         {
@@ -157,7 +157,7 @@
       "blackAgent": "B_3D",
       "whiteAgent": "A_2D",
       "winnerAgent": "B_3D",
-      "winAxis": "diag_backslash (正斜线 \\)",
+      "winAxis": "diag_backslash",
       "isDiagonalWin": true,
       "winLine": [
         {
@@ -421,7 +421,7 @@
       "blackAgent": "A_2D",
       "whiteAgent": "B_3D",
       "winnerAgent": "A_2D",
-      "winAxis": "diag_backslash (正斜线 \\)",
+      "winAxis": "diag_backslash",
       "isDiagonalWin": true,
       "winLine": [
         {
@@ -729,7 +729,7 @@
       "blackAgent": "B_3D",
       "whiteAgent": "A_2D",
       "winnerAgent": "B_3D",
-      "winAxis": "diag_backslash (正斜线 \\)",
+      "winAxis": "diag_backslash",
       "isDiagonalWin": true,
       "winLine": [
         {
@@ -1125,7 +1125,7 @@
       "blackAgent": "A_2D",
       "whiteAgent": "B_3D",
       "winnerAgent": "B_3D",
-      "winAxis": "vertical (竖线)",
+      "winAxis": "vertical",
       "isDiagonalWin": false,
       "winLine": [
         {
@@ -1753,7 +1753,7 @@
       "blackAgent": "A_2D",
       "whiteAgent": "B_3D",
       "winnerAgent": "A_2D",
-      "winAxis": "diag_backslash (正斜线 \\)",
+      "winAxis": "diag_backslash",
       "isDiagonalWin": true,
       "winLine": [
         {
@@ -2590,7 +2590,7 @@
       "blackAgent": "A_2D",
       "whiteAgent": "B_3D",
       "winnerAgent": "A_2D",
-      "winAxis": "diag_backslash (正斜线 \\)",
+      "winAxis": "diag_backslash",
       "isDiagonalWin": true,
       "winLine": [
         {

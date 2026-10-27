@@ -51,10 +51,10 @@ def check_winner(board, last_r, last_c):
     if not color:
         return None
     dirs = [
-        ("horizontal (横线)", 0, 1, False),
-        ("vertical (竖线)", 1, 0, False),
-        ("diag_backslash (正斜线 \\)", 1, 1, True),
-        ("diag_slash (反斜线 /)", 1, -1, True),
+        ("horizontal", 0, 1, False),
+        ("vertical", 1, 0, False),
+        ("diag_backslash", 1, 1, True),
+        ("diag_slash", 1, -1, True),
     ]
     for name, dr, dc, is_diag in dirs:
         line = [{"r": last_r, "c": last_c}]

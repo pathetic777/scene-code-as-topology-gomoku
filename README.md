@@ -1,16 +1,15 @@
 # Scene-Code-as-Topology: Overcoming 1D Token-Stride & Diagonal Blindness in LLMs via Three.js 3D/4D Procedural Scene Graphs
-### 基于 Three.js 3D/4D 空间拓扑代码重构的大语言模型五子棋自博弈实证研究 ($N = 30$ 局跨模型对照基准)
 
-[![Self-Play Benchmark](https://img.shields.io/badge/Benchmark-30_Games_%2F_719_Moves-0969da?style=for-the-badge)](#2-empirical-results-n--30-games-719-moves--三组对照实验总表)
-[![3D/4D Code Win Rate](https://img.shields.io/badge/3D%2F4D_Scene_Code_Win_Rate-85.2%25_(23W--3D--4L)-2da44e?style=for-the-badge)](#2-empirical-results-n--30-games-719-moves--三组对照实验总表)
-[![Diagonal Monopoly](https://img.shields.io/badge/Diagonal_5--in--a--Row_Wins-9_%3A_0_Sweep-fb8500?style=for-the-badge)](#3-key-scientific-findings--三大核心科学发现)
-[![Statistical Significance](https://img.shields.io/badge/Binomial_p--value-0.00031_(p_%3C_0.001)-cf222e?style=for-the-badge)](#2-empirical-results-n--30-games-719-moves--三组对照实验总表)
+[![Self-Play Benchmark](https://img.shields.io/badge/Benchmark-30_Games_%2F_719_Moves-0969da?style=for-the-badge)](#2-empirical-results-n--30-games-719-moves)
+[![3D/4D Code Win Rate](https://img.shields.io/badge/3D%2F4D_Scene_Code_Win_Rate-85.2%25_(23W--3D--4L)-2da44e?style=for-the-badge)](#2-empirical-results-n--30-games-719-moves)
+[![Diagonal Monopoly](https://img.shields.io/badge/Diagonal_5--in--a--Row_Wins-9_%3A_0_Sweep-fb8500?style=for-the-badge)](#3-key-scientific-findings)
+[![Statistical Significance](https://img.shields.io/badge/Binomial_p--value-0.00031_(p_%3C_0.001)-cf222e?style=for-the-badge)](#2-empirical-results-n--30-games-719-moves)
 
-> **Repository Overview / 仓库导览**: This repository contains the complete **experimental programs (`.py` & `.html`)**, **raw move-by-move empirical datasets (`.json`)**, **1080p split-screen match replay videos (`.mp4`, both English & Chinese HUD editions)**, and **technical reports (`.md`)** for our 30-game ($719$-ply) controlled self-play study comparing **2D ASCII Matrix Serialization (Agent A)** against **Three.js 3D/4D Procedural Scene Graph Code (Agent B)** on a $15 \times 15$ Gomoku grid.
+> **Repository Overview**: This repository contains the complete **experimental programs (`.py` & `.html`)**, **raw move-by-move empirical datasets (`.json`)**, **1080p split-screen match replay videos (`.mp4`)**, and **technical reports (`.md`)** for our 30-game ($719$-ply) controlled self-play study comparing **2D ASCII Matrix Serialization (Agent A)** against **Three.js 3D/4D Procedural Scene Graph Code (Agent B)** on a $15 \times 15$ Gomoku grid.
 
 ---
 
-## 1. Theoretical Motivation: From First Principles / 第一性原理理论推导
+## 1. Theoretical Motivation: From First Principles
 
 Why do frontier Large Language Models (LLMs) and Vision-Language Models (VLMs) struggle with spatial reasoning on discrete 2D grids, and why does **3D/4D Procedural Scene Code** resolve this bottleneck? Our framework is derived from a three-step First-Principles causal chain:
 
@@ -33,10 +32,10 @@ Instead of feeding a flattened 2D character table, **Agent B (Ours)** dynamicall
 
 ---
 
-## 2. Empirical Results ($N = 30$ Games, 719 Moves) / 三组对照实验总表
+## 2. Empirical Results ($N = 30$ Games, 719 Moves)
 
-### Strict Experimental Protocol / 严格实验控制标准
-* **Zero Human Interference (Pure Empty Board)**: Every single game starts from an **empty $15 \times 15$ board at Move 1** (`Scheme 1`), with zero human-crafted openings or midgame puzzles.
+### Strict Experimental Protocol
+* **Zero Human Interference (Pure Empty Board)**: Every single game starts from an **empty $15 \times 15$ board at Move 1**, with zero human-crafted openings or midgame puzzles.
 * **Identical Base LLM per Match**: In every game, both `Agent A (2D Matrix)` and `Agent B (Three.js 3D/4D Code)` call the **exact same model checkpoint** with identical decoding hyperparameters (`temperature = 0.2`) and identical system instructions—differing **solely** in input spatial representation.
 * **Strict Black/White Alternation**: To eliminate first-mover (Black) bias, odd-numbered games (`G1, G3, G5, G7, G9`) assign **Black = Agent A (2D), White = Agent B (3D)**; even-numbered games (`G2, G4, G6, G8, G10`) assign **Black = Agent B (3D), White = Agent A (2D)**.
 
@@ -52,7 +51,7 @@ Instead of feeding a flattened 2D character table, **Agent B (Ours)** dynamicall
 
 ---
 
-## 3. Key Scientific Findings / 三大核心科学发现
+## 3. Key Scientific Findings
 
 ### Finding 1: `9 : 0` Complete Monopoly on Diagonal Five-in-a-Row Victories
 Across all 30 games ($719$ moves), a total of **9 games were won along a diagonal axis (`/` or `\`)**:
@@ -70,10 +69,10 @@ Comparing lightweight CoT (`DeepSeek-V4.1-Flash`, `9:1`) with heavyweight CoT (`
 
 ---
 
-## 4. Game-by-Game Breakdown ($N = 30$ Games) / 30 局逐局明细表
+## 4. Game-by-Game Breakdown ($N = 30$ Games)
 
 ### Group 3: `DeepSeek-V4.1-Flash-1017` — Thinking ENABLED (`9W – 0D – 1L`, 242 Moves)
-*Dataset*: [`deepseek_thinking_10games_results.json`](./deepseek_thinking_10games_results.json) | *Videos*: [`deepseek_thinking_10games_video_EN.mp4`](./deepseek_thinking_10games_video_EN.mp4) (EN) / [`deepseek_thinking_10games_video.mp4`](./deepseek_thinking_10games_video.mp4) (ZH)
+*Dataset*: [`deepseek_thinking_10games_results.json`](./deepseek_thinking_10games_results.json) | *1080p Video Replay*: [`deepseek_thinking_10games_video_EN.mp4`](./deepseek_thinking_10games_video_EN.mp4)
 
 | Game | Black (First) | White (Second) | Winner | Win Axis | Diagonal Win? | Moves | Winning 5-in-a-Row Coordinates |
 | :---: | :---: | :---: | :---: | :--- | :---: | :---: | :--- |
@@ -89,7 +88,7 @@ Comparing lightweight CoT (`DeepSeek-V4.1-Flash`, `9:1`) with heavyweight CoT (`
 | **DST-G10** | **Agent B (3D)** | Agent A (2D) | Agent A (White) | Vertical `\|` | No | 22 | `E11 - E10 - E9 - E8 - E7` |
 
 ### Group 2: `DeepSeek-V4.1-Flash-1017` — Thinking DISABLED (`10W – 0D – 0L`, 199 Moves)
-*Dataset*: [`deepseek_10games_results.json`](./deepseek_10games_results.json) | *Videos*: [`deepseek_10games_video_EN.mp4`](./deepseek_10games_video_EN.mp4) (EN) / [`deepseek_10games_video.mp4`](./deepseek_10games_video.mp4) (ZH)
+*Dataset*: [`deepseek_10games_results.json`](./deepseek_10games_results.json) | *1080p Video Replay*: [`deepseek_10games_video_EN.mp4`](./deepseek_10games_video_EN.mp4)
 
 | Game | Black (First) | White (Second) | Winner | Win Axis | Diagonal Win? | Moves | Winning 5-in-a-Row Coordinates |
 | :---: | :---: | :---: | :---: | :--- | :---: | :---: | :--- |
@@ -105,7 +104,7 @@ Comparing lightweight CoT (`DeepSeek-V4.1-Flash`, `9:1`) with heavyweight CoT (`
 | **DS-G10** | **Agent B (3D)** | Agent A (2D) | **Agent B (Black)** | Vertical `\|` | No | 13 | `H4 - H5 - H6 - H7 - H8` |
 
 ### Group 1: `gemini-3.8-flash-high` — Thinking ENABLED (`4W – 3D – 3L`, 278 Moves)
-*Dataset*: [`gomoku_10games_results.json`](./gomoku_10games_results.json) | *Videos*: [`gomoku_10games_arena_video_EN.mp4`](./gomoku_10games_arena_video_EN.mp4) (EN) / [`gomoku_10games_arena_video.mp4`](./gomoku_10games_arena_video.mp4) (ZH)
+*Dataset*: [`gomoku_10games_results.json`](./gomoku_10games_results.json) | *1080p Video Replay*: [`gomoku_10games_arena_video_EN.mp4`](./gomoku_10games_arena_video_EN.mp4)
 
 | Game | Black (First) | White (Second) | Winner | Win Axis | Diagonal Win? | Moves | Winning 5-in-a-Row Coordinates |
 | :---: | :---: | :---: | :---: | :--- | :---: | :---: | :--- |
@@ -122,36 +121,29 @@ Comparing lightweight CoT (`DeepSeek-V4.1-Flash`, `9:1`) with heavyweight CoT (`
 
 ---
 
-## 5. Complete Repository Structure & Reproducibility / 完整文件索引与复现指南
+## 5. Complete Repository Structure & Reproducibility
 
-### A. Interactive 3D Self-Play Arena Workbench (交互式 3D 实验工作台)
+### A. Interactive 3D Self-Play Arena Workbench
 * **[`gomoku_3d_arena_workbench.html`](./gomoku_3d_arena_workbench.html)**: Standalone browser-based Three.js WebGL split-screen workbench. Open directly in any modern browser to:
   1. Inspect live 3D board rendering vs. real-time compiled Three.js 3D/4D scene code;
   2. Replay preloaded self-play matches move-by-move (`gomoku_10games_preload.js`);
   3. Run new live self-play games against any OpenAI-compatible API endpoint.
 
-### B. 1080p Match Replay Videos (6 个中英双版 1080p 完整对局录屏)
-* **Group 3 (`DeepSeek-V4.1-Flash` Thinking ON — `9 : 1` & `7` Diagonal Kills)**:
-  * English Edition: [`deepseek_thinking_10games_video_EN.mp4`](./deepseek_thinking_10games_video_EN.mp4)
-  * Chinese Edition: [`deepseek_thinking_10games_video.mp4`](./deepseek_thinking_10games_video.mp4)
-* **Group 2 (`DeepSeek-V4.1-Flash` Thinking OFF — `10 : 0` Sweep)**:
-  * English Edition: [`deepseek_10games_video_EN.mp4`](./deepseek_10games_video_EN.mp4)
-  * Chinese Edition: [`deepseek_10games_video.mp4`](./deepseek_10games_video.mp4)
-* **Group 1 (`gemini-3.8-flash-high` Thinking ON — `4 : 3 : 3` & `-32.1%` Latency)**:
-  * English Edition: [`gomoku_10games_arena_video_EN.mp4`](./gomoku_10games_arena_video_EN.mp4)
-  * Chinese Edition: [`gomoku_10games_arena_video.mp4`](./gomoku_10games_arena_video.mp4)
+### B. 1080p Match Replay Videos (`.mp4`)
+* [`deepseek_thinking_10games_video_EN.mp4`](./deepseek_thinking_10games_video_EN.mp4) — Group 3 (`DeepSeek-V4.1-Flash` Thinking ON — `9 : 1` & `7` Diagonal Kills)
+* [`deepseek_10games_video_EN.mp4`](./deepseek_10games_video_EN.mp4) — Group 2 (`DeepSeek-V4.1-Flash` Thinking OFF — `10 : 0` Sweep)
+* [`gomoku_10games_arena_video_EN.mp4`](./gomoku_10games_arena_video_EN.mp4) — Group 1 (`gemini-3.8-flash-high` Thinking ON — `4 : 3 : 3` & `-32.1%` Latency)
 
-### C. Raw Empirical Datasets (3 组共 30 局 / 719 手完整原始 JSON 数据)
+### C. Raw Empirical Datasets (30 Games / 719 Moves)
 * [`deepseek_thinking_10games_results.json`](./deepseek_thinking_10games_results.json) — Group 3 move-by-move coordinates, latency (`ms`), `reasoningTokens`, `illegalRetries`, and winning line vectors.
 * [`deepseek_10games_results.json`](./deepseek_10games_results.json) — Group 2 move-by-move coordinates, latency (`ms`), and winning line vectors.
 * [`gomoku_10games_results.json`](./gomoku_10games_results.json) & [`gomoku_10games_preload.js`](./gomoku_10games_preload.js) — Group 1 move-by-move dataset and HTML workbench preload bundle.
 
-### D. Experimental & Video Rendering Programs (自动化实验与视频合成程序)
+### D. Experimental & Video Rendering Programs
 * [`run_deepseek_thinking_10games.py`](./run_deepseek_thinking_10games.py) — Group 3 automated 10-game self-play runner (`thinking: {"type": "enabled"}`).
 * [`run_deepseek_10games.py`](./run_deepseek_10games.py) — Group 2 automated 10-game self-play runner (`thinking: {"type": "disabled"}`).
 * [`run_10games_experiment.py`](./run_10games_experiment.py) — Group 1 automated 10-game self-play runner (`gemini-3.8-flash-high`).
-* [`render_10games_video_en.py`](./render_10games_video_en.py) & [`render_10games_video.py`](./render_10games_video.py) — 1080p (`1920x1080`) split-screen frame renderer and MP4 video synthesizer.
+* [`render_10games_video_en.py`](./render_10games_video_en.py) — 1080p (`1920x1080`) split-screen frame renderer and MP4 video synthesizer.
 
-### E. Full Technical Reports (中英双语完整实验报告与申请书)
+### E. Full Technical Report & Grant Proposal
 * [`GRANT_PROPOSAL_AND_REPORT_EN.md`](./GRANT_PROPOSAL_AND_REPORT_EN.md) — Full English technical report and research credit grant proposal.
-* [`EXPERIMENT_REPORT_10GAMES.md`](./EXPERIMENT_REPORT_10GAMES.md) — Full Chinese empirical analysis report (中文完整实验报告).

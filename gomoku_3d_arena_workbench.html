@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
-  <title id="title-text">五子棋双 Agent 空间表征博弈实验台 (2D 文本 vs Three.js 3D/4D 空间代码)</title>
+  <title id="title-text">Dual-Agent Gomoku Spatial Representation Workbench (2D ASCII Matrix vs. Three.js 3D/4D Scene Code)</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -62,7 +62,7 @@
       cursor: pointer;
     }
 
-    /* 比分与实验控制台 */
+    /* UI Section */
     .scoreboard-header {
       display: flex;
       justify-content: space-between;
@@ -249,126 +249,126 @@
 <body>
 
   <div id="sidebar">
-    <!-- 顶部 API 与模型配置 -->
+    <!-- Top API & Model Configuration -->
     <div class="config-card">
       <div class="config-row">
         <input id="api-url" type="text" placeholder="Base URL" value="https://ai.juziai.cc/v1" />
         <input id="api-key" type="password" placeholder="Enter your API Key (sk-...)" value="" />
         <select id="lang-select" class="lang-select">
-          <option value="zh" selected>中文</option>
-          <option value="en">English</option>
+          
+          <option value="en" selected>English</option>
         </select>
         <select id="layout-select" class="layout-select">
-          <option value="desktop">🖥️ 宽屏模式</option>
-          <option value="portrait">📱 竖屏模式</option>
+          <option value="desktop">🖥️ Desktop Mode</option>
+          <option value="portrait">📱 Portrait Mode</option>
         </select>
       </div>
       <div class="config-row">
         <select id="model-select">
-          <option value="gemini-3.8-flash-high" selected>gemini-3.8-flash-high (默认实验模型)</option>
+          <option value="gemini-3.8-flash-high" selected>gemini-3.8-flash-high (Default Model)</option>
         </select>
-        <button id="btn-detect" class="btn-detect">🔍 检测模型</button>
+        <button id="btn-detect" class="btn-detect">🔍 Detect Models</button>
       </div>
     </div>
 
-    <!-- 10局实验总控与实时比分看板 -->
+    <!-- 10-Game Experiment Controller & Live Scoreboard -->
     <div class="scoreboard-card">
       <div class="scoreboard-header">
-        <span>🏆 同模型空间表征 10 局自博弈实验 (纯空棋盘 · 先后手轮换)</span>
-        <span id="match-progress" style="color: #66bb6a;">第 0 / 10 局 · 待机</span>
+        <span>🏆 10-Game Spatial Representation Self-Play Benchmark (Empty Board · Alternating Colors)</span>
+        <span id="match-progress" style="color: #66bb6a;">Game 0 / 10 · Standby</span>
       </div>
       <div class="score-grid">
         <div class="score-box">
-          <span class="score-name a">Agent A: 2D 文本矩阵派</span>
+          <span class="score-name a">Agent A: 2D Matrix Baseline</span>
           <span class="score-num" id="score-a" style="color: #81d4fa;">0</span>
-          <span class="score-sub">斜线胜: <strong id="diag-a">0</strong> | 空间幻觉: <strong id="err-a">0</strong></span>
+          <span class="score-sub">Diag Wins: <strong id="diag-a">0</strong> | Hallucinations: <strong id="err-a">0</strong></span>
         </div>
         <div class="score-vs">
           <div id="current-turn-badge" style="color:#ffd54f; margin-bottom:2px;">VS</div>
-          <div style="font-size:10px; color:#888;">平局: <span id="score-draw">0</span></div>
+          <div style="font-size:10px; color:#888;">Draws: <span id="score-draw">0</span></div>
         </div>
         <div class="score-box right">
-          <span class="score-name b">Agent B: Three.js 3D/4D 代码派</span>
+          <span class="score-name b">Agent B: Three.js 3D/4D Code</span>
           <span class="score-num" id="score-b" style="color: #ffb74d;">0</span>
-          <span class="score-sub">斜线胜: <strong id="diag-b">0</strong> | 空间幻觉: <strong id="err-b">0</strong></span>
+          <span class="score-sub">Diag Wins: <strong id="diag-b">0</strong> | Hallucinations: <strong id="err-b">0</strong></span>
         </div>
       </div>
       <div class="config-row">
-        <label style="font-size:11px; color:#bbb;">总局数:</label>
+        <label style="font-size:11px; color:#bbb;">Games:</label>
         <select id="total-games-select" style="flex:0 0 75px;">
-          <option value="10" selected>10 局</option>
-          <option value="5">5 局</option>
-          <option value="2">2 局</option>
-          <option value="1">1 局</option>
+          <option value="10" selected>10 Games</option>
+          <option value="5">5 Games</option>
+          <option value="2">2 Games</option>
+          <option value="1">1 Game</option>
         </select>
-        <label style="font-size:11px; color:#bbb;">防封间隔:</label>
+        <label style="font-size:11px; color:#bbb;">Rate Limit Delay:</label>
         <select id="cooldown-select" style="flex:0 0 90px;">
-          <option value="4300" selected>4.3秒 (≤14次/分)</option>
-          <option value="2000">2.0秒 (快速)</option>
-          <option value="500">0.5秒 (极速回放)</option>
+          <option value="4300" selected>4.3s (<=14 RPM)</option>
+          <option value="2000">2.0s (Fast)</option>
+          <option value="500">0.5s (Replay)</option>
         </select>
-        <button id="btn-start-arena" class="btn-success">🚀 启动 10 局自动对决 (含自动录屏)</button>
-        <button id="btn-stop-arena" class="btn-danger" disabled>⏹ 停止</button>
+        <button id="btn-start-arena" class="btn-success">🚀 Start 10-Game Self-Play Benchmark (Auto-Record)</button>
+        <button id="btn-stop-arena" class="btn-danger" disabled>⏹ Stop</button>
       </div>
       <div class="btn-group">
-        <button id="btn-replay-recorded" class="btn-warn" style="display:none;">🎬 高速回放已完成的 10 局实验并生成高清视频</button>
-        <button id="btn-export-video" class="btn-secondary" disabled>💾 导出实验录屏 (.webm)</button>
-        <button id="btn-export-report" class="btn-secondary">📊 导出论文级 Markdown/JSON 实验报告</button>
+        <button id="btn-replay-recorded" class="btn-warn" style="display:none;">🎬 Replay Preloaded 10-Game Benchmark & Synthesize 1080p Video</button>
+        <button id="btn-export-video" class="btn-secondary" disabled>💾 Export Video (.webm)</button>
+        <button id="btn-export-report" class="btn-secondary">📊 Export JSON Benchmark Report</button>
       </div>
     </div>
 
-    <!-- Agent A: 2D 文本矩阵派 -->
+    <!-- Agent A: 2D Matrix Baseline -->
     <div class="agent-card">
       <div class="agent-header">
-        <span>Agent A (Baseline): 传统 2D 文本棋盘表征</span>
-        <span id="agent1-status" style="font-size: 11px; color: #888;">空闲</span>
+        <span>Agent A (Baseline): 2D ASCII Matrix Representation</span>
+        <span id="agent1-status" style="font-size: 11px; color: #888;">Idle</span>
       </div>
-      <textarea id="agent1-input" readonly placeholder="传给 Agent A 的 2D 字符矩阵与坐标历史..."></textarea>
+      <textarea id="agent1-input" readonly placeholder="2D ASCII matrix and move history fed to Agent A..."></textarea>
       <div class="move-output-box">
-        <span>最新决策: <strong id="agent1-last-move" style="color:#81d4fa;">--</strong></span>
-        <span id="agent1-role-tag" style="color:#aaa;">执子: 待定</span>
+        <span>Last Move: <strong id="agent1-last-move" style="color:#81d4fa;">--</strong></span>
+        <span id="agent1-role-tag" style="color:#aaa;">Role: TBD</span>
       </div>
     </div>
 
-    <!-- Agent B: Three.js 3D/4D 空间代码派 -->
+    <!-- Agent B: Three.js 3D/4D Scene Code -->
     <div class="agent-card">
       <div class="agent-header agent2">
-        <span>Agent B (Ours): Three.js 3D 场景 + 四维斜线轴代码表征</span>
-        <span id="agent2-status" style="font-size: 11px; color: #888;">空闲</span>
+        <span>Agent B (Ours): Three.js 3D Scene + 4D Diagonal Invariant Code</span>
+        <span id="agent2-status" style="font-size: 11px; color: #888;">Idle</span>
       </div>
-      <textarea id="agent2-output" readonly placeholder="实时累积生成的 Three.js 3D/4D 空间拓扑代码 (含 u=x-z 正斜轴, v=x+z 反斜轴及 3D 连线对象)..."></textarea>
+      <textarea id="agent2-output" readonly placeholder="Real-time compiled Three.js 3D/4D scene code (with u=x-z, v=x+z diagonal axes & 3D ray vectors)..."></textarea>
       <div class="move-output-box">
-        <span>最新决策: <strong id="agent2-last-move" style="color:#ffb74d;">--</strong></span>
-        <span id="agent2-role-tag" style="color:#aaa;">执子: 待定</span>
+        <span>Last Move: <strong id="agent2-last-move" style="color:#ffb74d;">--</strong></span>
+        <span id="agent2-role-tag" style="color:#aaa;">Role: TBD</span>
       </div>
     </div>
 
-    <!-- 实验数据与实时对局日志 -->
+    <!-- Live Match Telemetry & Logs -->
     <div class="packet-card">
       <div class="packet-header">
-        <span>📋 10 局对局实验详细日志 & 抓包监控</span>
-        <span id="packet-status" style="color: #aaa;">待机</span>
+        <span>📋 10-Game Self-Play Telemetry & Move Log</span>
+        <span id="packet-status" style="color: #aaa;">Standby</span>
       </div>
-      <div id="packet-body">等待实验开始...</div>
+      <div id="packet-body">Waiting for benchmark to start...</div>
     </div>
   </div>
 
-  <!-- 右侧 Three.js 3D 棋盘视口 -->
+  <!-- Right Three.js 3D Board Viewport -->
   <div id="viewport-container">
-    <div id="rec-badge">● REC 正在录制分屏实验视频 (<span id="rec-frames">0</span> 帧)</div>
+    <div id="rec-badge">● REC Recording Split-Screen Benchmark Video (<span id="rec-frames">0</span> frames)</div>
     <div id="stats-badge">
-      <div>当前局数: <strong id="hud-game" style="color:#4caf50;">0 / 10</strong> | 手数: <strong id="hud-ply">0</strong></div>
-      <div>执黑(先手): <strong id="hud-black" style="color:#fff;">--</strong></div>
-      <div>执白(后手): <strong id="hud-white" style="color:#fff;">--</strong></div>
-      <div>3D 场景三角面: <span id="triangles-count">0</span></div>
+      <div>Game: <strong id="hud-game" style="color:#4caf50;">0 / 10</strong> | Ply: <strong id="hud-ply">0</strong></div>
+      <div>Black (1st): <strong id="hud-black" style="color:#fff;">--</strong></div>
+      <div>White (2nd): <strong id="hud-white" style="color:#fff;">--</strong></div>
+      <div>3D Triangles: <span id="triangles-count">0</span></div>
     </div>
     <canvas id="webgl-canvas"></canvas>
   </div>
 
-  <!-- 隐藏的 1920x1080 合成录屏画布 -->
+  <!-- Hidden 1920x1080 Composite Recording Canvas -->
   <canvas id="composite-rec-canvas" width="1920" height="1080" style="display:none;"></canvas>
 
-  <!-- 如果本地存在预跑完的 10 局实验数据则自动挂载 -->
+  <!-- UI Section -->
   <script src="./gomoku_10games_preload.js" onerror="console.log('No preload file yet')"></script>
 
   <script>
@@ -396,10 +396,10 @@
       if (!color) return null;
 
       const dirs = [
-        { name: 'horizontal (横线)', dr: 0, dc: 1, isDiag: false },
-        { name: 'vertical (竖线)', dr: 1, dc: 0, isDiag: false },
-        { name: 'diag_backslash (正斜线 \\)', dr: 1, dc: 1, isDiag: true },
-        { name: 'diag_slash (反斜线 /)', dr: 1, dc: -1, isDiag: true }
+        { name: 'horizontal', dr: 0, dc: 1, isDiag: false },
+        { name: 'vertical', dr: 1, dc: 0, isDiag: false },
+        { name: 'diag_backslash', dr: 1, dc: 1, isDiag: true },
+        { name: 'diag_slash', dr: 1, dc: -1, isDiag: true }
       ];
 
       for (const d of dirs) {
@@ -738,7 +738,7 @@
 
       recCtx.fillStyle = '#ffffff';
       recCtx.font = 'bold 22px "Microsoft YaHei", sans-serif';
-      recCtx.fillText('五子棋空间表征自博弈实验 (2D Text vs Three.js 3D/4D Code)', 34, 54);
+      recCtx.fillText('Gomoku Spatial Representation Self-Play (2D Text vs. Three.js 3D/4D Code)', 34, 54);
 
       recCtx.fillStyle = '#9ccc65';
       recCtx.font = '16px Consolas, monospace';
@@ -752,32 +752,32 @@
 
       recCtx.fillStyle = '#81d4fa';
       recCtx.font = 'bold 18px "Microsoft YaHei", sans-serif';
-      recCtx.fillText('Agent A: 2D 文本矩阵派', 52, 134);
+      recCtx.fillText('Agent A: 2D Matrix Baseline', 52, 134);
       recCtx.font = 'bold 46px Consolas, monospace';
       recCtx.fillText(document.getElementById('score-a').innerText, 52, 186);
       recCtx.font = '14px "Microsoft YaHei", sans-serif';
       recCtx.fillStyle = '#aaa';
-      recCtx.fillText(`斜线胜: ${document.getElementById('diag-a').innerText} | 幻觉重子: ${document.getElementById('err-a').innerText}`, 52, 216);
+      recCtx.fillText(`Diag Wins: ${document.getElementById('diag-a').innerText} | Hallucinations: ${document.getElementById('err-a').innerText}`, 52, 216);
 
       recCtx.fillStyle = '#ffd54f';
       recCtx.font = 'bold 20px Consolas, monospace';
       recCtx.fillText(document.getElementById('match-progress').innerText, 275, 168);
       recCtx.fillStyle = '#fff';
       recCtx.font = '15px "Microsoft YaHei", sans-serif';
-      recCtx.fillText(`黑: ${document.getElementById('hud-black').innerText} | 白: ${document.getElementById('hud-white').innerText}`, 265, 202);
+      recCtx.fillText(`Black: ${document.getElementById('hud-black').innerText} | White: ${document.getElementById('hud-white').innerText}`, 265, 202);
 
       recCtx.fillStyle = '#ffb74d';
       recCtx.font = 'bold 18px "Microsoft YaHei", sans-serif';
-      recCtx.fillText('Agent B: Three.js 空间代码派', 455, 134);
+      recCtx.fillText('Agent B: Three.js 3D/4D Code', 455, 134);
       recCtx.font = 'bold 46px Consolas, monospace';
       recCtx.fillText(document.getElementById('score-b').innerText, 640, 186);
       recCtx.font = '14px "Microsoft YaHei", sans-serif';
       recCtx.fillStyle = '#aaa';
-      recCtx.fillText(`斜线胜: ${document.getElementById('diag-b').innerText} | 幻觉重子: ${document.getElementById('err-b').innerText}`, 485, 216);
+      recCtx.fillText(`Diag Wins: ${document.getElementById('diag-b').innerText} | Hallucinations: ${document.getElementById('err-b').innerText}`, 485, 216);
 
       recCtx.fillStyle = '#81d4fa';
       recCtx.font = 'bold 16px "Microsoft YaHei", sans-serif';
-      recCtx.fillText(`Agent A (2D 文本输入) -> 最新落子: ${document.getElementById('agent1-last-move').innerText}`, 34, 264);
+      recCtx.fillText(`Agent A (2D Matrix Input) -> Last Move: ${document.getElementById('agent1-last-move').innerText}`, 34, 264);
       recCtx.fillStyle = '#101010';
       recCtx.fillRect(34, 276, 684, 310);
       recCtx.fillStyle = '#cfd8dc';
@@ -787,7 +787,7 @@
 
       recCtx.fillStyle = '#ffb74d';
       recCtx.font = 'bold 16px "Microsoft YaHei", sans-serif';
-      recCtx.fillText(`Agent B (Three.js 3D/4D 空间代码) -> 最新落子: ${document.getElementById('agent2-last-move').innerText}`, 34, 616);
+      recCtx.fillText(`Agent B (Three.js 3D/4D Code) -> Last Move: ${document.getElementById('agent2-last-move').innerText}`, 34, 616);
       recCtx.fillStyle = '#101010';
       recCtx.fillRect(34, 628, 684, 415);
       recCtx.fillStyle = '#ffe0b2';
@@ -938,7 +938,7 @@ Reply with one short line of Three.js stone placement ending with MOVE: <Col><Ro
           });
 
           if (res.status === 429) {
-            logArena(`⚠️ 触发 429 速率限制，自动等待 15 秒后继续...`);
+            logArena(`⚠️ HTTP 429 Rate limit reached, waiting 15s before retry...`);
             await sleep(15000);
             continue;
           }
@@ -955,12 +955,12 @@ Reply with one short line of Three.js stone placement ending with MOVE: <Col><Ro
               if (agentType === 'A_2D') experimentResults.agentA_IllegalMoves++;
               else experimentResults.agentB_IllegalMoves++;
               updateScoreboardUI();
-              logArena(`❌ [${agentType}] 空间幻觉：试图下在已有棋子的位置 ${parsed.coord}，提示重下...`);
+              logArena(`❌ [${agentType}] Spatial Hallucination: attempted to play on occupied coordinate ${parsed.coord}, retrying...`);
               userPrompt += `\nERROR: ${parsed.coord} is already occupied! Choose an EMPTY coordinate not in [${[...occupiedSet].join(', ')}].`;
             }
           }
         } catch (err) {
-          logArena(`⚠️ 网络异常 (${err.message})，5 秒后重试...`);
+          logArena(`⚠️ Network error (${err.message}), retrying in 5s...`);
           await sleep(5000);
         }
       }
@@ -1006,20 +1006,20 @@ Reply with one short line of Three.js stone placement ending with MOVE: <Col><Ro
         const blackAgent = (g % 2 === 1) ? 'A_2D' : 'B_3D';
         const whiteAgent = (g % 2 === 1) ? 'B_3D' : 'A_2D';
 
-        document.getElementById('match-progress').innerText = `第 ${g} / ${totalGames} 局 · 对局中`;
+        document.getElementById('match-progress').innerText = `Game ${g} / ${totalGames} · In Progress`;
         document.getElementById('hud-game').innerText = `${g} / ${totalGames}`;
-        document.getElementById('hud-black').innerText = blackAgent === 'A_2D' ? 'Agent A (2D文本)' : 'Agent B (Three.js)';
-        document.getElementById('hud-white').innerText = whiteAgent === 'A_2D' ? 'Agent A (2D文本)' : 'Agent B (Three.js)';
-        document.getElementById('agent1-role-tag').innerText = blackAgent === 'A_2D' ? '当前执黑 (先手)' : '当前执白 (后手)';
-        document.getElementById('agent2-role-tag').innerText = blackAgent === 'B_3D' ? '当前执黑 (先手)' : '当前执白 (后手)';
+        document.getElementById('hud-black').innerText = blackAgent === 'A_2D' ? 'Agent A (2D Text)' : 'Agent B (Three.js)';
+        document.getElementById('hud-white').innerText = whiteAgent === 'A_2D' ? 'Agent A (2D Text)' : 'Agent B (Three.js)';
+        document.getElementById('agent1-role-tag').innerText = blackAgent === 'A_2D' ? 'Playing Black (1st)' : 'Playing White (2nd)';
+        document.getElementById('agent2-role-tag').innerText = blackAgent === 'B_3D' ? 'Playing Black (1st)' : 'Playing White (2nd)';
 
         const board = Array.from({ length: BOARD_SIZE }, () => Array(BOARD_SIZE).fill(0));
         const moves = [];
         const occupiedSet = new Set();
         renderBoard3D(board, moves);
-        captureStepFrames(`第 ${g} / ${totalGames} 局开始 (黑:${blackAgent} vs 白:${whiteAgent})`);
+        captureStepFrames(`Game ${g} / ${totalGames} Start (Black:${blackAgent} vs White:${whiteAgent})`);
 
-        logArena(`================ 第 ${g}/${totalGames} 局开始 (黑:${blackAgent}, 白:${whiteAgent}) ================`);
+        logArena(`================ Game ${g}/${totalGames} Start (Black:${blackAgent}, White:${whiteAgent}) ================`);
 
         let gameWinner = null;
         for (let ply = 1; ply <= 80; ply++) {
@@ -1028,8 +1028,8 @@ Reply with one short line of Three.js stone placement ending with MOVE: <Col><Ro
           const currentAgent = colorNum === 1 ? blackAgent : whiteAgent;
 
           document.getElementById('hud-ply').innerText = ply;
-          document.getElementById('agent1-status').innerText = currentAgent === 'A_2D' ? '思考中...' : '等待对手';
-          document.getElementById('agent2-status').innerText = currentAgent === 'B_3D' ? '思考中...' : '等待对手';
+          document.getElementById('agent1-status').innerText = currentAgent === 'A_2D' ? 'Thinking...' : 'Waiting';
+          document.getElementById('agent2-status').innerText = currentAgent === 'B_3D' ? 'Thinking...' : 'Waiting';
 
           const t0 = performance.now();
           const moveRes = await requestAgentMove(currentAgent, colorNum, board, moves, occupiedSet);
@@ -1050,7 +1050,7 @@ Reply with one short line of Three.js stone placement ending with MOVE: <Col><Ro
           renderBoard3D(board, moves, winCheck);
           captureStepFrames();
 
-          logArena(`[第${g}局 #${ply}] ${currentAgent} (${colorNum === 1 ? '黑' : '白'}) 落子 ${moveRes.coord} (${elapsed}ms)`);
+          logArena(`[Game ${g} #${ply}] ${currentAgent} (${colorNum === 1 ? 'Black' : 'White'}) played ${moveRes.coord} (${elapsed}ms)`);
 
           if (winCheck) {
             gameWinner = { winnerAgent: currentAgent, ...winCheck };
@@ -1062,7 +1062,7 @@ Reply with one short line of Three.js stone placement ending with MOVE: <Col><Ro
               if (winCheck.isDiagonal) experimentResults.agentB_DiagWins++;
             }
             updateScoreboardUI();
-            const winBanner = `第 ${g} 局结束: ${currentAgent === 'B_3D' ? 'Agent B (Three.js)' : 'Agent A (2D文本)'} 获胜! [${winCheck.axis}]`;
+            const winBanner = `Game ${g} Complete: ${currentAgent === 'B_3D' ? 'Agent B (Three.js)' : 'Agent A (2D Text)'} Wins! [${winCheck.axis}]`;
             logArena(`🏆 ${winBanner}`);
             for (let f = 0; f < 12; f++) captureStepFrames(winBanner);
             break;
@@ -1092,7 +1092,7 @@ Reply with one short line of Three.js stone placement ending with MOVE: <Col><Ro
       arenaRunning = false;
       document.getElementById('btn-start-arena').disabled = false;
       document.getElementById('btn-stop-arena').disabled = true;
-      document.getElementById('match-progress').innerText = `已完成 ${experimentResults.games.length} 局`;
+      document.getElementById('match-progress').innerText = `Completed ${experimentResults.games.length} Games`;
       stopCompositeRecording(true);
     }
 
@@ -1120,15 +1120,15 @@ Reply with one short line of Three.js stone placement ending with MOVE: <Col><Ro
       for (const gData of preloadData.games) {
         if (!arenaRunning) break;
         const g = gData.gameIndex;
-        document.getElementById('match-progress').innerText = `第 ${g} / ${preloadData.games.length} 局 · 实机回放录制中`;
+        document.getElementById('match-progress').innerText = `Game ${g} / ${preloadData.games.length} · Replaying & Recording`;
         document.getElementById('hud-game').innerText = `${g} / ${preloadData.games.length}`;
-        document.getElementById('hud-black').innerText = gData.blackAgent === 'A_2D' ? 'Agent A (2D文本)' : 'Agent B (Three.js)';
-        document.getElementById('hud-white').innerText = gData.whiteAgent === 'A_2D' ? 'Agent A (2D文本)' : 'Agent B (Three.js)';
+        document.getElementById('hud-black').innerText = gData.blackAgent === 'A_2D' ? 'Agent A (2D Text)' : 'Agent B (Three.js)';
+        document.getElementById('hud-white').innerText = gData.whiteAgent === 'A_2D' ? 'Agent A (2D Text)' : 'Agent B (Three.js)';
 
         const board = Array.from({ length: BOARD_SIZE }, () => Array(BOARD_SIZE).fill(0));
         const curMoves = [];
         renderBoard3D(board, curMoves);
-        for (let k = 0; k < 5; k++) captureStepFrames(`第 ${g} 局开始 | 黑: ${gData.blackAgent} vs 白: ${gData.whiteAgent}`);
+        for (let k = 0; k < 5; k++) captureStepFrames(`Game ${g} Start | Black: ${gData.blackAgent} vs White: ${gData.whiteAgent}`);
 
         for (const m of gData.moves) {
           if (!arenaRunning) break;
@@ -1164,8 +1164,8 @@ Reply with one short line of Three.js stone placement ending with MOVE: <Col><Ro
         }
         updateScoreboardUI();
 
-        const winBanner = `第 ${g} 局结果: ${gData.winnerAgent === 'B_3D' ? 'Agent B (Three.js代码派)' : 'Agent A (2D文本派)'} 获胜! [${gData.winAxis}]`;
-        logArena(`🏆 ${winBanner} (共 ${gData.totalMoves} 手)`);
+        const winBanner = `Game ${g} Result: ${gData.winnerAgent === 'B_3D' ? 'Agent B (Three.js 3D/4D)' : 'Agent A (2D Matrix)'} Wins! [${gData.winAxis}]`;
+        logArena(`🏆 ${winBanner} (${gData.totalMoves} moves)`);
         for (let f = 0; f < 18; f++) captureStepFrames(winBanner);
         await sleep(350);
       }
@@ -1173,7 +1173,7 @@ Reply with one short line of Three.js stone placement ending with MOVE: <Col><Ro
       arenaRunning = false;
       document.getElementById('btn-start-arena').disabled = false;
       document.getElementById('btn-stop-arena').disabled = true;
-      document.getElementById('match-progress').innerText = `10 局实验全部完成!`;
+      document.getElementById('match-progress').innerText = `All 10 Games Complete!`;
       stopCompositeRecording(true);
     }
 
@@ -1205,7 +1205,7 @@ Reply with one short line of Three.js stone placement ending with MOVE: <Col><Ro
         const btnReplay = document.getElementById('btn-replay-recorded');
         btnReplay.style.display = 'inline-block';
         btnReplay.addEventListener('click', () => replayPreloadedExperiment(window.PRELOADED_10GAMES_DATA));
-        logArena(`✅ 已检测到实机跑完的 10 局完整对局数据！点击【🎬 高速回放已完成的 10 局实验并生成高清视频】即可观看并导出录像，或点击【🚀 启动 10 局自动对决】重新实时请求 API。`);
+        logArena(`✅ Preloaded 10-game empirical dataset detected! Click [🎬 Replay Preloaded 10-Game Benchmark] to watch and export video, or click [🚀 Start 10-Game Self-Play Benchmark] to run live API games.`);
       }
     });
   </script>

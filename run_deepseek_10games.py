@@ -5,7 +5,6 @@ import time
 import threading
 import urllib.request
 import urllib.error
-from render_10games_video import render_frame
 from render_10games_video_en import render_frame_en, AXIS_EN_MAP
 import imageio
 
@@ -19,7 +18,6 @@ COLS = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O']
 
 OUT_DIR = r"d:\work\gomoku_arena"
 JSON_PATH = os.path.join(OUT_DIR, "deepseek_10games_results.json")
-VIDEO_ZH_PATH = os.path.join(OUT_DIR, "deepseek_10games_video.mp4")
 VIDEO_EN_PATH = os.path.join(OUT_DIR, "deepseek_10games_video_EN.mp4")
 
 def rc_to_coord(r, c):
@@ -42,10 +40,10 @@ def check_winner(board, last_r, last_c):
     if not color:
         return None
     dirs = [
-        ("horizontal (横线)", 0, 1, False),
-        ("vertical (竖线)", 1, 0, False),
-        ("diag_backslash (正斜线 \\)", 1, 1, True),
-        ("diag_slash (反斜线 /)", 1, -1, True),
+        ("horizontal", 0, 1, False),
+        ("vertical", 1, 0, False),
+        ("diag_backslash", 1, 1, True),
+        ("diag_slash", 1, -1, True),
     ]
     for name, dr, dc, is_diag in dirs:
         line = [{"r": last_r, "c": last_c}]
@@ -314,7 +312,7 @@ def render_both_videos(data):
         board = [[0]*BOARD_SIZE for _ in range(BOARD_SIZE)]
         cur_moves = []
         intro = render_frame(g_idx, total_games, b_agent, w_agent, board, cur_moves, stats_zh,
-                             banner_text=f"第 {g_idx} / {total_games} 局开始 | 执黑: {b_agent} vs 执白: {w_agent}")
+                             banner_text=f"Game {g_idx} / {total_games} Start | Black: {b_agent} vs White: {w_agent}")
         for _ in range(10): writer_zh.append_data(intro)
 
         for m in g["moves"]:
@@ -329,14 +327,14 @@ def render_both_videos(data):
         if g["winnerAgent"] == "A_2D":
             stats_zh["a_wins"] += 1
             if g.get("isDiagonalWin"): stats_zh["a_diag"] += 1
-            banner = f"第 {g_idx} 局获胜: Agent A (2D文本派) [{g.get('winAxis')}]"
+            banner = f"Game {g_idx} Winner: Agent A (2D Matrix) [{g.get('winAxis')}]"
         elif g["winnerAgent"] == "B_3D":
             stats_zh["b_wins"] += 1
             if g.get("isDiagonalWin"): stats_zh["b_diag"] += 1
-            banner = f"第 {g_idx} 局获胜: Agent B (Three.js 3D/4D代码派) [{g.get('winAxis')}]"
+            banner = f"Game {g_idx} Winner: Agent B (Three.js 3D/4D Code) [{g.get('winAxis')}]"
         else:
             stats_zh["draws"] += 1
-            banner = f"第 {g_idx} 局结果: 双方和局 ({g['totalMoves']} 手均势)"
+            banner = f"Game {g_idx} Result: Agreed Draw ({g['totalMoves']} Moves)"
 
         ef = render_frame(g_idx, total_games, b_agent, w_agent, board, cur_moves, stats_zh, win_line=g.get("winLine"), banner_text=banner)
         for _ in range(22): writer_zh.append_data(ef)

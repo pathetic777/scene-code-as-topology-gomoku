@@ -19,10 +19,10 @@ FONT_LABEL = get_font(14, mono=True, bold=True)
 FONT_BANNER = get_font(26, mono=True, bold=True)
 
 AXIS_EN_MAP = {
-    "diag_slash (反斜线 /)": "Slash Diagonal (/)",
-    "diag_backslash (正斜线 \\)": "Backslash Diagonal (\\)",
-    "vertical (竖线)": "Vertical Axis (|)",
-    "horizontal (横线)": "Horizontal Axis (-)",
+    "diag_slash": "Slash Diagonal (/)",
+    "diag_backslash": "Backslash Diagonal (\\)",
+    "vertical": "Vertical Axis (|)",
+    "horizontal": "Horizontal Axis (-)",
     "Draw (Stalemate / Agreed Draw)": "Agreed Draw (Late-Game Equilibrium)"
 }
 
