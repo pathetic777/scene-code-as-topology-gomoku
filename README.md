@@ -1,5 +1,8 @@
 # Scene-Code-as-Topology: Overcoming 1D Token-Stride & Diagonal Blindness in LLMs via Three.js 3D/4D Procedural Scene Graphs
 
+[![Zenodo DOI](https://img.shields.io/badge/CERN_Zenodo_DOI-10.5281%2Fzenodo.23691649-0969da?style=for-the-badge&logo=zenodo)](https://doi.org/10.5281/zenodo.23691649)
+[![Figshare DOI](https://img.shields.io/badge/Figshare_DOI-10.6084%2Fm9.figshare.34829706-6f42c1?style=for-the-badge&logo=figshare)](https://doi.org/10.6084/m9.figshare.34829706)
+[![Preprint PDF](https://img.shields.io/badge/Preprint_Paper-PDF_(English)-d93f0b?style=for-the-badge)](./Scene_Code_as_Topology_Preprint_EN.pdf)
 [![Self-Play Benchmark](https://img.shields.io/badge/Benchmark-30_Games_%2F_719_Moves-0969da?style=for-the-badge)](#2-empirical-results-n--30-games-719-moves)
 [![3D/4D Code Win Rate](https://img.shields.io/badge/3D%2F4D_Scene_Code_Win_Rate-85.2%25_(23W--3D--4L)-2da44e?style=for-the-badge)](#2-empirical-results-n--30-games-719-moves)
 [![Diagonal Monopoly](https://img.shields.io/badge/Diagonal_5--in--a--Row_Wins-9_%3A_0_Sweep-fb8500?style=for-the-badge)](#3-key-scientific-findings)
@@ -147,3 +150,33 @@ Comparing lightweight CoT (`DeepSeek-V4.1-Flash`, `9:1`) with heavyweight CoT (`
 
 ### E. Full Technical Report & Grant Proposal
 * [`GRANT_PROPOSAL_AND_REPORT_EN.md`](./GRANT_PROPOSAL_AND_REPORT_EN.md) — Full English technical report and research credit grant proposal.
+
+
+---
+
+## 6. Study Limitations, Budget Constraints & Future Research Plan
+
+Because this study was conducted independently under personal out-of-pocket API budget constraints (~3.5M total tokens), we explicitly note the following limitations:
+1. **Limited Sample Size ($N = 10$ Games per Group, $N = 30$ Total)**: While the combined $23\text{W}-3\text{D}-4\text{L}$ margin achieves statistical significance ($p = 0.00031$) driven by the strong effect size on `DeepSeek-V4.1-Flash-1017` ($19 : 1$), a 10-game sample on `gemini-3.8-flash-high` ($4\text{W}-3\text{D}-3\text{L}$) has limited statistical power for narrow win-rate differentials.
+2. **Limited Model Coverage (2 Models Evaluated)**: Thus far, we have only tested two models from Google and DeepSeek (`gemini-3.8-flash-high` and `DeepSeek-V4.1-Flash-1017`). How other untested models perform under this representation has not yet been evaluated.
+3. **Preliminary Results & Compute Grant Plan**: Consequently, the findings reported here represent **preliminary empirical results**. To strengthen the scientific rigor of this study, we plan to apply for **Research API Compute Grants** from major AI research laboratories (such as Google and other research institutions) to continue completing these experiments across more models and larger game sample sizes.
+
+
+---
+
+## 7. Citation & Official Archival DOIs
+
+- **Formal Preprint PDF**: [Scene_Code_as_Topology_Preprint_EN.pdf](./Scene_Code_as_Topology_Preprint_EN.pdf)
+- **CERN Zenodo Official DOI**: [https://doi.org/10.5281/zenodo.23691649](https://doi.org/10.5281/zenodo.23691649)
+- **Figshare Preprint DOI**: [https://doi.org/10.6084/m9.figshare.34829706](https://doi.org/10.6084/m9.figshare.34829706)
+
+`ibtex
+@misc{pathetic777_2026_scenecode,
+  author       = {Pathetic777},
+  title        = {{Scene-Code-as-Topology: Bypassing the 2D Tokenizer Bottleneck in Large Language Models via Procedural 3D/4D Scene Graph Representations}},
+  year         = {2026},
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.23691649},
+  url          = {https://doi.org/10.5281/zenodo.23691649}
+}
+`
