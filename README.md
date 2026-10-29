@@ -1,7 +1,9 @@
 # Scene-Code-as-Topology: Overcoming 1D Token-Stride & Diagonal Blindness in LLMs via Three.js 3D/4D Procedural Scene Graphs
 
-[![Zenodo DOI](https://img.shields.io/badge/CERN_Zenodo_DOI-10.5281%2Fzenodo.23691649-0969da?style=for-the-badge&logo=zenodo)](https://doi.org/10.5281/zenodo.23691649)
-[![Figshare DOI](https://img.shields.io/badge/Figshare_DOI-10.6084%2Fm9.figshare.34829706-6f42c1?style=for-the-badge&logo=figshare)](https://doi.org/10.6084/m9.figshare.34829706)
+[![Zenodo Paper I DOI](https://img.shields.io/badge/Zenodo_Paper_I_DOI-10.5281%2Fzenodo.23691649-0969da?style=for-the-badge&logo=zenodo)](https://doi.org/10.5281/zenodo.23691649)
+[![Zenodo Paper II DOI](https://img.shields.io/badge/Zenodo_Paper_II_DOI-10.5281%2Fzenodo.23765598-2da44e?style=for-the-badge&logo=zenodo)](https://doi.org/10.5281/zenodo.23765598)
+[![Figshare Paper I DOI](https://img.shields.io/badge/Figshare_Paper_I_DOI-10.6084%2Fm9.figshare.34829706-6f42c1?style=for-the-badge&logo=figshare)](https://doi.org/10.6084/m9.figshare.34829706)
+[![Figshare Paper II DOI](https://img.shields.io/badge/Figshare_Paper_II_DOI-10.6084%2Fm9.figshare.34856778-8a2be2?style=for-the-badge&logo=figshare)](https://doi.org/10.6084/m9.figshare.34856778)
 [![Paper I PDF](https://img.shields.io/badge/Paper_I_(30_Games)-PDF_(English)-d93f0b?style=for-the-badge)](./Scene_Code_as_Topology_Preprint_EN.pdf)
 [![Paper II PDF](https://img.shields.io/badge/Paper_II_(Zero--CoT_3D_vs_Full--CoT_2D)-PDF_(English)-2da44e?style=for-the-badge)](./Paper2_Zero_CoT_3D_vs_Full_CoT_2D_EN.pdf)
 [![Total Benchmark](https://img.shields.io/badge/Benchmark-40_Games_%2F_924_Moves-0969da?style=for-the-badge)](#2-empirical-results-n--40-games-924-moves-across-4-regimes)
@@ -9,8 +11,8 @@
 [![Collaboration Contact](https://img.shields.io/badge/Collaboration_Contact-wm2841944156%40gmail.com-1d4ed8?style=for-the-badge)](mailto:wm2841944156@gmail.com)
 
 > **Repository Overview**: This repository contains the complete **experimental programs (`.py` & `.html`)**, **raw move-by-move empirical datasets (`.json`)**, **1080p split-screen match replay videos (`.mp4`)**, and **preprint papers (`.pdf`)** for our 4-group, **40-game ($924$-ply)** controlled self-play study comparing **2D ASCII Matrix Serialization (Agent A)** against **Three.js 3D/4D Procedural Scene Graph Code (Agent B)** on a $15 \times 15$ Gomoku grid:
-> - 📄 **Paper I (Symmetric Benchmark, $N=30$ Games / $719$ Moves)**: [Scene_Code_as_Topology_Preprint_EN.pdf](./Scene_Code_as_Topology_Preprint_EN.pdf) — *23W–3D–4L (85.2% decisive win rate, $p = 0.00031 < 0.001$), 9 : 0 sweep on diagonal victories.*
-> - 📄 **Paper II (Asymmetric Compute-vs-Representation Handicap, $N=40$ Games / $924$ Moves Total)**: [Paper2_Zero_CoT_3D_vs_Full_CoT_2D_EN.pdf](./Paper2_Zero_CoT_3D_vs_Full_CoT_2D_EN.pdf) — *Zero-CoT 3D/4D Scene Code (0 thinking tokens, 5.52s/move) defeats Full-CoT 2D ASCII Matrix (345,052 thinking tokens, 28.08s/move) by **6 : 4** (with a 6-game win streak, **5.09× speedup**, **94.1% fewer occupied-cell hallucinations**, and **18 : 0 elimination of Disconnected Spatial Drift ghost moves**).*
+> - 📄 **Paper I (Symmetric Benchmark, $N=30$ Games / $719$ Moves)**: [Scene_Code_as_Topology_Preprint_EN.pdf](./Scene_Code_as_Topology_Preprint_EN.pdf) | **Zenodo DOI**: [`10.5281/zenodo.23691649`](https://doi.org/10.5281/zenodo.23691649) | **Figshare DOI**: [`10.6084/m9.figshare.34829706`](https://doi.org/10.6084/m9.figshare.34829706) — *23W–3D–4L (85.2% decisive win rate, $p = 0.00031 < 0.001$), 9 : 0 sweep on diagonal victories.*
+> - 📄 **Paper II (Asymmetric Compute-vs-Representation Handicap, $N=40$ Games / $924$ Moves Total)**: [Paper2_Zero_CoT_3D_vs_Full_CoT_2D_EN.pdf](./Paper2_Zero_CoT_3D_vs_Full_CoT_2D_EN.pdf) | **Zenodo DOI**: [`10.5281/zenodo.23765598`](https://doi.org/10.5281/zenodo.23765598) | **Figshare DOI**: [`10.6084/m9.figshare.34856778`](https://doi.org/10.6084/m9.figshare.34856778) — *Zero-CoT 3D/4D Scene Code (0 thinking tokens, 5.52s/move) defeats Full-CoT 2D ASCII Matrix (345,052 thinking tokens, 28.08s/move) by **6 : 4** (with a 6-game win streak, **5.09× speedup**, **94.1% fewer occupied-cell hallucinations**, and **18 : 0 elimination of Disconnected Spatial Drift ghost moves**).*
 
 ---
 
@@ -140,17 +142,28 @@ Referencing the third-party benchmark *Artificial Analysis Intelligence Index v5
 ## 6. Citation & Official Archival DOIs
 
 - **Paper I (30-Game Symmetric Study)**: [Scene_Code_as_Topology_Preprint_EN.pdf](./Scene_Code_as_Topology_Preprint_EN.pdf)
+  - **CERN Zenodo DOI**: [https://doi.org/10.5281/zenodo.23691649](https://doi.org/10.5281/zenodo.23691649)
+  - **Figshare Preprint DOI**: [https://doi.org/10.6084/m9.figshare.34829706](https://doi.org/10.6084/m9.figshare.34829706)
 - **Paper II (Asymmetric Zero-CoT 3D vs. Full-CoT 2D Study)**: [Paper2_Zero_CoT_3D_vs_Full_CoT_2D_EN.pdf](./Paper2_Zero_CoT_3D_vs_Full_CoT_2D_EN.pdf)
-- **CERN Zenodo Official DOI**: [https://doi.org/10.5281/zenodo.23691649](https://doi.org/10.5281/zenodo.23691649)
-- **Figshare Preprint DOI**: [https://doi.org/10.6084/m9.figshare.34829706](https://doi.org/10.6084/m9.figshare.34829706)
+  - **CERN Zenodo DOI**: [https://doi.org/10.5281/zenodo.23765598](https://doi.org/10.5281/zenodo.23765598)
+  - **Figshare Preprint DOI**: [https://doi.org/10.6084/m9.figshare.34856778](https://doi.org/10.6084/m9.figshare.34856778)
 
 ```bibtex
-@misc{wang2026scenecode_part1,
-  author       = {Wang, Wenxuan (Pathetic777)},
-  title        = {{Scene-Code-as-Topology: Bypassing the 2D Tokenizer Bottleneck in Large Language Models via Procedural 3D/4D Scene Graph Representations}},
+@misc{pathetic777_2026_scenecode_part1,
+  author       = {Pathetic777},
+  title        = {{Scene-Code-as-Topology: Overcoming 1D Token-Stride and Diagonal Blindness in Large Language Models via 3D/4D Procedural Scene Graph Compilation}},
   year         = {2026},
   publisher    = {Zenodo},
   doi          = {10.5281/zenodo.23691649},
   url          = {https://doi.org/10.5281/zenodo.23691649}
+}
+
+@misc{pathetic777_2026_scenecode_part2,
+  author       = {Pathetic777},
+  title        = {{Can 3D/4D Spatial Representation Beat Test-Time Compute? Zero-CoT Three.js Scene Graphs Outperform 345,000-Token Reasoning on 2D Grids and Eliminate Spatial Drift}},
+  year         = {2026},
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.23765598},
+  url          = {https://doi.org/10.5281/zenodo.23765598}
 }
 ```
